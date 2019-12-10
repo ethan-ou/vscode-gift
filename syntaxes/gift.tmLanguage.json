@@ -85,7 +85,7 @@
 		"feedback": {
 			"name": "comment.line.number-sign",
 			"begin": "\\#\\s*(.*?)",
-			"end": "(?=^)"
+			"end": "(?=^)|(?=[;~={}])"
 		},
 		"math-range": {
 			"name": "keyword.operator",
