@@ -1,32 +1,96 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "gift",
+	"scopeName": "source.txt",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#comments"
 		},
 		{
-			"include": "#strings"
+			"include": "#title"
+		},
+		{
+			"include": "#questions"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.gift",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+		"comments": {
+			"name": "comment.line.double-slash",
+			"begin": "(^[ \\t]+)?((//)(?:\\s*((@)internal)(?=\\s|$))?)",
+			"end": "(?=^)"
 		},
-		"strings": {
-			"name": "string.quoted.double.gift",
-			"begin": "\"",
-			"end": "\"",
+		"title": {
+			"name": "markup.heading",
+			"begin": "(?x) \n  \\s*(::)\\s*(.*?)",
+			"end": "\\::"
+		},
+		"questions": {
+			"name": "none",
+			"begin": "\\{",
+			"end": "\\}",
 			"patterns": [
 				{
-					"name": "constant.character.escape.gift",
-					"match": "\\\\."
+					"include": "#numerical-question"
+				},
+				{
+					"include": "#true-false-question"
+				},
+				{
+					"include": "#feedback"
+				},
+				{
+					"include": "#correct-answer"
+				},
+				{
+					"include": "#incorrect-answer"
+				},
+				{
+					"include": "#partial-answer"
 				}
 			]
+		},
+		"numerical-question": {
+			"name": "constant.language",
+			"match": "(?<={)#",
+			"patterns": [
+				{
+					"include": "math-range"
+				},
+				{
+					"include": "#tolerance"
+				}
+			]
+		},
+		"correct-answer": {
+			"name": "punctuation.definition",
+			"match": "//="
+		},
+		"incorrect-answer": {
+			"name": "punctuation.definition",
+			"match": "//~"
+		},
+		"partial-answer": {
+			"name": "constant.numeric",
+			"begin": "(?<=[=~])%\\s*(.*?)",
+			"end": "\\%"
+		},
+		"tolerance": {
+			"name": "constant.numeric",
+			"match": "//:[0-9]+"
+		},
+		"true-false-question": {
+			"name": "constant.language.boolean",
+			"match": "\\b(T|F|TRUE|FALSE)\\b"
+		},
+		"feedback": {
+			"name": "comment.line.number-sign",
+			"begin": "\\#\\s*(.*?)",
+			"end": "(?=^)"
+		},
+		"math-range": {
+			"name": "keyword.operator",
+			"match": "\\.\\."
 		}
-	},
-	"scopeName": "source.txt"
+
+	}
 }
