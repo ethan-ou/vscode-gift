@@ -54,7 +54,7 @@
 			"match": "(?<={)#",
 			"patterns": [
 				{
-					"include": "math-range"
+					"include": "#math-range"
 				},
 				{
 					"include": "#tolerance"
@@ -63,11 +63,11 @@
 		},
 		"correct-answer": {
 			"name": "punctuation.definition",
-			"match": "//="
+			"match": "\\="
 		},
 		"incorrect-answer": {
 			"name": "punctuation.definition",
-			"match": "//~"
+			"match": "\\~"
 		},
 		"partial-answer": {
 			"name": "constant.numeric",
@@ -76,7 +76,7 @@
 		},
 		"tolerance": {
 			"name": "constant.numeric",
-			"match": "//:[0-9]+"
+			"match": "\\:[0-9]+"
 		},
 		"true-false-question": {
 			"name": "constant.language.boolean",
