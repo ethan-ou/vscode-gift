@@ -327,12 +327,27 @@
 
     "trueFalseQuestion": {
         "prefix": "tfq",
-        "description": "True-False Question",
+        "description": "True-False Question.",
         "body": "::${1:Title}:: ${2:Question} {${3:T}}"
     },
     "essay": {
         "prefix": "ess",
-        "description": "Essay question",
+        "description": "Essay question.",
         "body": "::${1:Title}:: ${2:Question} {}"
+    },
+    "numericalQuestion": {
+        "prefix": "nq",
+        "description": "Numerical question.",
+        "body": "::${1:Title}:: ${2:Question} {#${3:Answer}:${4:Range}}"
+    },
+    "category": {
+        "prefix": "cat",
+        "description": "Add a category label.",
+        "body": "\\$CATEGORY: ${1:Name}"
+    },
+    "categoryNested": {
+        "prefix": "catn",
+        "description": "Add a nested category label.",
+        "body": "\\$CATEGORY: ${1:Level 1}/${2:Level 2}/${3:Level 3}"
     }
 }
