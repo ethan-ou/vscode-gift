@@ -1,0 +1,338 @@
+{
+    "multipleChoiceQuestion": {
+        "prefix": "mcq",
+        "description": "Typical multiple choice question with four options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "\t~${5:Incorrect Answer 2}",
+            "\t~${6:Incorrect Answer 3}",
+            "}"
+        ]
+    },
+    "multipleChoice2": {
+        "prefix": "mc2",
+        "description": "Multiple choice with two options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "}"
+        ]
+    },
+    "multipleChoice3": {
+        "prefix": "mc3",
+        "description": "Multiple choice with three options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "\t~${5:Incorrect Answer 2}",
+            "}"
+        ]
+    },
+    "multipleChoice4": {
+        "prefix": "mc4",
+        "description": "Multiple choice with four options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "\t~${5:Incorrect Answer 2}",
+            "\t~${6:Incorrect Answer 3}",
+            "}"
+        ]
+    },
+    "multipleChoice5": {
+        "prefix": "mc5",
+        "description": "Multiple choice with five options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "\t~${5:Incorrect Answer 2}",
+            "\t~${6:Incorrect Answer 3}",
+            "\t~${6:Incorrect Answer 4}",
+            "}"
+        ]
+    },
+
+    "multipleChoiceQuestionFeedback": {
+        "prefix": "mcqf",
+        "description": "Typical multiple choice question with four options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "\t~${7:Incorrect Answer 2} #${8:Feedback}",
+            "\t~${9:Incorrect Answer 3} #${10:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice2Feedback": {
+        "prefix": "mc2f",
+        "description": "Multiple choice with two options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice3Feedback": {
+        "prefix": "mc3f",
+        "description": "Multiple choice with three options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "\t~${7:Incorrect Answer 2} #${8:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice4Feedback": {
+        "prefix": "mc4f",
+        "description": "Multiple choice with four options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "\t~${7:Incorrect Answer 2} #${8:Feedback}",
+            "\t~${9:Incorrect Answer 3} #${10:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice5Feedback": {
+        "prefix": "mc5f",
+        "description": "Multiple choice with five options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "\t~${7:Incorrect Answer 2} #${8:Feedback}",
+            "\t~${9:Incorrect Answer 3} #${10:Feedback}",
+            "\t~${11:Incorrect Answer 3} #${12:Feedback}",
+            "}"
+        ]
+    },
+
+    "multipleChoiceNumericalQuestion": {
+        "prefix": "mcnq",
+        "description": "Typical multiple choice numerical question with four options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {#",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "\t~${5:Incorrect Answer 2}",
+            "\t~${6:Incorrect Answer 3}",
+            "}"
+        ]
+    },
+    "multipleChoiceNumerical2": {
+        "prefix": "mcn2",
+        "description": "Multiple choice numerical question with two options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {#",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "}"
+        ]
+    },
+    "multipleChoiceNumerical3": {
+        "prefix": "mcn3",
+        "description": "Multiple choice numerical question with three options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {#",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "\t~${5:Incorrect Answer 2}",
+            "}"
+        ]
+    },
+    "multipleChoiceNumerical4": {
+        "prefix": "mcn4",
+        "description": "Multiple choice numerical question with four options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {#",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "\t~${5:Incorrect Answer 2}",
+            "\t~${6:Incorrect Answer 3}",
+            "}"
+        ]
+    },
+    "multipleChoiceNumerical5": {
+        "prefix": "mcn5",
+        "description": "Multiple choice numerical question with five options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {#",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "\t~${5:Incorrect Answer 2}",
+            "\t~${6:Incorrect Answer 3}",
+            "\t~${6:Incorrect Answer 4}",
+            "}"
+        ]
+    },
+
+    "multipleChoiceNumericalQuestionFeedback": {
+        "prefix": "mcnqf",
+        "description": "Typical multiple choice question with four options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {#",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "\t~${7:Incorrect Answer 2} #${8:Feedback}",
+            "\t~${9:Incorrect Answer 3} #${10:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoiceNumerical2Feedback": {
+        "prefix": "mcn2f",
+        "description": "Multiple choice with two options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {#",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoiceNumerical3Feedback": {
+        "prefix": "mcn3f",
+        "description": "Multiple choice with three options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {#",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "\t~${7:Incorrect Answer 2} #${8:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoiceNumerical4Feedback": {
+        "prefix": "mcn4f",
+        "description": "Multiple choice with four options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {#",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "\t~${7:Incorrect Answer 2} #${8:Feedback}",
+            "\t~${9:Incorrect Answer 3} #${10:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoiceNumerical5Feedback": {
+        "prefix": "mcn5f",
+        "description": "Multiple choice with five options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {#",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "\t~${7:Incorrect Answer 2} #${8:Feedback}",
+            "\t~${9:Incorrect Answer 3} #${10:Feedback}",
+            "\t~${11:Incorrect Answer 3} #${12:Feedback}",
+            "}"
+        ]
+    },
+
+    "matchingQuestion": {
+        "prefix": "maq",
+        "description": "Typical matching question with four options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item 1} -> ${4:Match 1}",
+            "\t=${5:Item 2} -> ${6:Match 2}",
+            "\t=${7:Item 3} -> ${8:Match 3}",
+            "\t=${9:Item 4} -> ${10:Match 4}",
+            "}"
+        ]
+    },
+    "matching2": {
+        "prefix": "ma2",
+        "description": "Matching with two options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item 1} -> ${4:Match 1}",
+            "\t=${5:Item 2} -> ${6:Match 2}",
+            "}"
+        ]
+    },
+    "matching3": {
+        "prefix": "ma3",
+        "description": "Matching with three options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item 1} -> ${4:Match 1}",
+            "\t=${5:Item 2} -> ${6:Match 2}",
+            "\t=${7:Item 3} -> ${8:Match 3}",
+            "}"
+        ]
+    },
+    "matching4": {
+        "prefix": "ma4",
+        "description": "Matching with four options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item 1} -> ${4:Match 1}",
+            "\t=${5:Item 2} -> ${6:Match 2}",
+            "\t=${7:Item 3} -> ${8:Match 3}",
+            "\t=${9:Item 4} -> ${10:Match 4}",
+            "}"
+        ]
+    },
+    "matching5": {
+        "prefix": "ma5",
+        "description": "Matching with five options.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item 1} -> ${4:Match 1}",
+            "\t=${5:Item 2} -> ${6:Match 2}",
+            "\t=${7:Item 3} -> ${8:Match 3}",
+            "\t=${9:Item 4} -> ${10:Match 4}",
+            "\t=${11:Item 5} -> ${12:Match 5}",
+            "}"
+        ]
+    },
+
+    "shortAnswerQuestion": {
+        "prefix": "saq",
+        "description": "Typical short answer question with three correct answers.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer 1} =${4:Answer 2} =${5:Answer 3} }"
+    },
+    "shortAnswer1": {
+        "prefix": "sa1",
+        "description": "Short Answer with one correct answer.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer 1} }"
+    },
+    "shortAnswer2": {
+        "prefix": "sa2",
+        "description": "Short Answer with two correct answers.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer 1} =${4:Answer 2} }"
+    },
+    "shortAnswer3": {
+        "prefix": "sa3",
+        "description": "Short Answer with three correct answers.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer 1} =${4:Answer 2} =${5:Answer 3} }"
+    },
+    "shortAnswer4": {
+        "prefix": "sa4",
+        "description": "Short Answer with four correct answers.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer 1} =${4:Answer 2} =${5:Answer 3} =${6:Answer 4} }"
+    },
+    "shortAnswer5": {
+        "prefix": "sa5",
+        "description": "Short Answer with five correct answers.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer 1} =${4:Answer 2} =${5:Answer 3} =${6:Answer 4} =${7:Answer 5} }"
+    },
+
+    "trueFalseQuestion": {
+        "prefix": "tfq",
+        "description": "True-False Question",
+        "body": "::${1:Title}:: ${2:Question} {${3:T}}"
+    },
+    "essay": {
+        "prefix": "ess",
+        "description": "Essay question",
+        "body": "::${1:Title}:: ${2:Question} {}"
+    }
+}

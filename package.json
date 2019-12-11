@@ -12,14 +12,20 @@
     "contributes": {
         "languages": [{
             "id": "gift",
-            "aliases": ["gift", "gift"],
-            "extensions": [".txt"],
+            "aliases": ["Gift", "gift"],
+            "extensions": [".txt", ".gift"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
             "language": "gift",
-            "scopeName": "source.txt",
+            "scopeName": "source.gift",
             "path": "./syntaxes/gift.tmLanguage.json"
-        }]
+        }],
+        "snippets": [
+            {
+                "language": "gift",
+                "path": "./snippets/gift.json"
+            }
+        ]
     }
 }
