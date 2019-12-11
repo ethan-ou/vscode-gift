@@ -10,7 +10,10 @@
 			"include": "#title"
 		},
 		{
-			"include": "#questions"
+			"include": "#category"
+		},
+		{
+			"include": "#question"
 		}
 	],
 	"repository": {
@@ -24,7 +27,11 @@
 			"begin": "(?x) \n  \\s*(::)\\s*(.*?)",
 			"end": "\\::"
 		},
-		"questions": {
+		"category": {
+			"name": "keyword",
+			"match": "(^[ \\t]+)?((^[$]CATEGORY:))"
+		},
+		"question": {
 			"name": "none",
 			"begin": "\\{",
 			"end": "\\}",
@@ -73,6 +80,11 @@
 			"name": "constant.numeric",
 			"begin": "(?<=[=~])%\\s*(.*?)",
 			"end": "\\%"
+		},
+		"answer": {
+			"name": "variable",
+			"begin": "(?<=[=~%])\\s*(.*?)",
+			"end": "(?=^)|(?<=[#:%;])"
 		},
 		"tolerance": {
 			"name": "constant.numeric",
