@@ -3,9 +3,19 @@
     "displayName": "vscode-gift",
     "description": "Syntax highlighting for Moodle's GIFT format",
     "version": "0.0.1",
+    "publisher": "ethan-ou",
     "engines": {
         "vscode": "^1.40.0"
     },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ethan-ou/vscode-gift"
+    },
+    "keywords": [
+        "gift",
+        "moodle"
+      ],
     "categories": [
         "Programming Languages"
     ],
