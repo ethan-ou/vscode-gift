@@ -60,7 +60,7 @@
 
     "multipleChoiceQuestionFeedback": {
         "prefix": "mcqf",
-        "description": "Typical multiple choice question with four options.",
+        "description": "Typical multiple choice question with four options and feedback.",
         "body": [
             "::${1:Title}:: ${2:Question} {",
             "\t=${3:Correct Answer} #${4:Feedback}",
@@ -72,7 +72,7 @@
     },
     "multipleChoice2Feedback": {
         "prefix": "mc2f",
-        "description": "Multiple choice with two options.",
+        "description": "Multiple choice with two options and feedback.",
         "body": [
             "::${1:Title}:: ${2:Question} {",
             "\t=${3:Correct Answer} #${4:Feedback}",
@@ -82,7 +82,7 @@
     },
     "multipleChoice3Feedback": {
         "prefix": "mc3f",
-        "description": "Multiple choice with three options.",
+        "description": "Multiple choice with three options and feedback.",
         "body": [
             "::${1:Title}:: ${2:Question} {",
             "\t=${3:Correct Answer} #${4:Feedback}",
@@ -93,7 +93,7 @@
     },
     "multipleChoice4Feedback": {
         "prefix": "mc4f",
-        "description": "Multiple choice with four options.",
+        "description": "Multiple choice with four options and feedback.",
         "body": [
             "::${1:Title}:: ${2:Question} {",
             "\t=${3:Correct Answer} #${4:Feedback}",
@@ -105,7 +105,7 @@
     },
     "multipleChoice5Feedback": {
         "prefix": "mc5f",
-        "description": "Multiple choice with five options.",
+        "description": "Multiple choice with five options and feedback.",
         "body": [
             "::${1:Title}:: ${2:Question} {",
             "\t=${3:Correct Answer} #${4:Feedback}",
