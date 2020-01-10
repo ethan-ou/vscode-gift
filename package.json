@@ -1,42 +1,57 @@
 {
 	"name": "vscode-gift-features",
-	"displayName": "vscode-gift-features",
-	"description": "Additional support for Moodle's GIFT language",
+	"description": "Additional Support for Moodle's GIFT Format",
+	"author": "ethan-ou",
+	"license": "MIT",
 	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.41.0"
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ethan-ou/vscode-gift-features"
 	},
-	"categories": [
-		"Other"
-	],
+	"categories": [],
+	"engines": {
+		"vscode": "^1.33.0"
+	},
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onLanguage:gift"
 	],
-	"main": "./out/extension.js",
+	"main": "./client/out/extension",
 	"contributes": {
-		"commands": [
-			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+		"configuration": {
+			"type": "object",
+			"title": "Example configuration",
+			"properties": {
+				"languageServerExample.maxNumberOfProblems": {
+					"scope": "resource",
+					"type": "number",
+					"default": 100,
+					"description": "Controls the maximum number of problems produced by the server."
+				},
+				"languageServerExample.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VS Code and the language server."
+				}
 			}
-		]
+		}
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile",
-		"test": "node ./out/test/runTest.js"
+		"vscode:prepublish": "cd client && npm run update-vscode && cd .. && npm run compile",
+		"compile": "tsc -b",
+		"watch": "tsc -b -w",
+		"postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+		"test": "sh ./scripts/e2e.sh"
 	},
 	"devDependencies": {
-		"@types/glob": "^7.1.1",
 		"@types/mocha": "^5.2.7",
 		"@types/node": "^12.11.7",
-		"@types/vscode": "^1.41.0",
-		"glob": "^7.1.5",
-		"mocha": "^6.2.2",
-		"typescript": "^3.6.4",
-		"tslint": "^5.20.0",
-		"vscode-test": "^1.2.2"
+		"tslint": "^5.16.0",
+		"typescript": "^3.6.4"
 	}
 }

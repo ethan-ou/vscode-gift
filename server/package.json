@@ -1,0 +1,19 @@
+{
+	"name": "vscode-gift-features-server",
+	"displayName": "vscode-gift-features",
+	"description": "The server for the GIFT Language VSCode extension",
+	"version": "0.0.1",
+	"author": "ethan-ou",
+	"license": "MIT",
+	"engines": {
+		"node": "*"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ethan-ou/vscode-gift-features"
+	},
+	"dependencies": {
+		"vscode-languageserver": "^5.2.1"
+	},
+	"scripts": {}
+}

@@ -1,0 +1,25 @@
+{
+	"name": "vscode-gift-features-client",
+	"description": "The client for the GIFT language VSCode Extension",
+	"author": "ethan-ou",
+	"license": "MIT",
+	"version": "0.0.1",
+	"publisher": "vscode",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ethan-ou/vscode-gift-features"
+	},
+	"engines": {
+		"vscode": "^1.33.0"
+	},
+	"scripts": {
+		"update-vscode": "vscode-install",
+		"postinstall": "vscode-install"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^5.2.1"
+	},
+	"devDependencies": {
+		"vscode": "^1.1.35"
+	}
+}
