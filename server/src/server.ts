@@ -16,7 +16,7 @@ import {
 	CompletionItemKind,
 	TextDocumentPositionParams
 } from 'vscode-languageserver';
-import parser from './parser';
+import parser from './parser/parser';
 
 // Create a connection for the server. The connection uses Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
@@ -51,9 +51,9 @@ connection.onInitialize((params: InitializeParams) => {
 		capabilities: {
 			textDocumentSync: documents.syncKind,
 			// Tell the client that the server supports code completion
-			completionProvider: {
-				resolveProvider: true
-			}
+			// completionProvider: {
+			// 	resolveProvider: true
+			// }
 		}
 	};
 });
@@ -132,21 +132,31 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 	let text = textDocument.getText();
 	// let pattern = /\b[A-Z]{2,}\b/g;
 	// let m: RegExpExecArray | null;
-	let validation = parser(text);
+	let validation = parser.parse(text);
 	let problems = 0;
 	let index = 0;
 	let diagnostics: Diagnostic[] = [];
-	if (validation === undefined || validation.length === 0) return;
+	if (validation === undefined || validation.length === 0) {
+		connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
+		return;
+	}
 	while (problems !== validation.length /*&& problems < settings.maxNumberOfProblems*/) {
 		problems++;
+		
+		let validationStartLine = validation && validation[index] && validation[index].location.start.line;
+		let validationStartColumn = validation && validation[index] && validation[index].location.start.column;
+		let validationEndLine = validation && validation[index] && validation[index].location.end.line;
+		let validationEndColumn = validation && validation[index] && validation[index].location.end.column;
+		let validationName = validation && validation[index] && validation[index].name;
+		let validationMessage = validation && validation[index] && validation[index].message;
 
 		let diagnostic: Diagnostic = {
 			severity: DiagnosticSeverity.Warning,
 			range: {
-				start: { line: validation[index].location.start.line, character: validation[index].location.start.offset },
-				end: { line: validation[index].location.end.line, character: validation[index].location.end.offset }
+				start: { line: validationStartLine, character: validationStartColumn },
+				end: { line: validationEndLine, character: validationEndColumn }
 			},
-			message: `${validation[index].name}: ${validation[index].message}`,
+			message: `${validationName}: ${validationMessage}`,
 			source: 'gift'
 		};
 		// if (hasDiagnosticRelatedInformationCapability) {
@@ -170,7 +180,6 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		diagnostics.push(diagnostic);
 		index++;
 	}
-
 	// Send the computed diagnostics to VSCode.
 	connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
