@@ -16,7 +16,7 @@ import {
 	CompletionItemKind,
 	TextDocumentPositionParams
 } from 'vscode-languageserver';
-import parser from './parser/parser';
+import parser from './parser';
 
 // Create a connection for the server. The connection uses Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
@@ -132,7 +132,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 	let text = textDocument.getText();
 	// let pattern = /\b[A-Z]{2,}\b/g;
 	// let m: RegExpExecArray | null;
-	let validation = parser.parse(text);
+	let validation = parser(text);
 	let problems = 0;
 	let index = 0;
 	let diagnostics: Diagnostic[] = [];
