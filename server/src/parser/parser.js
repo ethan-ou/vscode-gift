@@ -803,10 +803,8 @@ function peg$parse(input, options) {
             s12 = null;
           }
           s13 = peg$parseQuestionSeparator();
-
           if (s13 !== peg$FAILED) {
             peg$savedPos = s0;
-
             s0 = peg$f3(s2, s4, s8, s12);
           } else {
             peg$currPos = s0;
@@ -824,6 +822,7 @@ function peg$parse(input, options) {
       peg$currPos = s0;
       s0 = peg$FAILED;
     }
+
     return s0;
   }
 

@@ -121,6 +121,7 @@ documents.onDidClose(e => {
 // The content of a text document has changed. This event is emitted
 // when the text document first opened or when its content has changed.
 documents.onDidChangeContent(change => {
+	console.log(change);
 	validateTextDocument(change.document);
 });
 
@@ -140,6 +141,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 		return;
 	}
+
 	while (problems !== validation.length /*&& problems < settings.maxNumberOfProblems*/) {
 		problems++;
 		
@@ -153,8 +155,8 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		let diagnostic: Diagnostic = {
 			severity: DiagnosticSeverity.Warning,
 			range: {
-				start: { line: validationStartLine, character: validationStartColumn },
-				end: { line: validationEndLine, character: validationEndColumn }
+				start: { line: validationStartLine -1, character: validationStartColumn -1 },
+				end: { line: validationEndLine -1, character: validationEndColumn -1 }
 			},
 			message: `${validationName}: ${validationMessage}`,
 			source: 'gift'
