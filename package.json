@@ -1,7 +1,7 @@
 {
 	"name": "vscode-gift-features",
 	"description": "Additional Support for Moodle's GIFT Format",
-	"author": "ethan-ou",
+	"publisher": "ethan-ou",
 	"license": "MIT",
 	"version": "0.0.1",
 	"repository": {
