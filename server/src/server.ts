@@ -141,7 +141,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		return;
 	}
 
-	while (problems !== validation.length /*&& problems < settings.maxNumberOfProblems*/) {
+	while (problems !== validation.length && problems < settings.maxNumberOfProblems) {
 		problems++;
 		
 		let validationStartLine = validation && validation[index] && validation[index].location.start.line;
