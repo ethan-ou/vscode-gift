@@ -16,7 +16,7 @@ import {
 	CompletionItemKind,
 	TextDocumentPositionParams
 } from 'vscode-languageserver';
-import parser from './parser';
+import giftLanguageServer from './lib';
 
 // Create a connection for the server. The connection uses Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
@@ -121,7 +121,6 @@ documents.onDidClose(e => {
 // The content of a text document has changed. This event is emitted
 // when the text document first opened or when its content has changed.
 documents.onDidChangeContent(change => {
-	console.log(change);
 	validateTextDocument(change.document);
 });
 
@@ -133,7 +132,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 	let text = textDocument.getText();
 	// let pattern = /\b[A-Z]{2,}\b/g;
 	// let m: RegExpExecArray | null;
-	let validation = parser(text);
+	let validation = giftLanguageServer(text);
 	let problems = 0;
 	let index = 0;
 	let diagnostics: Diagnostic[] = [];
@@ -158,7 +157,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 				start: { line: validationStartLine -1, character: validationStartColumn -1 },
 				end: { line: validationEndLine -1, character: validationEndColumn -1 }
 			},
-			message: `${validationName}: ${validationMessage}`,
+			message: validationMessage,
 			source: 'gift'
 		};
 		// if (hasDiagnosticRelatedInformationCapability) {
