@@ -21,11 +21,34 @@ If you prefer using Plain Text (.txt), you will need to manually set the languag
 
 **NOTE:** Snippets are still subject to change.
 
-|  Prefix   | Description                                               |
-| ---------:| --------------------------------------------------------- |
-|  `mcq→`   | `Typical multiple choice question with four options.`     |
-|  `mc2→`   | `Multiple choice with two options.`                       |
-|  `mc3→`   | `Multiple choice with three options.`                     |
-|  `mc4→`   | `Multiple choice with four options.`                      |
-|  `mc5→`   | `Multiple choice with five options.`                      |
-|  `mcqf→`  | `Typical multiple choice question with four options.`     |
+### At a Glance
+
+|  Prefix     | Description                                                                            |
+| -----------:| ---------------------------------------------------------------------------------------|
+|  `mcq`      | `Multiple choice question with four options.`                                          |
+|  `mcqf`     | `Multiple choice question with four options and feedback.`                             |
+|  `mcnq`     | `Multiple choice numerical question with four options.`                                |
+|  `mcnqf`    | `Multiple choice numerical question with four options and feedback.`                   |
+|  `maq`      | `Matching question with four options.`                                                 |
+|  `saq`      | `Short answer question with three correct answers.`                                    |
+|  `tfq`      | `True-False question.`                                                                 |
+|  `ess`      | `Essay question.`                                                                      |
+|  `nq`       | `Numerical question.`                                                                  |
+|  `cat`      | `Category label.`                                                                      |
+|  `catn`     | `Nested category label.`                                                               |
+
+### For Power Users
+
+These snippets are useful if you've mastered the basic commands. To use these snippets, replace the number in brackets with the number of options you would like. For instance, a multiple choice question with three options is `mc3`.
+
+|  Prefix     | Description                                                                            |
+| -----------:| ---------------------------------------------------------------------------------------|
+|  `mc[2-5]`  | `Multiple choice question with two to five options.`                                   |
+|  `mc[2-5]f` | `Multiple choice question with two to five options and feedback.`                      |
+|  `mcn[2-5]` | `Multiple choice numerical question with two to five options.`                         |
+|  `mcn[2-5]f`| `Multiple choice numerical question with two to five options and feedback.`            |
+|  `ma[2-5]`  | `Matching question with two to five options.`                                          |
+|  `sa[1-5]`  | `Short answer question with one to five correct answers.`                              |
+
+## License
+MIT
