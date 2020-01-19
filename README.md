@@ -15,7 +15,7 @@ This extension provides syntax highlighting and code snippets for Moodle's GIFT 
 
 It is recommended to save files with the GIFT file extension (.gift). VSCode will automatically set the language to Gift when these files are opened. 
 
-If you prefer using Plain Text (.txt), you will need to manually set the language in VSCode to "Gift" by [accessing the language tab](https://code.visualstudio.com/docs/languages/overview#_changing-the-language-for-the-selected-file) in the bottom right-hand corner. Alternatively, use the shortcut Ctrl+K M.
+If you prefer using Plain Text (.txt), you will need to manually set the language in VSCode to ```Gift``` by [accessing the language tab](https://code.visualstudio.com/docs/languages/overview#_changing-the-language-for-the-selected-file) in the bottom right-hand corner. Alternatively, use the shortcut ```Ctrl+K M```.
 
 ## Snippets
 
