@@ -21,11 +21,25 @@ If you prefer using Plain Text (.txt), you will need to manually set the languag
 
 **NOTE:** Snippets are still subject to change.
 
-|  Prefix   | Description                                               |
-| ---------:| --------------------------------------------------------- |
-|  `mcq→`   | `Typical multiple choice question with four options.`     |
-|  `mc2→`   | `Multiple choice with two options.`                       |
-|  `mc3→`   | `Multiple choice with three options.`                     |
-|  `mc4→`   | `Multiple choice with four options.`                      |
-|  `mc5→`   | `Multiple choice with five options.`                      |
-|  `mcqf→`  | `Typical multiple choice question with four options.`     |
+### Table of Contents
+- [Multiple Choice Question (mcq)](#mcq)
+  - [Multiple Choice, 2 Options (mc2)](#mc2)
+  - [Multiple Choice, 3 Options (mc3)](#mc3)
+  - [Multiple Choice, 4 Options (mc4)](#mc4)
+  - [Multiple Choice, 5 Options (mc5)](#mc5)
+- [mcqf: Multiple Choice Question with Feedback](#mcqf)
+  - [mc[2-5]f: Multiple Choice, 2-5 Options with Feedback](#mc2-5f)
+- [mcnq: Multiple Choice Numeric Question](#mcnq)
+  - [mcn[2-5]: Multple Choice Numeric, 2-5 Options](#mcn2-5)
+- [mcnqf: Multiple Choice Numeric Question with Feedback](#mcnqf)
+  - [mcn[2-5]f: Multple Choice Numeric, 2-5 Options with Feedback](#mcn2-5f)
+
+### Multiple Choice Question (mcq)
+```
+::Title:: Question {
+	=Correct Answer
+	~Incorrect Answer 1
+	~Incorrect Answer 2
+	~Incorrect Answer 3
+}
+```
