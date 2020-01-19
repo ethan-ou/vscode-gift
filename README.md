@@ -50,25 +50,5 @@ These snippets are useful if you've mastered the basic commands. To use these sn
 |  `ma[2-5]`  | `Matching question with two to five options.`                                          |
 |  `sa[1-5]`  | `Short answer question with one to five correct answers.`                              |
 
-### Table of Contents
-- [Multiple Choice Question (mcq)](#mcq)
-  - [Multiple Choice, 2 Options (mc2)](#mc2)
-  - [Multiple Choice, 3 Options (mc3)](#mc3)
-  - [Multiple Choice, 4 Options (mc4)](#mc4)
-  - [Multiple Choice, 5 Options (mc5)](#mc5)
-- [mcqf: Multiple Choice Question with Feedback](#mcqf)
-  - [mc[2-5]f: Multiple Choice, 2-5 Options with Feedback](#mc2-5f)
-- [mcnq: Multiple Choice Numeric Question](#mcnq)
-  - [mcn[2-5]: Multple Choice Numeric, 2-5 Options](#mcn2-5)
-- [mcnqf: Multiple Choice Numeric Question with Feedback](#mcnqf)
-  - [mcn[2-5]f: Multple Choice Numeric, 2-5 Options with Feedback](#mcn2-5f)
-
-### Multiple Choice Question (mcq)
-```
-::Title:: Question {
-	=Correct Answer
-	~Incorrect Answer 1
-	~Incorrect Answer 2
-	~Incorrect Answer 3
-}
-```
+## License
+MIT
