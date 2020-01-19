@@ -28,3 +28,6 @@ Requirements: VSCode, Git, Node.js/NPM
 
 ### Background
 This extension follows Microsoft's [Language Server Protocol](https://microsoft.github.io/language-server-protocol), and is based on the ["LSP Example" starter](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample). The plugin is split into two folders: client and server. All validation logic and syntax errors are parsed on the server, while the client receives the messages and relays them to VSCode.
+
+## License
+MIT
