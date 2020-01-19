@@ -1,10 +1,15 @@
 # VSCode GIFT Language Support and Snippets
 NOTE: Currently this plugin is in alpha.
 
-This extension provides limited support and code snippets for Moodle's GIFT format.
+This extension provides syntax highlighting and code snippets for Moodle's GIFT format. It allows for faster and easier development of Moodle quiz questions.
 
 ## Formats
-The GIFT format is usually saved in a text document (.txt). However this plugin also supports files with a GIFT file extension (.gift). Using the GIFT file extension is useful since any file opened with this extension will be picked up by this plugin, allowing for a smoother development experience. Additionally, Moodle will parse files with the GIFT extension with no issues.
+* GIFT (.gift) [recommended]
+* Plain Text (.txt)
+
+It is recommended to save files with the GIFT file extension (.gift). VSCode will automatically set the language to Gift when these files are opened. 
+
+If you prefer using Plain Text (.txt), you will need to manually set the language in VSCode to "Gift" by [accessing the language tab](https://code.visualstudio.com/docs/languages/overview#_changing-the-language-for-the-selected-file) in the bottom right-hand corner. Alternatively, use the shortcut Ctrl+K M.
 
 ## Snippets
 NOTE: Since this plugin is in alpha, these snippets are still subject to change.
