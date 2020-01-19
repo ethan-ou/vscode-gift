@@ -4,12 +4,12 @@
 [![Downloads](https://vsmarketplacebadge.apphb.com/downloads/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/downloads-short/ethan-ou.vscode-gift.svg)
 [![Ratings](https://vsmarketplacebadge.apphb.com/rating-short/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/rating-short/ethan-ou.vscode-gift.svg)
 
-
-NOTE: Currently this plugin is in alpha.
+**NOTE:** This plugin is in alpha.
 
 This extension provides syntax highlighting and code snippets for Moodle's GIFT format. It allows for faster and easier development of Moodle quiz questions.
 
 ## Formats
+
 * GIFT (.gift) [recommended]
 * Plain Text (.txt)
 
@@ -18,7 +18,8 @@ It is recommended to save files with the GIFT file extension (.gift). VSCode wil
 If you prefer using Plain Text (.txt), you will need to manually set the language in VSCode to "Gift" by [accessing the language tab](https://code.visualstudio.com/docs/languages/overview#_changing-the-language-for-the-selected-file) in the bottom right-hand corner. Alternatively, use the shortcut Ctrl+K M.
 
 ## Snippets
-NOTE: Since this plugin is in alpha, these snippets are still subject to change.
+
+**NOTE:** Snippets are still subject to change.
 
 |  Prefix   | Description                                               |
 | ---------:| --------------------------------------------------------- |
