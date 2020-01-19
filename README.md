@@ -12,6 +12,8 @@ Parser sourced from [fuhrmanator's GIFT parser](https://github.com/fuhrmanator/G
 3. Install the extension. 
 4. Open a GIFT file or create a new file and change the language to Gift.
 
+This extension relies on the [GIFT Language support extension](https://github.com/ethan-ou/vscode-gift/), which is automatically downloaded when this extension is installed.
+
 ## For Developers
 
 ### Developing the Plugin
