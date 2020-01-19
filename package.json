@@ -8,7 +8,9 @@
 		"type": "git",
 		"url": "https://github.com/ethan-ou/vscode-gift-features"
 	},
-	"categories": [],
+	"categories": ["Programming Languages"],
+	"keywords": ["gift", "moodle"],
+	"extensionDependencies": ["ethan-ou.vscode-gift"],
 	"engines": {
 		"vscode": "^1.33.0"
 	},
@@ -19,7 +21,7 @@
 	"contributes": {
 		"configuration": {
 			"type": "object",
-			"title": "Example configuration",
+			"title": "giftLanguage configuration",
 			"properties": {
 				"giftLanguage.maxNumberOfProblems": {
 					"scope": "resource",
