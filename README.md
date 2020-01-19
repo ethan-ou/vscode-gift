@@ -7,12 +7,12 @@ This extension provides basic parsing and linting of Moodle's GIFT Language. It 
 Parser sourced from [fuhrmanator's GIFT parser](https://github.com/fuhrmanator/GIFT-grammar-PEG.js).
 
 ## Installing the Plugin
+This extension relies on the [GIFT Language support extension](https://github.com/ethan-ou/vscode-gift/), which is automatically downloaded upon installing this extension.
+
 1. Install [VSCode](https://code.visualstudio.com/).
 2. Go to the Extensions panel (CTRL + SHIFT + X). There, search "Gift Language Features".
 3. Install the extension. 
 4. Open a GIFT file or create a new file and change the language to Gift.
-
-This extension relies on the [GIFT Language support extension](https://github.com/ethan-ou/vscode-gift/), which is automatically downloaded when this extension is installed.
 
 ## For Developers
 
