@@ -11,10 +11,10 @@ This extension provides syntax highlighting and code snippets for Moodle's GIFT 
 ## Demo
 
 ### Syntax Highlighting
-![Syntax Highlighting](examples/Syntax Highlighting.gif)
+![Syntax Highlighting](https://github.com/ethan-ou/vscode-gift/blob/master/examples/syntax-highlighting.gif?raw=true)
 
 ### Snippets
-![Code Snippets](examples/Code Snippets.gif)
+![Code Snippets](https://github.com/ethan-ou/vscode-gift/blob/master/examples/code-snippets.gif?raw=true)
 
 ## Formats
 
