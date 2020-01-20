@@ -8,6 +8,14 @@
 
 This extension provides syntax highlighting and code snippets for Moodle's GIFT format. It allows for faster and easier development of Moodle quiz questions.
 
+## Demo
+
+### Syntax Highlighting
+![Syntax Highlighting](examples/Syntax Highlighting.gif)
+
+### Snippets
+![Code Snippets](examples/Code Snippets.gif)
+
 ## Formats
 
 * GIFT (.gift) [recommended]
@@ -27,8 +35,8 @@ If you prefer using Plain Text (.txt), you will need to manually set the languag
 | -----------:| ---------------------------------------------------------------------------------------|
 |  `mcq`      | `Multiple choice question with four options.`                                          |
 |  `mcqf`     | `Multiple choice question with four options and feedback.`                             |
-|  `mcnq`     | `Multiple choice numerical question with four options.`                                |
-|  `mcnqf`    | `Multiple choice numerical question with four options and feedback.`                   |
+|  `mcqn`     | `Multiple choice question (numerical) with four options.`                              |
+|  `mcqnf`    | `Multiple choice question (numerical) with four options and feedback.`                 |
 |  `maq`      | `Matching question with four options.`                                                 |
 |  `saq`      | `Short answer question with three correct answers.`                                    |
 |  `tfq`      | `True-False question.`                                                                 |
@@ -45,8 +53,8 @@ These snippets are useful if you've mastered the basic commands. To use these sn
 | -----------:| ---------------------------------------------------------------------------------------|
 |  `mc[2-5]`  | `Multiple choice question with two to five options.`                                   |
 |  `mc[2-5]f` | `Multiple choice question with two to five options and feedback.`                      |
-|  `mcn[2-5]` | `Multiple choice numerical question with two to five options.`                         |
-|  `mcn[2-5]f`| `Multiple choice numerical question with two to five options and feedback.`            |
+|  `mc[2-5]n` | `Multiple choice question (numerical) with two to five options.`                       |
+|  `mc[2-5]nf`| `Multiple choice question (numerical) with two to five options and feedback.`          |
 |  `ma[2-5]`  | `Matching question with two to five options.`                                          |
 |  `sa[1-5]`  | `Short answer question with one to five correct answers.`                              |
 
