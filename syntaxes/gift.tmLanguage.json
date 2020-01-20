@@ -19,7 +19,7 @@
 	"repository": {
 		"comments": {
 			"name": "comment.line.double-slash",
-			"begin": "(^[ \\t]+)?((//)(?:\\s*((@)internal)(?=\\s|$))?)",
+			"begin": "((?<![$]CATEGORY:.)|(?<![$]CATEGORY:))(^[ \\t]+)?((//)+)",
 			"end": "(?=^)"
 		},
 		"title": {
@@ -32,6 +32,7 @@
 			"match": "(^[ \\t]+)?((^[$]CATEGORY:))"
 		},
 		"question": {
+			"name": "meta.block",
 			"begin": "\\{",
 			"beginCaptures": {
 				"0": {
@@ -44,7 +45,6 @@
 					"name": "meta.block.end"
 				}
 			},
-			"name": "meta.block",
 			"patterns": [
 				{
 					"include": "#numerical-question"
@@ -102,8 +102,8 @@
 		},
 		"correct-answer": {
 			"name": "variable",
-			"begin": "(?<=[=])\\s*(.*?)",
-			"end": "(?=^)|(?=[#:;])",
+			"begin": "((?<=[=])\\s*(.*?))|(?<=[{])(.*?)",
+			"end": "(?=^)|(?=[#:=~}])",
 			"patterns": [
 				{
 					"include": "#partial-answer"
@@ -113,7 +113,7 @@
 		"incorrect-answer": {
 			"name": "string",
 			"begin": "(?<=[~])\\s*(.*?)",
-			"end": "(?=^)|(?=[#:;])",
+			"end": "(?=^)|(?=[#:=~}])",
 			"patterns": [
 				{
 					"include": "#partial-answer"
