@@ -1,7 +1,7 @@
 {
     "multipleChoiceQuestion": {
         "prefix": "mcq",
-        "description": "Typical multiple choice question with four options.",
+        "description": "Multiple choice question with four options.",
         "body": [
             "::${1:Title}:: ${2:Question} {",
             "\t=${3:Correct Answer}",
@@ -60,7 +60,7 @@
 
     "multipleChoiceQuestionFeedback": {
         "prefix": "mcqf",
-        "description": "Typical multiple choice question with four options and feedback.",
+        "description": "Multiple choice question with four options and feedback.",
         "body": [
             "::${1:Title}:: ${2:Question} {",
             "\t=${3:Correct Answer} #${4:Feedback}",
@@ -119,7 +119,7 @@
 
     "multipleChoiceQuestionNumerical": {
         "prefix": "mcqn",
-        "description": "Typical multiple choice question (numerical) with four options.",
+        "description": "Multiple choice question (numerical) with four options.",
         "body": [
             "::${1:Title}:: ${2:Question} {#",
             "\t=${3:Correct Answer}",
@@ -178,7 +178,7 @@
 
     "multipleChoiceQNumericaluestionFeedback": {
         "prefix": "mcqnf",
-        "description": "Typical multiple choice question (numerical) with four options.",
+        "description": "Multiple choice question (numerical) with four options and feedback.",
         "body": [
             "::${1:Title}:: ${2:Question} {#",
             "\t=${3:Correct Answer} #${4:Feedback}",
@@ -237,7 +237,7 @@
 
     "matchingQuestion": {
         "prefix": "maq",
-        "description": "Typical matching question with four options.",
+        "description": "Matching question with four options.",
         "body": [
             "::${1:Title}:: ${2:Question} {",
             "\t=${3:Item 1} -> ${4:Match 1}",
@@ -296,7 +296,7 @@
 
     "shortAnswerQuestion": {
         "prefix": "saq",
-        "description": "Typical short answer question with one correct answer.",
+        "description": "Short answer question with one correct answer.",
         "body": "::${1:Title}:: ${2:Question} { =${3:Answer 1} }"
     },
     "shortAnswer1": {
@@ -342,12 +342,12 @@
     },
     "category": {
         "prefix": "cat",
-        "description": "Add a category label.",
+        "description": "Category label.",
         "body": "\\$CATEGORY: ${1:Name}"
     },
     "categoryNested": {
         "prefix": "catn",
-        "description": "Add a nested category label.",
+        "description": "Category label (nested).",
         "body": "\\$CATEGORY: ${1:Level 1}/${2:Level 2}/${3:Level 3}"
     }
 }
