@@ -117,9 +117,9 @@
         ]
     },
 
-    "multipleChoiceNumericalQuestion": {
-        "prefix": "mcnq",
-        "description": "Typical multiple choice numerical question with four options.",
+    "multipleChoiceQuestionNumerical": {
+        "prefix": "mcqn",
+        "description": "Typical multiple choice question (numerical) with four options.",
         "body": [
             "::${1:Title}:: ${2:Question} {#",
             "\t=${3:Correct Answer}",
@@ -129,9 +129,9 @@
             "}"
         ]
     },
-    "multipleChoiceNumerical2": {
-        "prefix": "mcn2",
-        "description": "Multiple choice numerical question with two options.",
+    "multipleChoice2Numerical": {
+        "prefix": "mc2n",
+        "description": "Multiple choice question (numerical) with two options.",
         "body": [
             "::${1:Title}:: ${2:Question} {#",
             "\t=${3:Correct Answer}",
@@ -139,9 +139,9 @@
             "}"
         ]
     },
-    "multipleChoiceNumerical3": {
-        "prefix": "mcn3",
-        "description": "Multiple choice numerical question with three options.",
+    "multipleChoice3Numerical": {
+        "prefix": "mc3n",
+        "description": "Multiple choice question (numerical) with three options.",
         "body": [
             "::${1:Title}:: ${2:Question} {#",
             "\t=${3:Correct Answer}",
@@ -150,9 +150,9 @@
             "}"
         ]
     },
-    "multipleChoiceNumerical4": {
-        "prefix": "mcn4",
-        "description": "Multiple choice numerical question with four options.",
+    "multipleChoice4Numerical": {
+        "prefix": "mc4n",
+        "description": "Multiple choice question (numerical) with four options.",
         "body": [
             "::${1:Title}:: ${2:Question} {#",
             "\t=${3:Correct Answer}",
@@ -162,9 +162,9 @@
             "}"
         ]
     },
-    "multipleChoiceNumerical5": {
-        "prefix": "mcn5",
-        "description": "Multiple choice numerical question with five options.",
+    "multipleChoice5Numerical": {
+        "prefix": "mc5n",
+        "description": "Multiple choice question (numerical) with five options.",
         "body": [
             "::${1:Title}:: ${2:Question} {#",
             "\t=${3:Correct Answer}",
@@ -176,9 +176,9 @@
         ]
     },
 
-    "multipleChoiceNumericalQuestionFeedback": {
-        "prefix": "mcnqf",
-        "description": "Typical multiple choice question with four options.",
+    "multipleChoiceQNumericaluestionFeedback": {
+        "prefix": "mcqnf",
+        "description": "Typical multiple choice question (numerical) with four options.",
         "body": [
             "::${1:Title}:: ${2:Question} {#",
             "\t=${3:Correct Answer} #${4:Feedback}",
@@ -188,9 +188,9 @@
             "}"
         ]
     },
-    "multipleChoiceNumerical2Feedback": {
-        "prefix": "mcn2f",
-        "description": "Multiple choice with two options.",
+    "multipleChoice2NumericalFeedback": {
+        "prefix": "mc2nf",
+        "description": "Multiple choice (numerical) with two options.",
         "body": [
             "::${1:Title}:: ${2:Question} {#",
             "\t=${3:Correct Answer} #${4:Feedback}",
@@ -198,9 +198,9 @@
             "}"
         ]
     },
-    "multipleChoiceNumerical3Feedback": {
-        "prefix": "mcn3f",
-        "description": "Multiple choice with three options.",
+    "multipleChoice3NumericalFeedback": {
+        "prefix": "mc3nf",
+        "description": "Multiple choice (numerical) with three options.",
         "body": [
             "::${1:Title}:: ${2:Question} {#",
             "\t=${3:Correct Answer} #${4:Feedback}",
@@ -209,9 +209,9 @@
             "}"
         ]
     },
-    "multipleChoiceNumerical4Feedback": {
-        "prefix": "mcn4f",
-        "description": "Multiple choice with four options.",
+    "multipleChoice4NumericalFeedback": {
+        "prefix": "mc4nf",
+        "description": "Multiple choice (numerical) with four options.",
         "body": [
             "::${1:Title}:: ${2:Question} {#",
             "\t=${3:Correct Answer} #${4:Feedback}",
@@ -221,9 +221,9 @@
             "}"
         ]
     },
-    "multipleChoiceNumerical5Feedback": {
-        "prefix": "mcn5f",
-        "description": "Multiple choice with five options.",
+    "multipleChoice5NumericalFeedback": {
+        "prefix": "mc5nf",
+        "description": "Multiple choice (numerical) with five options.",
         "body": [
             "::${1:Title}:: ${2:Question} {#",
             "\t=${3:Correct Answer} #${4:Feedback}",
@@ -296,8 +296,8 @@
 
     "shortAnswerQuestion": {
         "prefix": "saq",
-        "description": "Typical short answer question with three correct answers.",
-        "body": "::${1:Title}:: ${2:Question} { =${3:Answer 1} =${4:Answer 2} =${5:Answer 3} }"
+        "description": "Typical short answer question with one correct answer.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer 1} }"
     },
     "shortAnswer1": {
         "prefix": "sa1",
