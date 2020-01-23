@@ -19,7 +19,7 @@
 	"repository": {
 		"comments": {
 			"name": "comment.line.double-slash",
-			"begin": "((?<![$]CATEGORY:.)|(?<![$]CATEGORY:))(^[ \\t]+)?((//)+)",
+			"begin": "(^[ \\t]+)?((//)+)",
 			"end": "(?=^)"
 		},
 		"title": {
@@ -28,8 +28,24 @@
 			"end": "\\::"
 		},
 		"category": {
-			"name": "keyword",
-			"match": "(^[ \\t]+)?((^[$]CATEGORY:))"
+			"captures": {
+				"1": {
+					"name": "meta.declaration"
+				},
+				"2": {
+					"name": "markup.bold"
+				}
+			},
+			"begin": "(^[ \\t]+)?((^[$]CATEGORY:))",	
+			"end": "(?=^)",
+			"patterns": [
+				{
+					"name": "entity.name",
+					"begin": "(^[ \\t]+)?((?<=^[$]CATEGORY:))",
+					"end": "(?=^)"
+				}
+			]
+			
 		},
 		"question": {
 			"name": "meta.block",
