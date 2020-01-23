@@ -1,9 +1,13 @@
-# Change Log
-
-All notable changes to the "vscode-gift" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+# Changelog
 
 ## [Unreleased]
 
-- Initial release
+- Fixed issue with comments being registered in categories.
+
+## 0.0.2
+- BREAKING: Changed multiple choice numeric snippet key from `mcnq` to `mcqn`. Hopefully will improve usability of snippets.
+- Added snippet documentation and GIF's to README.md
+- Fixed issue where highlighting would overrun question scope.
+
+## 0.0.1
+- Initial Release
