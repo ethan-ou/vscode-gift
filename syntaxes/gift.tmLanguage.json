@@ -24,7 +24,7 @@
 		},
 		"title": {
 			"name": "markup.heading",
-			"begin": "(?x) \n  \\s*(::)\\s*(.*?)",
+			"begin": "\\s*(::)\\s*(.*?)",
 			"end": "\\::"
 		},
 		"category": {
