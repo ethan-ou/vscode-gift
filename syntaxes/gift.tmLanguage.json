@@ -36,12 +36,12 @@
 					"name": "markup.bold"
 				}
 			},
-			"begin": "(^[ \\t]+)?((^[$]CATEGORY:))",	
+			"begin": "(^[ \\t]+)?((^\\s*[$]CATEGORY:))",	
 			"end": "(?=^)",
 			"patterns": [
 				{
 					"name": "entity.name",
-					"begin": "(^[ \\t]+)?((?<=^[$]CATEGORY:))",
+					"begin": ".*",
 					"end": "(?=^)"
 				}
 			]
