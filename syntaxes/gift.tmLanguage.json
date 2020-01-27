@@ -49,13 +49,13 @@
 		},
 		"question": {
 			"name": "meta.block",
-			"begin": "\\{",
+			"begin": "(?<!\\\\)\\{",
 			"beginCaptures": {
 				"0": {
 					"name": "meta.block.start"
 				}
 			},
-			"end": "\\}",
+			"end": "(?<!\\\\)\\}",
 			"endCaptures": {
 				"0": {
 					"name": "meta.block.end"
