@@ -105,11 +105,11 @@
 		},
 		"correct-answer-char": {
 			"name": "punctuation.definition",
-			"match": "\\="
+			"match": "(?<=[^\\\\])\\="
 		},
 		"incorrect-answer-char": {
 			"name": "punctuation.definition",
-			"match": "\\~"
+			"match": "(?<=[^\\\\])\\~"
 		},
 		"partial-answer": {
 			"name": "constant.numeric",
@@ -118,8 +118,8 @@
 		},
 		"correct-answer": {
 			"name": "variable",
-			"begin": "((?<=[=])\\s*(.*?))|(?<=[{])(.*?)",
-			"end": "(?=^)|(?=[#:=~}])",
+			"begin": "(?<=[^\\\\])((?<=[=])\\s*(.*?))|(?<=[{])(.*?)",
+			"end": "(?=^)|(?<=[^\\\\])(?=[#:=~}])",
 			"patterns": [
 				{
 					"include": "#partial-answer"
@@ -128,8 +128,8 @@
 		},
 		"incorrect-answer": {
 			"name": "string",
-			"begin": "(?<=[~])\\s*(.*?)",
-			"end": "(?=^)|(?=[#:=~}])",
+			"begin": "(?<=[^\\\\])(?<=[~])\\s*(.*?)",
+			"end": "(?=^)|(?<=[^\\\\])(?=[#:=~}])",
 			"patterns": [
 				{
 					"include": "#partial-answer"
@@ -147,7 +147,7 @@
 		"feedback": {
 			"name": "comment.line.number-sign",
 			"begin": "\\#\\s*(.*?)",
-			"end": "(?=^)|(?=[;~={}])"
+			"end": "(?=^)|(?<=[^\\\\])(?=[~={}#])"
 		},
 		"math-range": {
 			"name": "keyword.operator",
