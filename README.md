@@ -1,4 +1,5 @@
 # VSCode GIFT Language Support and Snippets
+
 [![Version](https://vsmarketplacebadge.apphb.com/version/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/version-short/ethan-ou.vscode-gift.svg)
 [![Install](https://vsmarketplacebadge.apphb.com/installs/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/installs-short/ethan-ou.vscode-gift.svg)
 [![Downloads](https://vsmarketplacebadge.apphb.com/downloads/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/downloads-short/ethan-ou.vscode-gift.svg)
@@ -11,9 +12,11 @@ This extension provides syntax highlighting and code snippets for Moodle's GIFT 
 ## Demo
 
 ### Syntax Highlighting
+
 ![Syntax Highlighting](https://github.com/ethan-ou/vscode-gift/blob/master/examples/syntax-highlighting.gif?raw=true)
 
 ### Snippets
+
 ![Code Snippets](https://github.com/ethan-ou/vscode-gift/blob/master/examples/code-snippets.gif?raw=true)
 
 ## Formats
@@ -31,32 +34,33 @@ If you prefer using Plain Text (.txt), you will need to manually set the languag
 
 ### At a Glance
 
-|  Prefix     | Description                                                                            |
-| -----------:| ---------------------------------------------------------------------------------------|
-|  `mcq`      | `Multiple choice question with four options.`                                          |
-|  `mcqf`     | `Multiple choice question with four options and feedback.`                             |
-|  `mcqn`     | `Multiple choice question (numerical) with four options.`                              |
-|  `mcqnf`    | `Multiple choice question (numerical) with four options and feedback.`                 |
-|  `maq`      | `Matching question with four options.`                                                 |
-|  `saq`      | `Short answer question with three correct answers.`                                    |
-|  `tfq`      | `True-False question.`                                                                 |
-|  `ess`      | `Essay question.`                                                                      |
-|  `nq`       | `Numerical question.`                                                                  |
-|  `cat`      | `Category label.`                                                                      |
-|  `catn`     | `Nested category label.`                                                               |
+|  Prefix | Description                                                            |
+| ------: | ---------------------------------------------------------------------- |
+|   `mcq` | `Multiple choice question with four options.`                          |
+|  `mcqf` | `Multiple choice question with four options and feedback.`             |
+|  `mcqn` | `Multiple choice question (numerical) with four options.`              |
+| `mcqnf` | `Multiple choice question (numerical) with four options and feedback.` |
+|   `maq` | `Matching question with four options.`                                 |
+|   `saq` | `Short answer question with three correct answers.`                    |
+|   `tfq` | `True-False question.`                                                 |
+|   `ess` | `Essay question.`                                                      |
+|    `nq` | `Numerical question.`                                                  |
+|   `cat` | `Category label.`                                                      |
+|  `catn` | `Nested category label.`                                               |
 
 ### For Power Users
 
 These snippets are useful if you've mastered the basic commands. To use these snippets, replace the number in brackets with the number of options you would like. For instance, a multiple choice question with three options is `mc3`.
 
-|  Prefix     | Description                                                                            |
-| -----------:| ---------------------------------------------------------------------------------------|
-|  `mc[2-5]`  | `Multiple choice question with two to five options.`                                   |
-|  `mc[2-5]f` | `Multiple choice question with two to five options and feedback.`                      |
-|  `mc[2-5]n` | `Multiple choice question (numerical) with two to five options.`                       |
-|  `mc[2-5]nf`| `Multiple choice question (numerical) with two to five options and feedback.`          |
-|  `ma[2-5]`  | `Matching question with two to five options.`                                          |
-|  `sa[1-5]`  | `Short answer question with one to five correct answers.`                              |
+|      Prefix | Description                                                                   |
+| ----------: | ----------------------------------------------------------------------------- |
+|   `mc[2-5]` | `Multiple choice question with two to five options.`                          |
+|  `mc[2-5]f` | `Multiple choice question with two to five options and feedback.`             |
+|  `mc[2-5]n` | `Multiple choice question (numerical) with two to five options.`              |
+| `mc[2-5]nf` | `Multiple choice question (numerical) with two to five options and feedback.` |
+|   `ma[2-5]` | `Matching question with two to five options.`                                 |
+|   `sa[1-5]` | `Short answer question with one to five correct answers.`                     |
 
 ## License
+
 MIT
