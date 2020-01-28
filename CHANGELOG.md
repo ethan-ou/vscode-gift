@@ -2,12 +2,20 @@
 
 ## [Unreleased]
 
-- Fixed issue with comments being registered in categories.
+## 0.0.3
+
+- Added checks for escaped characters (e.g. \\{, \\=)
+- Fixed issue where partial answers were not registed when spaces are added beforehand (e.g. = %50%)
+- Fixed issue with comments being registered when double slashes are used in categories (e.g. $CATEGORY: \\\Accidental Comment)
+- Added case insensitivity for true-false questions
+- Fixed issue with categories not being highlighted when spaces are added beforehand (e.g. \s\s$CATEGORY:)
 
 ## 0.0.2
-- BREAKING: Changed multiple choice numeric snippet key from `mcnq` to `mcqn`. Hopefully will improve usability of snippets.
+
+- BREAKING: Changed multiple choice numeric snippet key from `mcnq` to `mcqn` to improve usability.
 - Added snippet documentation and GIF's to README.md
-- Fixed issue where highlighting would overrun question scope.
+- Fixed issue where highlighting would overrun question scope when question written in a single line. (e.g. Question {Answer})
 
 ## 0.0.1
+
 - Initial Release
