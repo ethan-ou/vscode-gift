@@ -142,7 +142,7 @@
 		},
 		"true-false-question": {
 			"name": "constant.language.boolean",
-			"match": "\\b(T|F|TRUE|FALSE)\\b"
+			"match": "\\b(?i)(T|F|TRUE|FALSE)\\b"
 		},
 		"feedback": {
 			"name": "comment.line.number-sign",
