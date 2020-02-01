@@ -11,7 +11,6 @@
 	},
 	"categories": ["Programming Languages"],
 	"keywords": ["gift", "moodle"],
-	"extensionDependencies": ["ethan-ou.vscode-gift"],
 	"engines": {
 		"vscode": "^1.33.0"
 	},
