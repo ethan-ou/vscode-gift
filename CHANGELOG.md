@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## 0.0.4 (01-02-2020)
+
+- Added long plain English snippets designed for new users (e.g. `multiple choice question`).
+
 ## 0.0.3 (28-01-2020)
 
 - Added checks for escaped characters (e.g. \\{, \\=)

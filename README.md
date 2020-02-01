@@ -32,7 +32,22 @@ If you prefer using Plain Text (.txt), you will need to manually set the languag
 
 **NOTE:** Snippets are still subject to change.
 
-### At a Glance
+|                                        Prefix | Description                                                            |
+| --------------------------------------------: | ---------------------------------------------------------------------- |
+|                    `multiple choice question` | `Multiple choice question with four options.`                          |
+|           `multiple choice question feedback` | `Multiple choice question with four options and feedback.`             |
+|          `multiple choice question numerical` | `Multiple choice question (numerical) with four options.`              |
+| `multiple choice question numerical feedback` | `Multiple choice question (numerical) with four options and feedback.` |
+|                           `matching question` | `Matching question with four options.`                                 |
+|                       `short answer question` | `Short answer question with three correct answers.`                    |
+|                         `true false question` | `True-False question.`                                                 |
+|                              `essay question` | `Essay question.`                                                      |
+|                          `numerical question` | `Numerical question.`                                                  |
+|                                    `category` | `Category label.`                                                      |
+|                             `category nested` | `Nested category label.`                                               |
+
+
+### Shorthand
 
 |  Prefix | Description                                                            |
 | ------: | ---------------------------------------------------------------------- |
