@@ -1,0 +1,758 @@
+{
+    "multipleChoiceQuestionFeedbackLong": {
+        "prefix": "multiple choice question feedback",
+        "description": "Multiple choice question with four options and feedback.",
+        "body": [
+            "${1:Question} {",
+            "\t=${2:Correct Answer} #${3:Feedback}",
+            "\t~${4:Incorrect Answer 1} #${5:Feedback}",
+            "\t~${6:Incorrect Answer 2} #${7:Feedback}",
+            "\t~${8:Incorrect Answer 3} #${9:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionFeedback": {
+        "prefix": "mcqf",
+        "description": "Multiple choice question with four options and feedback.",
+        "body": [
+            "${1:Question} {",
+            "\t=${2:Correct Answer} #${3:Feedback}",
+            "\t~${4:Incorrect Answer 1} #${5:Feedback}",
+            "\t~${6:Incorrect Answer 2} #${7:Feedback}",
+            "\t~${8:Incorrect Answer 3} #${9:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice2Feedback": {
+        "prefix": "mc2f",
+        "description": "Multiple choice with two options and feedback.",
+        "body": [
+            "${1:Question} {",
+            "\t=${2:Correct} #${3:Feedback}",
+            "\t~${4:Incorrect} #${5:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice3Feedback": {
+        "prefix": "mc3f",
+        "description": "Multiple choice with three options and feedback.",
+        "body": [
+            "${1:Question} {",
+            "\t=${2:Correct} #${3:Feedback}",
+            "\t~${4:Incorrect} #${5:Feedback}",
+            "\t~${6:Incorrect} #${7:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice4Feedback": {
+        "prefix": "mc4f",
+        "description": "Multiple choice with four options and feedback.",
+        "body": [
+            "${1:Question} {",
+            "\t=${2:Correct} #${3:Feedback}",
+            "\t~${4:Incorrect} #${5:Feedback}",
+            "\t~${6:Incorrect} #${7:Feedback}",
+            "\t~${8:Incorrect} #${9:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice5Feedback": {
+        "prefix": "mc5f",
+        "description": "Multiple choice with five options and feedback.",
+        "body": [
+            "${1:Question} {",
+            "\t=${2:Correct} #${3:Feedback}",
+            "\t~${4:Incorrect} #${5:Feedback}",
+            "\t~${6:Incorrect} #${7:Feedback}",
+            "\t~${8:Incorrect} #${9:Feedback}",
+            "\t~${10:Incorrect} #${11:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionTitleLong": {
+        "prefix": "multiple choice question title",
+        "description": "Multiple choice question with four options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "\t~${5:Incorrect Answer 2}",
+            "\t~${6:Incorrect Answer 3}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionTitle": {
+        "prefix": "mcqt",
+        "description": "Multiple choice question with four options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "\t~${5:Incorrect Answer 2}",
+            "\t~${6:Incorrect Answer 3}",
+            "}"
+        ]
+    },
+    "multipleChoice2Title": {
+        "prefix": "mc2t",
+        "description": "Multiple choice with two options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct}",
+            "\t~${4:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoice3Title": {
+        "prefix": "mc3t",
+        "description": "Multiple choice with three options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct}",
+            "\t~${4:Incorrect}",
+            "\t~${5:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoice4Title": {
+        "prefix": "mc4t",
+        "description": "Multiple choice with four options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct}",
+            "\t~${4:Incorrect}",
+            "\t~${5:Incorrect}",
+            "\t~${6:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoice5Title": {
+        "prefix": "mc5t",
+        "description": "Multiple choice with five options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct}",
+            "\t~${4:Incorrect}",
+            "\t~${5:Incorrect}",
+            "\t~${6:Incorrect}",
+            "\t~${6:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionTitleFeedbackLong": {
+        "prefix": "multiple choice question title feedback",
+        "description": "Multiple choice question with four options, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "\t~${7:Incorrect Answer 2} #${8:Feedback}",
+            "\t~${9:Incorrect Answer 3} #${10:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionTitleFeedback": {
+        "prefix": "mcqtf",
+        "description": "Multiple choice question with four options, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "\t~${7:Incorrect Answer 2} #${8:Feedback}",
+            "\t~${9:Incorrect Answer 3} #${10:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice2TitleFeedback": {
+        "prefix": "mc2tf",
+        "description": "Multiple choice with two options, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct} #${4:Feedback}",
+            "\t~${5:Incorrect} #${6:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice3TitleFeedback": {
+        "prefix": "mc3tf",
+        "description": "Multiple choice with three options, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct} #${4:Feedback}",
+            "\t~${5:Incorrect} #${6:Feedback}",
+            "\t~${7:Incorrect} #${8:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice4TitleFeedback": {
+        "prefix": "mc4tf",
+        "description": "Multiple choice with four options, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct} #${4:Feedback}",
+            "\t~${5:Incorrect} #${6:Feedback}",
+            "\t~${7:Incorrect} #${8:Feedback}",
+            "\t~${9:Incorrect} #${10:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice5TitleFeedback": {
+        "prefix": "mc5tf",
+        "description": "Multiple choice with five options, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct} #${4:Feedback}",
+            "\t~${5:Incorrect} #${6:Feedback}",
+            "\t~${7:Incorrect} #${8:Feedback}",
+            "\t~${9:Incorrect} #${10:Feedback}",
+            "\t~${11:Incorrect} #${12:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionMultipleTitleLong": {
+        "prefix": "multiple choice question multiple title",
+        "description": "Multiple choice, multiple answer question with two correct options, two incorrect options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%50%${3:Correct Option 1}",
+            "\t~%50%${4:Correct Option 2}",
+            "\t~%-100%${5:Incorrect Option 1}",
+            "\t~%-100%${6:Incorrect Option 2}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionMultipleTitle": {
+        "prefix": "mcqmt",
+        "description": "Multiple choice, multiple answer question with two correct options, two incorrect options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%50%${3:Correct Option 1}",
+            "\t~%50%${4:Correct Option 2}",
+            "\t~%-100%${5:Incorrect Option 1}",
+            "\t~%-100%${6:Incorrect Option 2}",
+            "}"
+        ]
+    },
+    "multipleChoice2MultipleTitle": {
+        "prefix": "mc2mt",
+        "description": "Multiple choice, multiple answer question with two correct options, two incorrect options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%50%${3:Correct}",
+            "\t~%50%${4:Correct}",
+            "\t~%-100%${5:Incorrect}",
+            "\t~%-100%${6:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoice3MultipleTitle": {
+        "prefix": "mc3mt",
+        "description": "Multiple choice, multiple answer question with three correct options, two incorrect options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%33.33333%${3:Correct}",
+            "\t~%33.33333%${4:Correct}",
+            "\t~%33.33333%${5:Correct}",
+            "\t~%-100%${6:Incorrect}",
+            "\t~%-100%${7:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoice4MultipleTitle": {
+        "prefix": "mc4mt",
+        "description": "Multiple choice, multiple answer question with four correct options, two incorrect options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%25%${3:Correct}",
+            "\t~%25%${4:Correct}",
+            "\t~%25%${5:Correct}",
+            "\t~%25%${6:Correct}",
+            "\t~%-100%${7:Incorrect}",
+            "\t~%-100%${8:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoice5MultipleTitle": {
+        "prefix": "mc5mt",
+        "description": "Multiple choice, multiple answer question with five correct options, two incorrect options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%20%${3:Correct}",
+            "\t~%20%${4:Correct}",
+            "\t~%20%${5:Correct}",
+            "\t~%20%${6:Correct}",
+            "\t~%20%${7:Correct}",
+            "\t~%-100%${8:Incorrect}",
+            "\t~%-100%${9:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionMultipleFeedbackLong": {
+        "prefix": "multiple choice question multiple feedback",
+        "description": "Multiple choice, multiple answer question with two correct options, two incorrect options and feedback.",
+        "body": [
+            "${1:Question} {",
+            "\t~%50%${2:Correct Option 1} #${3:Feedback}",
+            "\t~%50%${4:Correct Option 2} #${5:Feedback}",
+            "\t~%-100%${6:Incorrect Option 1} #${7:Feedback}",
+            "\t~%-100%${8:Incorrect Option 2} #${9:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionMultipleFeedback": {
+        "prefix": "mcqmf",
+        "description": "Multiple choice, multiple answer question with two correct options, two incorrect options and feedback.",
+        "body": [
+            "${1:Question} {",
+            "\t~%50%${2:Correct Option 1} #${3:Feedback}",
+            "\t~%50%${4:Correct Option 2} #${5:Feedback}",
+            "\t~%-100%${6:Incorrect Option 1} #${7:Feedback}",
+            "\t~%-100%${8:Incorrect Option 2} #${9:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice2MultipleFeedback": {
+        "prefix": "mc2mf",
+        "description": "Multiple choice, multiple answer question with two correct options, two incorrect options and feedback.",
+        "body": [
+            "${1:Question} {",
+            "\t~%50%${2:Correct} #${3:Feedback}",
+            "\t~%50%${4:Correct} #${5:Feedback}",
+            "\t~%-100%${6:Incorrect} #${7:Feedback}",
+            "\t~%-100%${8:Incorrect} #${9:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice3MultipleFeedback": {
+        "prefix": "mc3mf",
+        "description": "Multiple choice, multiple answer question with three correct options, two incorrect options and feedback.",
+        "body": [
+            "${1:Question} {",
+            "\t~%33.33333%${2:Correct} #${3:Feedback}",
+            "\t~%33.33333%${4:Correct} #${5:Feedback}",
+            "\t~%33.33333%${6:Correct} #${7:Feedback}",
+            "\t~%-100%${8:Incorrect} #${9:Feedback}",
+            "\t~%-100%${10:Incorrect} #${11:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice4MultipleFeedback": {
+        "prefix": "mc4mf",
+        "description": "Multiple choice, multiple answer question with four correct options, two incorrect options and feedback.",
+        "body": [
+            "${1:Question} {",
+            "\t~%25%${2:Correct} #${3:Feedback}",
+            "\t~%25%${4:Correct} #${5:Feedback}",
+            "\t~%25%${6:Correct} #${7:Feedback}",
+            "\t~%25%${8:Correct} #${9:Feedback}",
+            "\t~%-100%${10:Incorrect} #${11:Feedback}",
+            "\t~%-100%${12:Incorrect} #${13:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice5MultipleFeedback": {
+        "prefix": "mc5mf",
+        "description": "Multiple choice, multiple answer question with five correct options, two incorrect options and feedback.",
+        "body": [
+            "${1:Question} {",
+            "\t~%20%${2:Correct} #${3:Feedback}",
+            "\t~%20%${4:Correct} #${5:Feedback}",
+            "\t~%20%${6:Correct} #${7:Feedback}",
+            "\t~%20%${8:Correct} #${9:Feedback}",
+            "\t~%20%${10:Correct} #${11:Feedback}",
+            "\t~%-100%${12:Incorrect} #${13:Feedback}",
+            "\t~%-100%${14:Incorrect} #${15:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionMultipleTitleFeedbackLong": {
+        "prefix": "multiple choice question multiple title feedback",
+        "description": "Multiple choice, multiple answer question with two correct options, two incorrect options, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%50%${3:Correct Option 1} #${4:Feedback}",
+            "\t~%50%${5:Correct Option 2} #${6:Feedback}",
+            "\t~%-100%${7:Incorrect Option 1} #${8:Feedback}",
+            "\t~%-100%${9:Incorrect Option 2} #${10:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionMultipleTitleFeedback": {
+        "prefix": "mcqmtf",
+        "description": "Multiple choice, multiple answer question with two correct options, two incorrect options, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%50%${3:Correct Option 1} #${4:Feedback}",
+            "\t~%50%${5:Correct Option 2} #${6:Feedback}",
+            "\t~%-100%${7:Incorrect Option 1} #${8:Feedback}",
+            "\t~%-100%${9:Incorrect Option 2} #${10:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice2MultipleTitleFeedback": {
+        "prefix": "mc2mtf",
+        "description": "Multiple choice, multiple answer question with two correct options, two incorrect options, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%50%${3:Correct} #${4:Feedback}",
+            "\t~%50%${5:Correct} #${6:Feedback}",
+            "\t~%-100%${7:Incorrect} #${8:Feedback}",
+            "\t~%-100%${9:Incorrect} #${10:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice3MultipleTitleFeedback": {
+        "prefix": "mc3mtf",
+        "description": "Multiple choice, multiple answer question with three correct options, two incorrect options, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%33.33333%${3:Correct} #${4:Feedback}",
+            "\t~%33.33333%${5:Correct} #${6:Feedback}",
+            "\t~%33.33333%${7:Correct} #${8:Feedback}",
+            "\t~%-100%${9:Incorrect} #${10:Feedback}",
+            "\t~%-100%${11:Incorrect} #${12:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice4MultipleTitleFeedback": {
+        "prefix": "mc4mtf",
+        "description": "Multiple choice, multiple answer question with four correct options, two incorrect options, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%25%${3:Correct} #${4:Feedback}",
+            "\t~%25%${5:Correct} #${6:Feedback}",
+            "\t~%25%${7:Correct} #${8:Feedback}",
+            "\t~%25%${9:Correct} #${10:Feedback}",
+            "\t~%-100%${11:Incorrect} #${12:Feedback}",
+            "\t~%-100%${13:Incorrect} #${14:Feedback}",
+            "}"
+        ]
+    },
+    "multipleChoice5MultipleTitleFeedback": {
+        "prefix": "mc5mtf",
+        "description": "Multiple choice, multiple answer question with five correct options, two incorrect options, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%20%${3:Correct} #${4:Feedback}",
+            "\t~%20%${5:Correct} #${6:Feedback}",
+            "\t~%20%${7:Correct} #${8:Feedback}",
+            "\t~%20%${9:Correct} #${10:Feedback}",
+            "\t~%20%${11:Correct} #${12:Feedback}",
+            "\t~%-100%${13:Incorrect} #${14:Feedback}",
+            "\t~%-100%${15:Incorrect} #${16:Feedback}",
+            "}"
+        ]
+    },
+    "matchingQuestionTitleLong": {
+        "prefix": "matching question title",
+        "description": "Matching question with four options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item 1} -> ${4:Match 1}",
+            "\t=${5:Item 2} -> ${6:Match 2}",
+            "\t=${7:Item 3} -> ${8:Match 3}",
+            "\t=${9:Item 4} -> ${10:Match 4}",
+            "}"
+        ]
+    },
+    "matchingQuestionTitle": {
+        "prefix": "maqt",
+        "description": "Matching question with four options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item 1} -> ${4:Match 1}",
+            "\t=${5:Item 2} -> ${6:Match 2}",
+            "\t=${7:Item 3} -> ${8:Match 3}",
+            "\t=${9:Item 4} -> ${10:Match 4}",
+            "}"
+        ]
+    },
+    "matching2Title": {
+        "prefix": "ma2t",
+        "description": "Matching with two options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item} -> ${4:Match}",
+            "\t=${5:Item} -> ${6:Match}",
+            "}"
+        ]
+    },
+    "matching3Title": {
+        "prefix": "ma3t",
+        "description": "Matching with three options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item} -> ${4:Match}",
+            "\t=${5:Item} -> ${6:Match}",
+            "\t=${7:Item} -> ${8:Match}",
+            "}"
+        ]
+    },
+    "matching4Title": {
+        "prefix": "ma4t",
+        "description": "Matching with four options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item} -> ${4:Match}",
+            "\t=${5:Item} -> ${6:Match}",
+            "\t=${7:Item} -> ${8:Match}",
+            "\t=${9:Item} -> ${10:Match}",
+            "}"
+        ]
+    },
+    "matching5Title": {
+        "prefix": "ma5t",
+        "description": "Matching with five options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item} -> ${4:Match}",
+            "\t=${5:Item} -> ${6:Match}",
+            "\t=${7:Item} -> ${8:Match}",
+            "\t=${9:Item} -> ${10:Match}",
+            "\t=${11:Item} -> ${12:Match}",
+            "}"
+        ]
+    },
+    "shortAnswerQuestionTitleLong": {
+        "prefix": "short answer question title",
+        "description": "Short answer question with one correct answer and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} }"
+    },
+    "shortAnswerQuestionTitle": {
+        "prefix": "saqt",
+        "description": "Short answer question with one correct answer and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} }"
+    },
+    "shortAnswer1Title": {
+        "prefix": "sa1t",
+        "description": "Short answer with one correct answer and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} }"
+    },
+    "shortAnswer2Title": {
+        "prefix": "sa2t",
+        "description": "Short answer with two correct answers and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} =${4:Answer} }"
+    },
+    "shortAnswer3Title": {
+        "prefix": "sa3t",
+        "description": "Short answer with three correct answers and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} =${4:Answer} =${5:Answer} }"
+    },
+    "shortAnswer4Title": {
+        "prefix": "sa4t",
+        "description": "Short answer with four correct answers and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} =${4:Answer} =${5:Answer} =${6:Answer} }"
+    },
+    "shortAnswer5Title": {
+        "prefix": "sa5t",
+        "description": "Short Answer with five correct answers and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} =${4:Answer} =${5:Answer} =${6:Answer} =${7:Answer} }"
+    },
+    "shortAnswerQuestionFeedbackLong": {
+        "prefix": "short answer question feedback",
+        "description": "Short answer question with one correct answer.",
+        "body": "${1:Question} { =${3:Answer} #${4:Feedback} }"
+    },
+    "shortAnswerQuestionFeedback": {
+        "prefix": "saqf",
+        "description": "Short answer question with one correct answer.",
+        "body": "${1:Question} { =${3:Answer} #${4:Feedback} }"
+    },
+    "shortAnswer1Feedback": {
+        "prefix": "sa1f",
+        "description": "Short answer with one correct answer.",
+        "body": "${1:Question} { =${3:Answer} #${4:Feedback} }"
+    },
+    "shortAnswer2Feedback": {
+        "prefix": "sa2f",
+        "description": "Short answer with two correct answers.",
+        "body": [
+            "${1:Question} {",
+            "\t=${3:Answer} #${4:Feedback}",
+            "\t=${5:Answer} #${6:Feedback}",
+            "}"
+        ]
+    },
+    "shortAnswer3Feedback": {
+        "prefix": "sa3f",
+        "description": "Short answer with three correct answers.",
+        "body": [
+            "${1:Question} {",
+            "\t=${3:Answer} #${4:Feedback}",
+            "\t=${5:Answer} #${6:Feedback}",
+            "\t=${7:Answer} #${8:Feedback}",
+            "}"
+        ]
+    },
+    "shortAnswer4Feedback": {
+        "prefix": "sa4f",
+        "description": "Short answer with four correct answers.",
+        "body": [
+            "${1:Question} {",
+            "\t=${3:Answer} #${4:Feedback}",
+            "\t=${5:Answer} #${6:Feedback}",
+            "\t=${7:Answer} #${8:Feedback}",
+            "\t=${9:Answer} #${10:Feedback}",
+            "}"
+        ]
+    },
+    "shortAnswer5Feedback": {
+        "prefix": "sa5f",
+        "description": "Short Answer with five correct answers.",
+        "body": [
+            "${1:Question} {",
+            "\t=${3:Answer} #${4:Feedback}",
+            "\t=${5:Answer} #${6:Feedback}",
+            "\t=${7:Answer} #${8:Feedback}",
+            "\t=${9:Answer} #${10:Feedback}",
+            "\t=${11:Answer} #${12:Feedback}",
+            "}"
+        ]
+    },
+    "shortAnswerQuestionTitleFeedbackLong": {
+        "prefix": "short answer question feedback title",
+        "description": "Short answer question with one correct answer and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} #${4:Feedback} }"
+    },
+    "shortAnswerQuestionTitleFeedback": {
+        "prefix": "saqtf",
+        "description": "Short answer question with one correct answer, a title and feedback.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} #${4:Feedback} }"
+    },
+    "shortAnswer1TitleFeedback": {
+        "prefix": "sa1tf",
+        "description": "Short answer with one correct answer, a title and feedback.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} #${4:Feedback} }"
+    },
+    "shortAnswer2TitleFeedback": {
+        "prefix": "sa2tf",
+        "description": "Short answer with two correct answers, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Answer} #${4:Feedback}",
+            "\t=${5:Answer} #${6:Feedback}",
+            "}"
+        ]
+    },
+    "shortAnswer3TitleFeedback": {
+        "prefix": "sa3tf",
+        "description": "Short answer with three correct answers, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Answer} #${4:Feedback}",
+            "\t=${5:Answer} #${6:Feedback}",
+            "\t=${7:Answer} #${8:Feedback}",
+            "}"
+        ]
+    },
+    "shortAnswer4TitleFeedback": {
+        "prefix": "sa4tf",
+        "description": "Short answer with four correct answers, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Answer} #${4:Feedback}",
+            "\t=${5:Answer} #${6:Feedback}",
+            "\t=${7:Answer} #${8:Feedback}",
+            "\t=${9:Answer} #${10:Feedback}",
+            "}"
+        ]
+    },
+    "shortAnswer5TitleFeedback": {
+        "prefix": "sa5tf",
+        "description": "Short Answer with five correct answers, a title and feedback.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Answer} #${4:Feedback}",
+            "\t=${5:Answer} #${6:Feedback}",
+            "\t=${7:Answer} #${8:Feedback}",
+            "\t=${9:Answer} #${10:Feedback}",
+            "\t=${11:Answer} #${12:Feedback}",
+            "}"
+        ]
+    },
+    "missingWordQuestionTitleLong": {
+        "prefix": "missing word question title",
+        "description": "Missing word question with one correct answer and two incorrect answers and a title.",
+        "body": "::${1:Title}:: ${2:Sentence Start} { =${3:Correct Answer} ~${4:Incorrect Answer 1} ~${5: Incorrect Answer 2}} ${6:Sentence End}" 
+    },
+    "missingWordQuestionTitle": {
+        "prefix": "mwqt",
+        "description": "Missing word question with one correct answer and two incorrect answers and a title.",
+        "body": "::${1:Title}:: ${2:Sentence Start} { =${3:Correct Answer} ~${4:Incorrect Answer 1} ~${5: Incorrect Answer 2}} ${6:Sentence End}" 
+    },
+    "missingWord1Title": {
+        "prefix": "mw1t",
+        "description": "Short Answer with one correct answer and a title.",
+        "body": "::${1:Title}:: ${2:Start} { =${3:Correct} } ${4:End}"
+    },
+    "missingWord2Title": {
+        "prefix": "mw2t",
+        "description": "Short Answer with one correct answer and one incorrect answer and a title.",
+        "body": "::${1:Title}:: ${2:Start} { =${3:Correct} ~${4:Incorrect} } ${5:End}"
+    },
+    "missingWord3Title": {
+        "prefix": "mw3t",
+        "description": "Short Answer with one correct answer and two incorrect answers and a title.",
+        "body": "::${1:Title}:: ${2:Start} { =${3:Correct} ~${4:Incorrect} ~${5:Incorrect} } ${6:End}"
+    },
+    "missingWord4Title": {
+        "prefix": "mw4t",
+        "description": "Missing word with one correct answer and three incorrect answers and a title.",
+        "body": "::${1:Title}:: ${2:Start} { =${3:Correct} ~${4:Incorrect} ~${5:Incorrect} ~${6:Incorrect} } ${7:End}"
+    },
+    "missingWord5Title": {
+        "prefix": "mw5t",
+        "description": "Missing word with one correct answer and four incorrect answers and a title.",
+        "body": "::${1:Title}:: ${2:Start} { =${3:Correct} ~${4:Incorrect} ~${5:Incorrect} ~${6:Incorrect} ~${7:Incorrect} } ${8:End}"
+    },
+    "trueFalseQuestionTitleLong": {
+        "prefix": "true false question title",
+        "description": "True-False question with a title.",
+        "body": "::${1:Title}:: ${2:Question} {${3:TRUE}}"
+    },
+    "trueFalseQuestionTitle": {
+        "prefix": "tfqt",
+        "description": "True-False question with a title.",
+        "body": "::${1:Title}:: ${2:Question} {${3:TRUE}}"
+    },
+    "trueFalseQuestionFeedbackLong": {
+        "prefix": "true false question feedback",
+        "description": "True-False question with feedback.",
+        "body": "${1:Question} {${2:TRUE} #${3:Incorrect Feedback} #${4:Correct Feedback}}"
+    },
+    "trueFalseQuestionFeedback": {
+        "prefix": "tfqf",
+        "description": "True-False question with feedback.",
+        "body": "${1:Question} {${2:TRUE} #${3:Incorrect Feedback} #${4:Correct Feedback}}"
+    },
+    "trueFalseQuestionTitleFeedbackLong": {
+        "prefix": "true false question title feedback",
+        "description": "True-False question with feedback and a title.",
+        "body": "::${1:Title}:: ${2:Question} {${3:TRUE} #${4:Incorrect Feedback} #${5:Correct Feedback}}"
+    },
+    "trueFalseQuestionTitleFeedback": {
+        "prefix": "tfqtf",
+        "description": "True-False question with feedback and a title.",
+        "body": "::${1:Title}:: ${2:Question} {${3:TRUE} #${4:Incorrect Feedback} #${5:Correct Feedback}}"
+    },
+    "essayTitleLong": {
+        "prefix": "essay question with a title",
+        "description": "Essay question with a title.",
+        "body": "::${1:Title}:: ${2:Question} {}"
+    },
+    "essayTitle": {
+        "prefix": "esst",
+        "description": "Essay question with a title.",
+        "body": "::${1:Title}:: ${2:Question} {}"
+    },
+    "numericalQuestionTitleLong": {
+        "prefix": "numerical question title",
+        "description": "Numerical question with a title.",
+        "body": "::${1:Title}:: ${2:Question} {#${3:Number}:${4:Range}}"
+    },
+    "numericalQuestionTitle": {
+        "prefix": "nqt",
+        "description": "Numerical question with a title.",
+        "body": "::${1:Title}:: ${2:Question} {#${3:Number}:${4:Range}}"
+    }
+}

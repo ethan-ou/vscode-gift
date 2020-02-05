@@ -35,6 +35,10 @@
             {
                 "language": "gift",
                 "path": "./snippets/gift.json"
+            },
+            {
+                "language": "gift",
+                "path": "./snippets/giftOptions.json"
             }
         ]
     }
