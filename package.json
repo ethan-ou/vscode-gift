@@ -23,7 +23,7 @@
         "languages": [{
             "id": "gift",
             "aliases": ["Gift", "gift"],
-            "extensions": [".txt", ".gift"],
+            "extensions": [".gift", ".txt"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
