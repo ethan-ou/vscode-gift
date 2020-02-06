@@ -167,6 +167,7 @@ function peg$parse(input, options) {
   var peg$r0 = /^[=~]/;
   var peg$r1 = /^[\-]/;
   var peg$r2 = /^[0-9]/;
+  var peg$r3 = /^[.]/;
 
   var peg$e0 = peg$otherExpectation("Category");
   var peg$e1 = peg$otherExpectation("Description");
@@ -223,7 +224,7 @@ function peg$parse(input, options) {
                        text: txt,
                        feedback:feedback };
         return choice };
-  var peg$f14 = function(percent) { return makeInteger(percent) };
+  var peg$f14 = function(percent) { return parseFloat(percent.join('')) };
   var peg$f15 = function() { return text() };
   var peg$f16 = function(feedback) { return feedback };
   var peg$f17 = function(globalFeedback) { return { type: "Essay", globalFeedback:globalFeedback}; };
@@ -1067,7 +1068,7 @@ function peg$parse(input, options) {
   }
 
   function peg$parsePercentValue() {
-    var s0, s1, s2;
+    var s0, s1, s2, s3, s4, s5;
 
     var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
@@ -1096,6 +1097,31 @@ function peg$parse(input, options) {
         }
         if (s2 === peg$FAILED) {
           s2 = null;
+        }
+        if (peg$r3.test(input.charAt(peg$currPos))) {
+          s3 = input.charAt(peg$currPos);
+          peg$currPos++;
+        } else {
+          s3 = peg$FAILED;
+        }
+        if (s3 === peg$FAILED) {
+          s3 = null;
+        }
+        s4 = [];
+        if (peg$r2.test(input.charAt(peg$currPos))) {
+          s5 = input.charAt(peg$currPos);
+          peg$currPos++;
+        } else {
+          s5 = peg$FAILED;
+        }
+        while (s5 !== peg$FAILED) {
+          s4.push(s5);
+          if (peg$r2.test(input.charAt(peg$currPos))) {
+            s5 = input.charAt(peg$currPos);
+            peg$currPos++;
+          } else {
+            s5 = peg$FAILED;
+          }
         }
         peg$savedPos = s0;
         s0 = peg$f15();
@@ -2569,9 +2595,6 @@ function peg$parse(input, options) {
 
     var defaultFormat = "moodle"; // default format - the GIFT specs say [moodle] is default, but not sure what that means for other applications
     var format = defaultFormat;
-    function makeInteger(o) {
-      return parseInt(o.join(""), 10);
-    }
     function processAnswers(question, answers) {
       question.globalFeedback = answers.globalFeedback;
       switch(question.type) {
