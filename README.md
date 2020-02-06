@@ -32,49 +32,50 @@ If you prefer using Plain Text (.txt), you will need to manually set the languag
 
 **NOTE:** Snippets are still subject to change.
 
-|                                        Prefix | Description                                                            |
-| --------------------------------------------: | ---------------------------------------------------------------------- |
-|                    `multiple choice question` | `Multiple choice question with four options.`                          |
-|           `multiple choice question feedback` | `Multiple choice question with four options and feedback.`             |
-|          `multiple choice question numerical` | `Multiple choice question (numerical) with four options.`              |
-| `multiple choice question numerical feedback` | `Multiple choice question (numerical) with four options and feedback.` |
-|                           `matching question` | `Matching question with four options.`                                 |
-|                       `short answer question` | `Short answer question with three correct answers.`                    |
-|                         `true false question` | `True-False question.`                                                 |
-|                              `essay question` | `Essay question.`                                                      |
-|                          `numerical question` | `Numerical question.`                                                  |
-|                                    `category` | `Category label.`                                                      |
-|                             `category nested` | `Nested category label.`                                               |
+|                              Prefix | Description                                       |
+| ----------------------------------: | ------------------------------------------------- |
+|          `multiple choice question` | `Multiple choice question with four options.`     |
+| `multiple choice question multiple` | `Multiple choice question with multiple answers.` |
+|                 `matching question` | `Matching question with four options.`            |
+|             `short answer question` | `Short answer question with one correct answer.`  |
+|             `missing word question` | `Missing word question with three options.`       |
+|               `true false question` | `True-false question.`                            |
+|                    `essay question` | `Essay question.`                                 |
+|                `numerical question` | `Numerical question.`                             |
+|                             `title` | `Question title.`                                 |
+|                          `category` | `Category label.`                                 |
+|                   `category nested` | `Nested category label.`                          |
 
+If you prefer questions with titles, add a `title` at the end of the snippet. For instance, a multiple choice question with a title is `multiple choice question title`.
 
 ### Shorthand
 
-|  Prefix | Description                                                            |
-| ------: | ---------------------------------------------------------------------- |
-|   `mcq` | `Multiple choice question with four options.`                          |
-|  `mcqf` | `Multiple choice question with four options and feedback.`             |
-|  `mcqn` | `Multiple choice question (numerical) with four options.`              |
-| `mcqnf` | `Multiple choice question (numerical) with four options and feedback.` |
-|   `maq` | `Matching question with four options.`                                 |
-|   `saq` | `Short answer question with three correct answers.`                    |
-|   `tfq` | `True-False question.`                                                 |
-|   `ess` | `Essay question.`                                                      |
-|    `nq` | `Numerical question.`                                                  |
-|   `cat` | `Category label.`                                                      |
-|  `catn` | `Nested category label.`                                               |
+| Prefix | Description                                       |
+| -----: | ------------------------------------------------- |
+|  `mcq` | `Multiple choice question with four options.`     |
+| `mcqm` | `Multiple choice question with multiple answers.` |
+|  `maq` | `Matching question with four options.`            |
+|  `saq` | `Short answer question with one correct answer.`  |
+|  `mwq` | `Missing word question with three options.`       |
+|  `tfq` | `True-False question.`                            |
+|  `ess` | `Essay question.`                                 |
+|   `nq` | `Numerical question.`                             |
+|  `cat` | `Category label.`                                 |
+| `catn` | `Nested category label.`                          |
+
+You can also add titles by adding a `t` at the end of the snippet. For instance, a multiple choice question with a title is `mcqt`.
 
 ### For Power Users
 
-These snippets are useful if you've mastered the basic commands. To use these snippets, replace the number in brackets with the number of options you would like. For instance, a multiple choice question with three options is `mc3`.
+These snippets are useful for adding a specific number of answers to your question. For instance, a multiple choice question with two options is `mc2`.
 
-|      Prefix | Description                                                                   |
-| ----------: | ----------------------------------------------------------------------------- |
-|   `mc[2-5]` | `Multiple choice question with two to five options.`                          |
-|  `mc[2-5]f` | `Multiple choice question with two to five options and feedback.`             |
-|  `mc[2-5]n` | `Multiple choice question (numerical) with two to five options.`              |
-| `mc[2-5]nf` | `Multiple choice question (numerical) with two to five options and feedback.` |
-|   `ma[2-5]` | `Matching question with two to five options.`                                 |
-|   `sa[1-5]` | `Short answer question with one to five correct answers.`                     |
+|     Prefix | Description                                                  |
+| ---------: | ------------------------------------------------------------ |
+|  `mc[2-5]` | `Multiple choice with two to five options.`                  |
+| `mc[2-5]m` | `Multiple choice question with two to five correct answers.` |
+|  `ma[2-5]` | `Matching question with two to five options.`                |
+|  `sa[1-5]` | `Short answer question with one to five correct answers.`    |
+|  `mw[1-5]` | `Missing word with one to five options.`                     |
 
 ## License
 
