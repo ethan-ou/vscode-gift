@@ -131,7 +131,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 	let problems = 0;
 	let index = 0;
 	let diagnostics: Diagnostic[] = [];
-	if (validation === undefined || validation.length === 0) {
+	if (validation === undefined || validation.length === 0 || text.trim() === "") {
 		connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 		return;
 	}
