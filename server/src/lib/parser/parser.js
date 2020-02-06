@@ -13,15 +13,15 @@ function peg$SyntaxError(message, expected, found, location) {
     message,
     expected,
     found,
-    location
-  };
+    location,
+  }
   return exports;
 }
 
 peg$SyntaxError.buildMessage = function(expected, found, location) {
   var DESCRIBE_EXPECTATION_FNS = {
     literal: function(expectation) {
-      return '"' + literalEscape(expectation.text) + '"';
+      return "\"" + literalEscape(expectation.text) + "\"";
     },
 
     class: function(expectation) {
@@ -52,26 +52,19 @@ peg$SyntaxError.buildMessage = function(expected, found, location) {
   };
 
   function hex(ch) {
-    return ch
-      .charCodeAt(0)
-      .toString(16)
-      .toUpperCase();
+    return ch.charCodeAt(0).toString(16).toUpperCase();
   }
 
   function literalEscape(s) {
     return s
       .replace(/\\/g, "\\\\")
-      .replace(/"/g, '\\"')
+      .replace(/"/g,  "\\\"")
       .replace(/\0/g, "\\0")
       .replace(/\t/g, "\\t")
       .replace(/\n/g, "\\n")
       .replace(/\r/g, "\\r")
-      .replace(/[\x00-\x0F]/g, function(ch) {
-        return "\\x0" + hex(ch);
-      })
-      .replace(/[\x10-\x1F\x7F-\x9F]/g, function(ch) {
-        return "\\x" + hex(ch);
-      });
+      .replace(/[\x00-\x0F]/g,          function(ch) { return "\\x0" + hex(ch); })
+      .replace(/[\x10-\x1F\x7F-\x9F]/g, function(ch) { return "\\x"  + hex(ch); });
   }
 
   function classEscape(s) {
@@ -79,17 +72,13 @@ peg$SyntaxError.buildMessage = function(expected, found, location) {
       .replace(/\\/g, "\\\\")
       .replace(/\]/g, "\\]")
       .replace(/\^/g, "\\^")
-      .replace(/-/g, "\\-")
+      .replace(/-/g,  "\\-")
       .replace(/\0/g, "\\0")
       .replace(/\t/g, "\\t")
       .replace(/\n/g, "\\n")
       .replace(/\r/g, "\\r")
-      .replace(/[\x00-\x0F]/g, function(ch) {
-        return "\\x0" + hex(ch);
-      })
-      .replace(/[\x10-\x1F\x7F-\x9F]/g, function(ch) {
-        return "\\x" + hex(ch);
-      });
+      .replace(/[\x00-\x0F]/g,          function(ch) { return "\\x0" + hex(ch); })
+      .replace(/[\x10-\x1F\x7F-\x9F]/g, function(ch) { return "\\x"  + hex(ch); });
   }
 
   function describeExpectation(expectation) {
@@ -120,25 +109,17 @@ peg$SyntaxError.buildMessage = function(expected, found, location) {
         return descriptions[0] + " or " + descriptions[1];
 
       default:
-        return (
-          descriptions.slice(0, -1).join(", ") +
-          ", or " +
-          descriptions[descriptions.length - 1]
-        );
+        return descriptions.slice(0, -1).join(", ")
+          + ", or "
+          + descriptions[descriptions.length - 1];
     }
   }
 
   function describeFound(found) {
-    return found ? '"' + literalEscape(found) + '"' : "end of input";
+    return found ? "\"" + literalEscape(found) + "\"" : "end of input";
   }
 
-  return (
-    "Expected " +
-    describeExpected(expected) +
-    " but " +
-    describeFound(found) +
-    " found."
-  );
+  return "Expected " + describeExpected(expected) + " but " + describeFound(found) + " found.";
 };
 
 function peg$parse(input, options) {
@@ -204,207 +185,83 @@ function peg$parse(input, options) {
   var peg$e14 = peg$otherExpectation("(multiple line whitespace)");
   var peg$e15 = peg$otherExpectation("(comment)");
 
-  var peg$f0 = function(questions) {
-    return questions;
-  };
-  var peg$f1 = function(cat) {
-    return { type: "Category", title: cat };
-  };
-  var peg$f2 = function(title, text) {
-    resetLastQuestionTextFormat();
-    return {
-      type: "Description",
-      title: title,
-      stem: text,
-      hasEmbeddedAnswers: false
-    };
-  };
+  var peg$f0 = function(questions) { return questions; };
+  var peg$f1 = function(cat) {return {type:"Category", title:cat}};
+  var peg$f2 = function(title, text) { resetLastQuestionTextFormat(); return {type:"Description", title:title, stem:text, hasEmbeddedAnswers:false} };
   var peg$f3 = function(title, stem1, answers, stem2) {
-    var embedded = stem2 != null;
+      
+      var embedded = (stem2 !== null);    
+      var stem1Text = stem1 ? (stem1.text + (embedded ? " " : "")) : "";
 
-    //avoids throwing errors from empty keys
-    //Source: https://css-tricks.com/%E2%80%8B%E2%80%8Bavoiding-those-dang-cannot-read-property-of-undefined-errors/
-    var stem1Format = stem1 && stem1.format;
-    var stem1Text = stem1 && stem1.text;
-    var stem2Format = stem2 && stem2.format;
-    var stem2Text = stem2 && stem2.text;
-
-    var format = stem1Format || stem2Format || "moodle";
-    var text = stem1Text || "";
-    var space = stem1Text ? " " : "";
-
-    var stem = {
-      format: format,
-      text: text + (embedded ? space + "_____ " + stem2.text : "")
+      var format = (stem1 && stem1.format) || (stem2 && stem2.format) || "moodle";
+      var text = stem1Text + ( embedded ? "_____ " + stem2.text : "");
+      
+      var question = {type:answers.type, title:title, stem: {format: format, text: text}, hasEmbeddedAnswers:embedded};
+      question = processAnswers(question, answers);
+      resetLastQuestionTextFormat();
+      return question;
     };
-    var question = {
-      type: answers.type,
-      title: title,
-      stem: stem,
-      hasEmbeddedAnswers: stem2 != null
-    };
-    question = processAnswers(question, answers);
-    resetLastQuestionTextFormat();
-    return question;
-  };
-  var peg$f4 = function(matchPairs, globalFeedback) {
-    return {
-      type: "Matching",
-      matchPairs: matchPairs,
-      globalFeedback: globalFeedback
-    };
-  };
-  var peg$f5 = function(matchPairs) {
-    return matchPairs;
-  };
-  var peg$f6 = function(left, right) {
-    var matchPair = {
-      subquestion: {
-        format: left !== null ? left.format : getLastQuestionTextFormat(),
-        text: left !== null ? left.text : ""
-      },
-      subanswer: right
-    };
-    return matchPair;
-  };
-  var peg$f7 = function(isTrue, feedback, globalFeedback) {
-    return {
-      type: "TF",
-      isTrue: isTrue,
-      feedback: feedback,
-      globalFeedback: globalFeedback
-    };
-  };
-  var peg$f8 = function(isTrue) {
-    return isTrue;
-  };
-  var peg$f9 = function() {
-    return true;
-  };
-  var peg$f10 = function() {
-    return false;
-  };
-  var peg$f11 = function(choices, globalFeedback) {
-    return { type: "MC", choices: choices, globalFeedback: globalFeedback };
-  };
-  var peg$f12 = function(choices) {
-    return choices;
-  };
-  var peg$f13 = function(choice, feedback) {
-    var wt = choice[2];
-    var txt = choice[4];
-    var choice = {
-      isCorrect: choice[0] == "=",
-      weight: wt,
-      text: txt,
-      feedback: feedback
-    };
-    return choice;
-  };
-  var peg$f14 = function(percent) {
-    return makeInteger(percent);
-  };
-  var peg$f15 = function() {
-    return text();
-  };
-  var peg$f16 = function(feedback) {
-    return feedback;
-  };
-  var peg$f17 = function(globalFeedback) {
-    return { type: "Essay", globalFeedback: globalFeedback };
-  };
-  var peg$f18 = function(answer, feedback, globalFeedback) {
-    var choices = [];
-    choices.push({
-      isCorrect: true,
-      text: answer,
-      feedback: feedback,
-      weight: null
-    });
-    return { type: "Short", choices: choices, globalFeedback: globalFeedback };
-  };
-  var peg$f19 = function(numericalAnswers, globalFeedback) {
-    return {
-      type: "Numerical",
-      choices: numericalAnswers,
-      globalFeedback: globalFeedback
-    };
-  };
-  var peg$f20 = function(choice, feedback) {
-    var symbol = choice[0];
-    var wt = choice[1];
-    var txt = choice[2];
-    var choice = {
-      isCorrect: symbol == "=",
-      weight: wt,
-      text:
-        txt !== null ? txt : { format: getLastQuestionTextFormat(), text: "*" }, // Moodle unit tests show this, not in documentation
-      feedback: feedback
-    };
-    return choice;
-  };
-  var peg$f21 = function(number, range) {
-    var numericAnswer = { type: "range", number: number, range: range };
-    return numericAnswer;
-  };
-  var peg$f22 = function(numberLow, numberHigh) {
-    var numericAnswer = {
-      type: "high-low",
-      numberHigh: numberHigh,
-      numberLow: numberLow
-    };
-    return numericAnswer;
-  };
-  var peg$f23 = function(number) {
-    var numericAnswer = { type: "simple", number: number };
-    return numericAnswer;
-  };
-  var peg$f24 = function(title) {
-    return title.join("");
-  };
-  var peg$f25 = function(stem) {
-    setLastQuestionTextFormat(stem.format); // save format for question, for default of other non-formatted text
-    return stem;
-  };
-  var peg$f26 = function(t) {
-    return t;
-  };
-  var peg$f27 = function(format) {
-    return format;
-  };
-  var peg$f28 = function(sequence) {
-    return sequence;
-  };
-  var peg$f29 = function() {
-    return text();
-  };
-  var peg$f30 = function(format, txt) {
-    return {
-      format: format !== null ? format : getLastQuestionTextFormat(),
-      text:
-        format !== "html"
-          ? removeNewLinesDuplicateSpaces(txt.join("").trim())
-          : txt.join("").replace(/\r\n/g, "\n")
-    };
-  };
-  var peg$f31 = function(txt) {
-    return removeNewLinesDuplicateSpaces(txt.join("").trim());
-  };
-  var peg$f32 = function(chars, frac) {
-    return parseFloat(chars.join("") + frac);
-  };
-  var peg$f33 = function(chars) {
-    return "." + chars.join("");
-  };
-  var peg$f34 = function(rt) {
-    return rt;
-  };
-  var peg$f35 = function() {
-    return null;
-  };
-  var peg$f36 = function() {
-    return "EOF";
-  };
+  var peg$f4 = function(matchPairs, globalFeedback) { return { type: "Matching", matchPairs:matchPairs, globalFeedback:globalFeedback }; };
+  var peg$f5 = function(matchPairs) { return matchPairs };
+  var peg$f6 = function(left, right) { var matchPair = { 
+          subquestion:{
+            format:(left !== null ? left.format : getLastQuestionTextFormat()), 
+            text:(left !== null ? left.text : "")
+          }, 
+          subanswer:right}; 
+          return matchPair };
+  var peg$f7 = function(isTrue, feedback, globalFeedback) { return { type:"TF", isTrue: isTrue, feedback:feedback, globalFeedback:globalFeedback}; };
+  var peg$f8 = function(isTrue) { return isTrue };
+  var peg$f9 = function() {return true};
+  var peg$f10 = function() {return false};
+  var peg$f11 = function(choices, globalFeedback) { return { type: "MC", choices:choices, globalFeedback:globalFeedback}; };
+  var peg$f12 = function(choices) { return choices; };
+  var peg$f13 = function(choice, feedback) { var wt = choice[2];
+        var txt = choice[4];
+        var choice = { isCorrect: (choice[0] == '='), 
+                       weight:wt, 
+                       text: txt,
+                       feedback:feedback };
+        return choice };
+  var peg$f14 = function(percent) { return makeInteger(percent) };
+  var peg$f15 = function() { return text() };
+  var peg$f16 = function(feedback) { return feedback };
+  var peg$f17 = function(globalFeedback) { return { type: "Essay", globalFeedback:globalFeedback}; };
+  var peg$f18 = function(answer, feedback, globalFeedback) { var choices = [];
+      choices.push({isCorrect:true, text:answer, feedback:feedback, weight:null});
+      return { type: "Short", choices:choices, globalFeedback:globalFeedback}; };
+  var peg$f19 = function(numericalAnswers, globalFeedback) { return { type:"Numerical", 
+               choices:numericalAnswers, 
+               globalFeedback:globalFeedback}; };
+  var peg$f20 = function(choice, feedback) { var symbol = choice[0];
+        var wt = choice[1];
+        var txt = choice[2];
+        var choice = { isCorrect:(symbol == '='), 
+                       weight:wt, 
+                       text: (txt !== null ? txt : {format:getLastQuestionTextFormat(), text:'*'}), // Moodle unit tests show this, not in documentation
+                       feedback: feedback }; 
+        return choice };
+  var peg$f21 = function(number, range) { var numericAnswer = {type: 'range', number: number, range:range}; return numericAnswer};
+  var peg$f22 = function(numberLow, numberHigh) { var numericAnswer = {type: 'high-low', numberHigh: numberHigh, numberLow:numberLow}; return numericAnswer};
+  var peg$f23 = function(number) { var numericAnswer = {type: 'simple', number: number}; return numericAnswer};
+  var peg$f24 = function(title) { return title.join('') };
+  var peg$f25 = function(stem) { setLastQuestionTextFormat(stem.format); // save format for question, for default of other non-formatted text
+        return stem };
+  var peg$f26 = function(t) {return t};
+  var peg$f27 = function(format) {return format};
+  var peg$f28 = function(sequence) { return sequence };
+  var peg$f29 = function() {return text()};
+  var peg$f30 = function(format, txt) { return {
+        format:(format!==null ? format : getLastQuestionTextFormat()), 
+        text:((format !== "html") 
+            ? removeNewLinesDuplicateSpaces(txt.join('').trim())
+            : txt.join('').replace(/\r\n/g,'\n'))}};
+  var peg$f31 = function(txt) { return removeNewLinesDuplicateSpaces(txt.join('').trim())};
+  var peg$f32 = function(chars, frac) { return parseFloat(chars.join('') + frac); };
+  var peg$f33 = function(chars) { return "." + chars.join(''); };
+  var peg$f34 = function(rt) {return rt;};
+  var peg$f35 = function() {return null};
+  var peg$f36 = function() { return "EOF"; };
 
   var peg$currPos = 0;
   var peg$savedPos = 0;
@@ -416,9 +273,7 @@ function peg$parse(input, options) {
 
   if ("startRule" in options) {
     if (!(options.startRule in peg$startRuleFunctions)) {
-      throw new Error(
-        "Can't start parsing from rule \"" + options.startRule + '".'
-      );
+      throw new Error("Can't start parsing from rule \"" + options.startRule + "\".");
     }
 
     peg$startRuleFunction = peg$startRuleFunctions[options.startRule];
@@ -441,10 +296,9 @@ function peg$parse(input, options) {
   }
 
   function expected(description, location) {
-    location =
-      location !== undefined
-        ? location
-        : peg$computeLocation(peg$savedPos, peg$currPos);
+    location = location !== undefined
+      ? location
+      : peg$computeLocation(peg$savedPos, peg$currPos);
 
     return peg$buildStructuredError(
       [peg$otherExpectation(description)],
@@ -454,10 +308,9 @@ function peg$parse(input, options) {
   }
 
   function error(message, location) {
-    location =
-      location !== undefined
-        ? location
-        : peg$computeLocation(peg$savedPos, peg$currPos);
+    location = location !== undefined
+      ? location
+      : peg$computeLocation(peg$savedPos, peg$currPos);
 
     return peg$buildSimpleError(message, location);
   }
@@ -467,12 +320,7 @@ function peg$parse(input, options) {
   }
 
   function peg$classExpectation(parts, inverted, ignoreCase) {
-    return {
-      type: "class",
-      parts: parts,
-      inverted: inverted,
-      ignoreCase: ignoreCase
-    };
+    return { type: "class", parts: parts, inverted: inverted, ignoreCase: ignoreCase };
   }
 
   function peg$anyExpectation() {
@@ -522,12 +370,11 @@ function peg$parse(input, options) {
     }
   }
 
-  var peg$VALIDFILENAME =
-    typeof options.filename === "string" && options.filename.length > 0;
+  var peg$VALIDFILENAME = typeof options.filename === "string" && options.filename.length > 0;
   function peg$computeLocation(startPos, endPos) {
     var loc = {};
 
-    if (peg$VALIDFILENAME) loc.filename = options.filename;
+    if ( peg$VALIDFILENAME ) loc.filename = options.filename;
 
     var startPosDetails = peg$computePosDetails(startPos);
     loc.start = {
@@ -553,9 +400,7 @@ function peg$parse(input, options) {
   function peg$expect(expected) {
     var top = peg$expected[peg$expected.length - 1];
 
-    if (peg$currPos < top.pos) {
-      return;
-    }
+    if (peg$currPos < top.pos) { return; }
 
     if (peg$currPos > top.pos) {
       top.pos = peg$currPos;
@@ -570,9 +415,7 @@ function peg$parse(input, options) {
     var top = peg$expected[peg$expected.length - 1];
     var variants = expected.variants;
 
-    if (top.pos !== expected.pos) {
-      return;
-    }
+    if (top.pos !== expected.pos) { return; }
 
     if (invert) {
       variants = variants.map(function(e) {
@@ -612,9 +455,9 @@ function peg$parse(input, options) {
   function peg$parseGIFTQuestions() {
     var s0, s1, s2, s3;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = [];
@@ -655,9 +498,9 @@ function peg$parse(input, options) {
   function peg$parseCategory() {
     var s0, s1, s2, s3, s4, s5, s6;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e0);
     peg$silentFails++;
@@ -708,9 +551,9 @@ function peg$parse(input, options) {
   function peg$parseDescription() {
     var s0, s1, s2, s3, s4, s5;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e1);
     peg$silentFails++;
@@ -743,9 +586,9 @@ function peg$parse(input, options) {
   function peg$parseQuestion() {
     var s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$parse__();
@@ -803,10 +646,8 @@ function peg$parse(input, options) {
             s12 = null;
           }
           s13 = peg$parseQuestionSeparator();
-
           if (s13 !== peg$FAILED) {
             peg$savedPos = s0;
-
             s0 = peg$f3(s2, s4, s8, s12);
           } else {
             peg$currPos = s0;
@@ -824,15 +665,16 @@ function peg$parse(input, options) {
       peg$currPos = s0;
       s0 = peg$FAILED;
     }
+
     return s0;
   }
 
   function peg$parseMatchingAnswers() {
     var s0, s1, s2, s3, s4;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e4);
     peg$silentFails++;
@@ -859,9 +701,9 @@ function peg$parse(input, options) {
   function peg$parseMatches() {
     var s0, s1, s2;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = [];
@@ -886,9 +728,9 @@ function peg$parse(input, options) {
   function peg$parseMatch() {
     var s0, s1, s2, s3, s4, s5, s6, s7, s8, s9;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$parse_();
@@ -900,7 +742,7 @@ function peg$parse(input, options) {
     }
     if (s2 !== peg$FAILED) {
       s3 = peg$parse_();
-      s4 = peg$parseRichText();
+      s4 = peg$parseMatchRichText();
       if (s4 === peg$FAILED) {
         s4 = null;
       }
@@ -937,9 +779,9 @@ function peg$parse(input, options) {
   function peg$parseTrueFalseAnswer() {
     var s0, s1, s2, s3, s4, s5, s6;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e5);
     peg$silentFails++;
@@ -978,9 +820,9 @@ function peg$parse(input, options) {
   function peg$parseTrueOrFalseType() {
     var s0, s1;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$parseTrueType();
@@ -999,9 +841,9 @@ function peg$parse(input, options) {
   function peg$parseTrueType() {
     var s0, s1;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     if (input.substr(peg$currPos, 4).toLowerCase() === peg$c6) {
@@ -1030,9 +872,9 @@ function peg$parse(input, options) {
   function peg$parseFalseType() {
     var s0, s1;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     if (input.substr(peg$currPos, 5).toLowerCase() === peg$c8) {
@@ -1061,9 +903,9 @@ function peg$parse(input, options) {
   function peg$parseMCAnswers() {
     var s0, s1, s2, s3, s4;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e6);
     peg$silentFails++;
@@ -1090,9 +932,9 @@ function peg$parse(input, options) {
   function peg$parseChoices() {
     var s0, s1, s2;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = [];
@@ -1117,9 +959,9 @@ function peg$parse(input, options) {
   function peg$parseChoice() {
     var s0, s1, s2, s3, s4, s5, s6, s7;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$parse_();
@@ -1168,9 +1010,9 @@ function peg$parse(input, options) {
   function peg$parseWeight() {
     var s0, s1, s2, s3, s4;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     if (input.charCodeAt(peg$currPos) === 37) {
@@ -1227,9 +1069,9 @@ function peg$parse(input, options) {
   function peg$parsePercentValue() {
     var s0, s1, s2;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     if (input.substr(peg$currPos, 3) === peg$c11) {
       s0 = peg$c11;
@@ -1269,9 +1111,9 @@ function peg$parse(input, options) {
   function peg$parseFeedback() {
     var s0, s1, s2, s3, s4;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     if (input.charCodeAt(peg$currPos) === 35) {
@@ -1319,14 +1161,14 @@ function peg$parse(input, options) {
   function peg$parseEssayAnswer() {
     var s0, s1, s2, s3, s4;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e7);
     peg$silentFails++;
     s0 = peg$currPos;
-    s1 = "";
+    s1 = '';
     s2 = peg$parse_();
     s3 = peg$parseGlobalFeedback();
     if (s3 === peg$FAILED) {
@@ -1343,9 +1185,9 @@ function peg$parse(input, options) {
   function peg$parseSingleCorrectShortAnswer() {
     var s0, s1, s2, s3, s4, s5, s6;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e8);
     peg$silentFails++;
@@ -1377,9 +1219,9 @@ function peg$parse(input, options) {
   function peg$parseNumericalAnswerType() {
     var s0, s1, s2, s3, s4, s5;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e9);
     peg$silentFails++;
@@ -1417,9 +1259,9 @@ function peg$parse(input, options) {
   function peg$parseNumericalAnswers() {
     var s0;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$parseMultipleNumericalChoices();
     if (s0 === peg$FAILED) {
@@ -1432,9 +1274,9 @@ function peg$parse(input, options) {
   function peg$parseMultipleNumericalChoices() {
     var s0, s1, s2;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = [];
@@ -1459,9 +1301,9 @@ function peg$parse(input, options) {
   function peg$parseNumericalChoice() {
     var s0, s1, s2, s3, s4, s5;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$parse_();
@@ -1507,9 +1349,9 @@ function peg$parse(input, options) {
   function peg$parseSingleNumericalAnswer() {
     var s0;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$parseNumberWithRange();
     if (s0 === peg$FAILED) {
@@ -1525,9 +1367,9 @@ function peg$parse(input, options) {
   function peg$parseNumberWithRange() {
     var s0, s1, s2, s3;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$parseNumber();
@@ -1562,9 +1404,9 @@ function peg$parse(input, options) {
   function peg$parseNumberHighLow() {
     var s0, s1, s2, s3;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$parseNumber();
@@ -1599,9 +1441,9 @@ function peg$parse(input, options) {
   function peg$parseNumberAlone() {
     var s0, s1;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$parseNumber();
@@ -1617,9 +1459,9 @@ function peg$parse(input, options) {
   function peg$parseQuestionTitle() {
     var s0, s1, s2, s3;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e10);
     peg$silentFails++;
@@ -1671,9 +1513,9 @@ function peg$parse(input, options) {
   function peg$parseQuestionStem() {
     var s0, s1;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e11);
     peg$silentFails++;
@@ -1692,9 +1534,9 @@ function peg$parse(input, options) {
   function peg$parseQuestionSeparator() {
     var s0, s1, s2, s3;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e12);
     peg$silentFails++;
@@ -1745,9 +1587,9 @@ function peg$parse(input, options) {
   function peg$parseBlankLine() {
     var s0, s1, s2;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = [];
@@ -1771,9 +1613,9 @@ function peg$parse(input, options) {
   function peg$parseTitleText() {
     var s0, s1, s2;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$currPos;
@@ -1792,7 +1634,10 @@ function peg$parse(input, options) {
       s1 = peg$FAILED;
     }
     if (s1 !== peg$FAILED) {
-      s2 = peg$parseUnescapedChar();
+      s2 = peg$parseEscapeSequence();
+      if (s2 === peg$FAILED) {
+        s2 = peg$parseUnescapedChar();
+      }
       if (s2 !== peg$FAILED) {
         peg$savedPos = s0;
         s0 = peg$f26(s2);
@@ -1811,11 +1656,29 @@ function peg$parse(input, options) {
   function peg$parseTextChar() {
     var s0;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$parseUnescapedChar();
+    if (s0 === peg$FAILED) {
+      s0 = peg$parseEscapeSequence();
+      if (s0 === peg$FAILED) {
+        s0 = peg$parseEscapeChar();
+      }
+    }
+
+    return s0;
+  }
+
+  function peg$parseMatchTextChar() {
+    var s0;
+
+    var rule$expects = function (expected) {
+      if (peg$silentFails === 0) peg$expect(expected);
+    }
+
+    s0 = peg$parseUnescapedMatchChar();
     if (s0 === peg$FAILED) {
       s0 = peg$parseEscapeSequence();
       if (s0 === peg$FAILED) {
@@ -1829,9 +1692,9 @@ function peg$parse(input, options) {
   function peg$parseFormat() {
     var s0, s1, s2, s3;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     if (input.charCodeAt(peg$currPos) === 91) {
@@ -1900,9 +1763,9 @@ function peg$parse(input, options) {
   function peg$parseEscapeChar() {
     var s0;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     if (input.charCodeAt(peg$currPos) === 92) {
       s0 = peg$c23;
@@ -1917,9 +1780,9 @@ function peg$parse(input, options) {
   function peg$parseEscapeSequence() {
     var s0, s1, s2;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$parseEscapeChar();
@@ -2007,9 +1870,9 @@ function peg$parse(input, options) {
   function peg$parseUnescapedChar() {
     var s0, s1, s2;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$currPos;
@@ -2050,12 +1913,66 @@ function peg$parse(input, options) {
     return s0;
   }
 
+  function peg$parseUnescapedMatchChar() {
+    var s0, s1, s2;
+
+    var rule$expects = function (expected) {
+      if (peg$silentFails === 0) peg$expect(expected);
+    }
+
+    s0 = peg$currPos;
+    s1 = peg$currPos;
+    peg$begin();
+    s2 = peg$parseEscapeSequence();
+    if (s2 === peg$FAILED) {
+      s2 = peg$parseControlChar();
+      if (s2 === peg$FAILED) {
+        if (input.substr(peg$currPos, 2) === peg$c5) {
+          s2 = peg$c5;
+          peg$currPos += 2;
+        } else {
+          s2 = peg$FAILED;
+        }
+        if (s2 === peg$FAILED) {
+          s2 = peg$parseQuestionSeparator();
+        }
+      }
+    }
+    peg$end(true);
+    if (s2 === peg$FAILED) {
+      s1 = undefined;
+    } else {
+      peg$currPos = s1;
+      s1 = peg$FAILED;
+    }
+    if (s1 !== peg$FAILED) {
+      if (input.length > peg$currPos) {
+        s2 = input.charAt(peg$currPos);
+        peg$currPos++;
+      } else {
+        s2 = peg$FAILED;
+      }
+      if (s2 !== peg$FAILED) {
+        peg$savedPos = s0;
+        s0 = peg$f29();
+      } else {
+        peg$currPos = s0;
+        s0 = peg$FAILED;
+      }
+    } else {
+      peg$currPos = s0;
+      s0 = peg$FAILED;
+    }
+
+    return s0;
+  }
+
   function peg$parseControlChar() {
     var s0;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     if (input.charCodeAt(peg$currPos) === 61) {
       s0 = peg$c4;
@@ -2099,19 +2016,11 @@ function peg$parse(input, options) {
                 s0 = peg$FAILED;
               }
               if (s0 === peg$FAILED) {
-                if (input.substr(peg$currPos, 2) === peg$c5) {
-                  s0 = peg$c5;
-                  peg$currPos += 2;
+                if (input.charCodeAt(peg$currPos) === 58) {
+                  s0 = peg$c14;
+                  peg$currPos++;
                 } else {
                   s0 = peg$FAILED;
-                }
-                if (s0 === peg$FAILED) {
-                  if (input.charCodeAt(peg$currPos) === 58) {
-                    s0 = peg$c14;
-                    peg$currPos++;
-                  } else {
-                    s0 = peg$FAILED;
-                  }
                 }
               }
             }
@@ -2123,12 +2032,46 @@ function peg$parse(input, options) {
     return s0;
   }
 
+  function peg$parseMatchRichText() {
+    var s0, s1, s2, s3, s4;
+
+    var rule$expects = function (expected) {
+      if (peg$silentFails === 0) peg$expect(expected);
+    }
+
+    s0 = peg$currPos;
+    s1 = peg$parseFormat();
+    if (s1 === peg$FAILED) {
+      s1 = null;
+    }
+    s2 = peg$parse_();
+    s3 = [];
+    s4 = peg$parseMatchTextChar();
+    if (s4 !== peg$FAILED) {
+      while (s4 !== peg$FAILED) {
+        s3.push(s4);
+        s4 = peg$parseMatchTextChar();
+      }
+    } else {
+      s3 = peg$FAILED;
+    }
+    if (s3 !== peg$FAILED) {
+      peg$savedPos = s0;
+      s0 = peg$f30(s1, s3);
+    } else {
+      peg$currPos = s0;
+      s0 = peg$FAILED;
+    }
+
+    return s0;
+  }
+
   function peg$parseRichText() {
     var s0, s1, s2, s3, s4;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$parseFormat();
@@ -2160,9 +2103,9 @@ function peg$parse(input, options) {
   function peg$parsePlainText() {
     var s0, s1, s2;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = [];
@@ -2187,9 +2130,9 @@ function peg$parse(input, options) {
   function peg$parseNumber() {
     var s0, s1, s2;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = [];
@@ -2230,9 +2173,9 @@ function peg$parse(input, options) {
   function peg$parseNumberFraction() {
     var s0, s1, s2, s3, s4;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     if (input.charCodeAt(peg$currPos) === 46) {
@@ -2291,9 +2234,9 @@ function peg$parse(input, options) {
   function peg$parseGlobalFeedback() {
     var s0, s1, s2, s3, s4;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     if (input.substr(peg$currPos, 4) === peg$c26) {
@@ -2324,9 +2267,9 @@ function peg$parse(input, options) {
   function peg$parse_() {
     var s0, s1, s2, s3, s4;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e13);
     peg$silentFails++;
@@ -2396,9 +2339,9 @@ function peg$parse(input, options) {
   function peg$parse__() {
     var s0, s1;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e14);
     peg$silentFails++;
@@ -2428,9 +2371,9 @@ function peg$parse(input, options) {
   function peg$parseComment() {
     var s0, s1, s2, s3, s4, s5;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     rule$expects(peg$e15);
     peg$silentFails++;
@@ -2536,9 +2479,9 @@ function peg$parse(input, options) {
   function peg$parseSpace() {
     var s0;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     if (input.charCodeAt(peg$currPos) === 32) {
       s0 = peg$c28;
@@ -2561,9 +2504,9 @@ function peg$parse(input, options) {
   function peg$parseEndOfLine() {
     var s0;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     if (input.substr(peg$currPos, 2) === peg$c30) {
       s0 = peg$c30;
@@ -2594,9 +2537,9 @@ function peg$parse(input, options) {
   function peg$parseEndOfFile() {
     var s0, s1, s2;
 
-    var rule$expects = function(expected) {
+    var rule$expects = function (expected) {
       if (peg$silentFails === 0) peg$expect(expected);
-    };
+    }
 
     s0 = peg$currPos;
     s1 = peg$currPos;
@@ -2623,70 +2566,75 @@ function peg$parse(input, options) {
     return s0;
   }
 
-  var defaultFormat = "moodle"; // default format - the GIFT specs say [moodle] is default, but not sure what that means for other applications
-  var format = defaultFormat;
-  function makeInteger(o) {
-    return parseInt(o.join(""), 10);
-  }
-  function processAnswers(question, answers) {
-    question.globalFeedback = answers.globalFeedback;
-    switch (question.type) {
-      case "TF":
-        question.isTrue = answers.isTrue;
-        question.incorrectFeedback = answers.feedback[1];
-        question.correctFeedback = answers.feedback[2];
-        break;
-      case "MC":
-      case "Numerical":
-      case "Short":
-        question.choices = answers.choices;
-        break;
-      case "Matching":
-        question.matchPairs = answers.matchPairs;
-        break;
+
+    var defaultFormat = "moodle"; // default format - the GIFT specs say [moodle] is default, but not sure what that means for other applications
+    var format = defaultFormat;
+    function makeInteger(o) {
+      return parseInt(o.join(""), 10);
     }
-    // check for MC that's actually a short answer (all correct answers)
-    if (question.type == "MC" && areAllCorrect(question.choices)) {
-      question.type = "Short";
+    function processAnswers(question, answers) {
+      question.globalFeedback = answers.globalFeedback;
+      switch(question.type) {
+        case "TF":
+          question.isTrue = answers.isTrue;
+          question.incorrectFeedback = answers.feedback[1];
+          question.correctFeedback = answers.feedback[2];
+          break;
+        case "MC":
+        case "Numerical":
+        case "Short":
+          question.choices = answers.choices;
+          break;
+        case "Matching":
+          question.matchPairs = answers.matchPairs;
+          break;
+      }
+      // check for MC that's actually a short answer (all correct answers)
+      if (question.type == "MC" && areAllCorrect(question.choices)) {
+        question.type = "Short";
+      } 
+      return question;
     }
-    return question;
-  }
-  function areAllCorrect(choices) {
-    var allAreCorrect = true;
-    for (var i = 0; i < choices.length; i++) {
-      allAreCorrect &= choices[i].isCorrect;
+    function areAllCorrect(choices) {
+      var allAreCorrect = true;
+      for (var i = 0; i < choices.length; i++) {
+        allAreCorrect &= choices[i].isCorrect;
+      }
+      return allAreCorrect;
     }
-    return allAreCorrect;
-  }
-  function removeNewLinesDuplicateSpaces(text) {
-    text = text.replace(/[\n\r]/g, " "); // replace newlines with spaces
-    return text.replace(/\s\s+/g, " ");
-  }
-  function setLastQuestionTextFormat(fmt) {
-    format = fmt;
-  }
-  function getLastQuestionTextFormat() {
-    return format;
-  }
-  function resetLastQuestionTextFormat() {
-    format = defaultFormat;
-  }
+    function removeNewLinesDuplicateSpaces(text) {
+      text = text.replace(/[\n\r]/g,' '); // replace newlines with spaces
+      return text.replace(/\s\s+/g,' '); 
+    }
+    function setLastQuestionTextFormat(fmt) {
+      format = fmt;
+    }
+    function getLastQuestionTextFormat() {
+      return format;
+    }
+    function resetLastQuestionTextFormat() {
+      format = defaultFormat;
+    }
+
 
   peg$begin();
   peg$result = peg$startRuleFunction();
 
   if (peg$result !== peg$FAILED && peg$currPos === input.length) {
-    //return peg$result;
+    return { type: "result", result: peg$result };
   } else {
     if (peg$result !== peg$FAILED && peg$currPos < input.length) {
       peg$expect(peg$endExpectation());
     }
 
-    return peg$buildError();
+    return { type: "error", result: peg$buildError() };
   }
 }
 
-export { peg$SyntaxError as SyntaxError, peg$parse as parse };
+export {
+  peg$SyntaxError as SyntaxError,
+  peg$parse as parse
+};
 
 export default {
   SyntaxError: peg$SyntaxError,

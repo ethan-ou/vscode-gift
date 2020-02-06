@@ -14,9 +14,9 @@ function validate(text, options) {
     if (!options) options = createOptions();
 
     const validation = parser.parse(text);
-    if (!validation) return;
+    if (validation.type !== "error") return;
 
-    const newError = processError(validation, options);
+    const newError = processError(validation.result, options);
     output.push(newError);
 
     const newLine = findNextLine(text, newError, options);
