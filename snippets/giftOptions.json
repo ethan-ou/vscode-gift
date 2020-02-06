@@ -610,7 +610,7 @@
         ]
     },
     "shortAnswerQuestionTitleFeedbackLong": {
-        "prefix": "short answer question feedback title",
+        "prefix": "short answer question title feedback",
         "description": "Short answer question with one correct answer and a title.",
         "body": "::${1:Title}:: ${2:Question} { =${3:Answer} #${4:Feedback} }"
     },
@@ -670,40 +670,194 @@
             "}"
         ]
     },
+    "missingWordQuestionFeedbackLong": {
+        "prefix": "missing word question feedback",
+        "description": "Missing word question with three options and feedback.",
+        "body": [
+            "${1:Sentence Start} {",
+            "\t=${2:Correct Answer} #${3:Feedback}",
+            "\t~${4:Incorrect Answer 1} #${5:Feedback}",
+            "\t~${6:Incorrect Answer 2} #${7:Feedback}",
+            "} ${8:Sentence End}"
+        ]
+    },
+    "missingWordQuestionFeedback": {
+        "prefix": "mwqf",
+        "description": "Missing word question with three options and feedback.",
+        "body": [
+            "${1:Sentence Start} {",
+            "\t=${2:Correct Answer} #${3:Feedback}",
+            "\t~${4:Incorrect Answer 1} #${5:Feedback}",
+            "\t~${6:Incorrect Answer 2} #${7:Feedback}",
+            "} ${8:Sentence End}"
+        ]
+    },
+    "missingWord1Feedback": {
+        "prefix": "mw1f",
+        "description": "Missing word with two options and feedback.",
+        "body": [
+            "${1:Start} {",
+            "\t=${2:Correct} #${3:Feedback}",
+            "} ${4:End}"
+        ]
+    },
+    "missingWord2Feedback": {
+        "prefix": "mw2f",
+        "description": "Missing word with two options and feedback.",
+        "body": [
+            "${1:Start} {",
+            "\t=${2:Correct} #${3:Feedback}",
+            "\t~${4:Incorrect} #${5:Feedback}",
+            "} ${6:End}"
+        ]
+    },
+    "missingWord3Feedback": {
+        "prefix": "mw3f",
+        "description": "Missing word with three options and feedback.",
+        "body": [
+            "${1:Start} {",
+            "\t=${2:Correct} #${3:Feedback}",
+            "\t~${4:Incorrect} #${5:Feedback}",
+            "\t~${6:Incorrect} #${7:Feedback}",
+            "} ${8:End}"
+        ]
+    },
+    "missingWord4Feedback": {
+        "prefix": "mw4f",
+        "description": "Missing word with four options and feedback.",
+        "body": [
+            "${1:Start} {",
+            "\t=${2:Correct} #${3:Feedback}",
+            "\t~${4:Incorrect} #${5:Feedback}",
+            "\t~${6:Incorrect} #${7:Feedback}",
+            "\t~${8:Incorrect} #${9:Feedback}",
+            "} ${10:End}"
+        ]
+    },
+    "missingWord5Feedback": {
+        "prefix": "mw5f",
+        "description": "Missing word with five options and feedback.",
+        "body": [
+            "${1:Start} {",
+            "\t=${2:Correct} #${3:Feedback}",
+            "\t~${4:Incorrect} #${5:Feedback}",
+            "\t~${6:Incorrect} #${7:Feedback}",
+            "\t~${8:Incorrect} #${9:Feedback}",
+            "\t~${10:Incorrect} #${11:Feedback}",
+            "} ${12:End}"
+        ]
+    },
     "missingWordQuestionTitleLong": {
         "prefix": "missing word question title",
-        "description": "Missing word question with one correct answer and two incorrect answers and a title.",
+        "description": "Missing word question with three options and a title.",
         "body": "::${1:Title}:: ${2:Sentence Start} { =${3:Correct Answer} ~${4:Incorrect Answer 1} ~${5: Incorrect Answer 2}} ${6:Sentence End}" 
     },
     "missingWordQuestionTitle": {
         "prefix": "mwqt",
-        "description": "Missing word question with one correct answer and two incorrect answers and a title.",
+        "description": "Missing word question with three options and a title.",
         "body": "::${1:Title}:: ${2:Sentence Start} { =${3:Correct Answer} ~${4:Incorrect Answer 1} ~${5: Incorrect Answer 2}} ${6:Sentence End}" 
     },
     "missingWord1Title": {
         "prefix": "mw1t",
-        "description": "Short Answer with one correct answer and a title.",
+        "description": "Missing word with one correct answer and a title.",
         "body": "::${1:Title}:: ${2:Start} { =${3:Correct} } ${4:End}"
     },
     "missingWord2Title": {
         "prefix": "mw2t",
-        "description": "Short Answer with one correct answer and one incorrect answer and a title.",
+        "description": "Missing word with two options and a title.",
         "body": "::${1:Title}:: ${2:Start} { =${3:Correct} ~${4:Incorrect} } ${5:End}"
     },
     "missingWord3Title": {
         "prefix": "mw3t",
-        "description": "Short Answer with one correct answer and two incorrect answers and a title.",
+        "description": "Missing word with three options and a title.",
         "body": "::${1:Title}:: ${2:Start} { =${3:Correct} ~${4:Incorrect} ~${5:Incorrect} } ${6:End}"
     },
     "missingWord4Title": {
         "prefix": "mw4t",
-        "description": "Missing word with one correct answer and three incorrect answers and a title.",
+        "description": "Missing word with four options and a title.",
         "body": "::${1:Title}:: ${2:Start} { =${3:Correct} ~${4:Incorrect} ~${5:Incorrect} ~${6:Incorrect} } ${7:End}"
     },
     "missingWord5Title": {
         "prefix": "mw5t",
-        "description": "Missing word with one correct answer and four incorrect answers and a title.",
+        "description": "Missing word with five options and a title.",
         "body": "::${1:Title}:: ${2:Start} { =${3:Correct} ~${4:Incorrect} ~${5:Incorrect} ~${6:Incorrect} ~${7:Incorrect} } ${8:End}"
+    },
+    "missingWordQuestionTitleFeedbackLong": {
+        "prefix": "missing word question title feedback",
+        "description": "Missing word question with one correct answer and two incorrect answers and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Sentence Start} {",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "\t~${7:Incorrect Answer 2} #${8:Feedback}",
+            "} ${9:Sentence End}"
+        ]
+    },
+    "missingWordQuestionTitleFeedback": {
+        "prefix": "mwqtf",
+        "description": "Missing word question with one correct answer and two incorrect answers and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Sentence Start} {",
+            "\t=${3:Correct Answer} #${4:Feedback}",
+            "\t~${5:Incorrect Answer 1} #${6:Feedback}",
+            "\t~${7:Incorrect Answer 2} #${8:Feedback}",
+            "} ${9:Sentence End}"
+        ]
+    },
+    "missingWord1TitleFeedback": {
+        "prefix": "mw1tf",
+        "description": "Short Answer with one correct answer and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Start} {",
+            "\t=${3:Correct} #${4:Feedback}",
+            "} ${5:End}"
+        ]
+    },
+    "missingWord2TitleFeedback": {
+        "prefix": "mw2tf",
+        "description": "Short Answer with one correct answer and one incorrect answer and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Start} {",
+            "\t=${3:Correct} #${4:Feedback}",
+            "\t~${5:Incorrect} #${6:Feedback}",
+            "} ${7:End}"
+        ]
+    },
+    "missingWord3TitleFeedback": {
+        "prefix": "mw3tf",
+        "description": "Short Answer with one correct answer and two incorrect answers and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Start} {",
+            "\t=${3:Correct} #${4:Feedback}",
+            "\t~${5:Incorrect} #${6:Feedback}",
+            "\t~${7:Incorrect} #${8:Feedback}",
+            "} ${9:End}"
+        ]
+    },
+    "missingWord4TitleFeedback": {
+        "prefix": "mw4tf",
+        "description": "Missing word with one correct answer and three incorrect answers and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Start} {",
+            "\t=${3:Correct} #${4:Feedback}",
+            "\t~${5:Incorrect} #${6:Feedback}",
+            "\t~${7:Incorrect} #${8:Feedback}",
+            "\t~${9:Incorrect} #${10:Feedback}",
+            "} ${11:End}"
+        ]
+    },
+    "missingWord5TitleFeedback": {
+        "prefix": "mw5tf",
+        "description": "Missing word with one correct answer and four incorrect answers and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Start} {",
+            "\t=${3:Correct} #${4:Feedback}",
+            "\t~${5:Incorrect} #${6:Feedback}",
+            "\t~${7:Incorrect} #${8:Feedback}",
+            "\t~${9:Incorrect} #${10:Feedback}",
+            "\t~${11:Incorrect} #${12:Feedback}",
+            "} ${13:End}"
+        ]
     },
     "trueFalseQuestionTitleLong": {
         "prefix": "true false question title",
@@ -736,7 +890,7 @@
         "body": "::${1:Title}:: ${2:Question} {${3:TRUE} #${4:Incorrect Feedback} #${5:Correct Feedback}}"
     },
     "essayTitleLong": {
-        "prefix": "essay question with a title",
+        "prefix": "essay question title",
         "description": "Essay question with a title.",
         "body": "::${1:Title}:: ${2:Question} {}"
     },
