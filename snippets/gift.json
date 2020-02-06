@@ -255,12 +255,12 @@
     "missingWordQuestionLong": {
         "prefix": "missing word question",
         "description": "Missing word question with one correct answer and two incorrect answers.",
-        "body": "${1:Sentence Start} { =${2:Correct Answer} ~${3:Incorrect Answer 1} ~${4: Incorrect Answer 2}} ${5:Sentence End}" 
+        "body": "${1:Sentence Start} { =${2:Correct Answer} ~${3:Incorrect Answer 1} ~${4:Incorrect Answer 2}} ${5:Sentence End}" 
     },
     "missingWordQuestion": {
         "prefix": "mwq",
         "description": "Missing word question with one correct answer and two incorrect answers.",
-        "body": "${1:Sentence Start} { =${2:Correct Answer} ~${3:Incorrect Answer 1} ~${4: Incorrect Answer 2}} ${5:Sentence End}" 
+        "body": "${1:Sentence Start} { =${2:Correct Answer} ~${3:Incorrect Answer 1} ~${4:Incorrect Answer 2}} ${5:Sentence End}" 
     },
     "missingWord1": {
         "prefix": "mw1",
