@@ -341,6 +341,5 @@
         "prefix": "title",
         "description": "Question title.",
         "body": "::${1:Title}::"
-    },
     }
 }
