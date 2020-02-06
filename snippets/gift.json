@@ -264,17 +264,17 @@
     },
     "missingWord1": {
         "prefix": "mw1",
-        "description": "Short Answer with one correct answer.",
+        "description": "Missing word with one correct answer.",
         "body": "${1:Start} { =${2:Correct} } ${3:End}"
     },
     "missingWord2": {
         "prefix": "mw2",
-        "description": "Short Answer with one correct answer and one incorrect answer.",
+        "description": "Missing word with one correct answer and one incorrect answer.",
         "body": "${1:Start} { =${2:Correct} ~${3:Incorrect} } ${4:End}"
     },
     "missingWord3": {
         "prefix": "mw3",
-        "description": "Short Answer with one correct answer and two incorrect answers.",
+        "description": "Missing word with one correct answer and two incorrect answers.",
         "body": "${1:Start} { =${2:Correct} ~${3:Incorrect} ~${4:Incorrect} } ${5:End}"
     },
     "missingWord4": {

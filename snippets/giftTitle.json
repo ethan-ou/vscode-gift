@@ -1,0 +1,320 @@
+{
+    "multipleChoiceQuestionTitleLong": {
+        "prefix": "multiple choice question title",
+        "description": "Multiple choice question with four options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "\t~${5:Incorrect Answer 2}",
+            "\t~${6:Incorrect Answer 3}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionTitle": {
+        "prefix": "mcqt",
+        "description": "Multiple choice question with four options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct Answer}",
+            "\t~${4:Incorrect Answer 1}",
+            "\t~${5:Incorrect Answer 2}",
+            "\t~${6:Incorrect Answer 3}",
+            "}"
+        ]
+    },
+    "multipleChoice2Title": {
+        "prefix": "mc2t",
+        "description": "Multiple choice with two options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct}",
+            "\t~${4:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoice3Title": {
+        "prefix": "mc3t",
+        "description": "Multiple choice with three options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct}",
+            "\t~${4:Incorrect}",
+            "\t~${5:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoice4Title": {
+        "prefix": "mc4t",
+        "description": "Multiple choice with four options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct}",
+            "\t~${4:Incorrect}",
+            "\t~${5:Incorrect}",
+            "\t~${6:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoice5Title": {
+        "prefix": "mc5t",
+        "description": "Multiple choice with five options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Correct}",
+            "\t~${4:Incorrect}",
+            "\t~${5:Incorrect}",
+            "\t~${6:Incorrect}",
+            "\t~${6:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionMultipleTitleLong": {
+        "prefix": "multiple choice question multiple title",
+        "description": "Multiple choice, multiple answer question with two correct options, two incorrect options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%50%${3:Correct Option 1}",
+            "\t~%50%${4:Correct Option 2}",
+            "\t~%-100%${5:Incorrect Option 1}",
+            "\t~%-100%${6:Incorrect Option 2}",
+            "}"
+        ]
+    },
+    "multipleChoiceQuestionMultipleTitle": {
+        "prefix": "mcqmt",
+        "description": "Multiple choice, multiple answer question with two correct options, two incorrect options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%50%${3:Correct Option 1}",
+            "\t~%50%${4:Correct Option 2}",
+            "\t~%-100%${5:Incorrect Option 1}",
+            "\t~%-100%${6:Incorrect Option 2}",
+            "}"
+        ]
+    },
+    "multipleChoice2MultipleTitle": {
+        "prefix": "mc2mt",
+        "description": "Multiple choice, multiple answer question with two correct options, two incorrect options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%50%${3:Correct}",
+            "\t~%50%${4:Correct}",
+            "\t~%-100%${5:Incorrect}",
+            "\t~%-100%${6:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoice3MultipleTitle": {
+        "prefix": "mc3mt",
+        "description": "Multiple choice, multiple answer question with three correct options, two incorrect options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%33.33333%${3:Correct}",
+            "\t~%33.33333%${4:Correct}",
+            "\t~%33.33333%${5:Correct}",
+            "\t~%-100%${6:Incorrect}",
+            "\t~%-100%${7:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoice4MultipleTitle": {
+        "prefix": "mc4mt",
+        "description": "Multiple choice, multiple answer question with four correct options, two incorrect options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%25%${3:Correct}",
+            "\t~%25%${4:Correct}",
+            "\t~%25%${5:Correct}",
+            "\t~%25%${6:Correct}",
+            "\t~%-100%${7:Incorrect}",
+            "\t~%-100%${8:Incorrect}",
+            "}"
+        ]
+    },
+    "multipleChoice5MultipleTitle": {
+        "prefix": "mc5mt",
+        "description": "Multiple choice, multiple answer question with five correct options, two incorrect options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t~%20%${3:Correct}",
+            "\t~%20%${4:Correct}",
+            "\t~%20%${5:Correct}",
+            "\t~%20%${6:Correct}",
+            "\t~%20%${7:Correct}",
+            "\t~%-100%${8:Incorrect}",
+            "\t~%-100%${9:Incorrect}",
+            "}"
+        ]
+    },
+    "matchingQuestionTitleLong": {
+        "prefix": "matching question title",
+        "description": "Matching question with four options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item 1} -> ${4:Match 1}",
+            "\t=${5:Item 2} -> ${6:Match 2}",
+            "\t=${7:Item 3} -> ${8:Match 3}",
+            "\t=${9:Item 4} -> ${10:Match 4}",
+            "}"
+        ]
+    },
+    "matchingQuestionTitle": {
+        "prefix": "maqt",
+        "description": "Matching question with four options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item 1} -> ${4:Match 1}",
+            "\t=${5:Item 2} -> ${6:Match 2}",
+            "\t=${7:Item 3} -> ${8:Match 3}",
+            "\t=${9:Item 4} -> ${10:Match 4}",
+            "}"
+        ]
+    },
+    "matching2Title": {
+        "prefix": "ma2t",
+        "description": "Matching with two options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item} -> ${4:Match}",
+            "\t=${5:Item} -> ${6:Match}",
+            "}"
+        ]
+    },
+    "matching3Title": {
+        "prefix": "ma3t",
+        "description": "Matching with three options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item} -> ${4:Match}",
+            "\t=${5:Item} -> ${6:Match}",
+            "\t=${7:Item} -> ${8:Match}",
+            "}"
+        ]
+    },
+    "matching4Title": {
+        "prefix": "ma4t",
+        "description": "Matching with four options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item} -> ${4:Match}",
+            "\t=${5:Item} -> ${6:Match}",
+            "\t=${7:Item} -> ${8:Match}",
+            "\t=${9:Item} -> ${10:Match}",
+            "}"
+        ]
+    },
+    "matching5Title": {
+        "prefix": "ma5t",
+        "description": "Matching with five options and a title.",
+        "body": [
+            "::${1:Title}:: ${2:Question} {",
+            "\t=${3:Item} -> ${4:Match}",
+            "\t=${5:Item} -> ${6:Match}",
+            "\t=${7:Item} -> ${8:Match}",
+            "\t=${9:Item} -> ${10:Match}",
+            "\t=${11:Item} -> ${12:Match}",
+            "}"
+        ]
+    },
+    "shortAnswerQuestionTitleLong": {
+        "prefix": "short answer question title",
+        "description": "Short answer question with one correct answer and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} }"
+    },
+    "shortAnswerQuestionTitle": {
+        "prefix": "saqt",
+        "description": "Short answer question with one correct answer and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} }"
+    },
+    "shortAnswer1Title": {
+        "prefix": "sa1t",
+        "description": "Short answer with one correct answer and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} }"
+    },
+    "shortAnswer2Title": {
+        "prefix": "sa2t",
+        "description": "Short answer with two correct answers and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} =${4:Answer} }"
+    },
+    "shortAnswer3Title": {
+        "prefix": "sa3t",
+        "description": "Short answer with three correct answers and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} =${4:Answer} =${5:Answer} }"
+    },
+    "shortAnswer4Title": {
+        "prefix": "sa4t",
+        "description": "Short answer with four correct answers and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} =${4:Answer} =${5:Answer} =${6:Answer} }"
+    },
+    "shortAnswer5Title": {
+        "prefix": "sa5t",
+        "description": "Short Answer with five correct answers and a title.",
+        "body": "::${1:Title}:: ${2:Question} { =${3:Answer} =${4:Answer} =${5:Answer} =${6:Answer} =${7:Answer} }"
+    },
+    "missingWordQuestionTitleLong": {
+        "prefix": "missing word question title",
+        "description": "Missing word question with three options and a title.",
+        "body": "::${1:Title}:: ${2:Sentence Start} { =${3:Correct Answer} ~${4:Incorrect Answer 1} ~${5: Incorrect Answer 2}} ${6:Sentence End}" 
+    },
+    "missingWordQuestionTitle": {
+        "prefix": "mwqt",
+        "description": "Missing word question with three options and a title.",
+        "body": "::${1:Title}:: ${2:Sentence Start} { =${3:Correct Answer} ~${4:Incorrect Answer 1} ~${5: Incorrect Answer 2}} ${6:Sentence End}" 
+    },
+    "missingWord1Title": {
+        "prefix": "mw1t",
+        "description": "Missing word with one correct answer and a title.",
+        "body": "::${1:Title}:: ${2:Start} { =${3:Correct} } ${4:End}"
+    },
+    "missingWord2Title": {
+        "prefix": "mw2t",
+        "description": "Missing word with two options and a title.",
+        "body": "::${1:Title}:: ${2:Start} { =${3:Correct} ~${4:Incorrect} } ${5:End}"
+    },
+    "missingWord3Title": {
+        "prefix": "mw3t",
+        "description": "Missing word with three options and a title.",
+        "body": "::${1:Title}:: ${2:Start} { =${3:Correct} ~${4:Incorrect} ~${5:Incorrect} } ${6:End}"
+    },
+    "missingWord4Title": {
+        "prefix": "mw4t",
+        "description": "Missing word with four options and a title.",
+        "body": "::${1:Title}:: ${2:Start} { =${3:Correct} ~${4:Incorrect} ~${5:Incorrect} ~${6:Incorrect} } ${7:End}"
+    },
+    "missingWord5Title": {
+        "prefix": "mw5t",
+        "description": "Missing word with five options and a title.",
+        "body": "::${1:Title}:: ${2:Start} { =${3:Correct} ~${4:Incorrect} ~${5:Incorrect} ~${6:Incorrect} ~${7:Incorrect} } ${8:End}"
+    },
+    "trueFalseQuestionTitleLong": {
+        "prefix": "true false question title",
+        "description": "True-False question with a title.",
+        "body": "::${1:Title}:: ${2:Question} {${3:TRUE}}"
+    },
+    "trueFalseQuestionTitle": {
+        "prefix": "tfqt",
+        "description": "True-False question with a title.",
+        "body": "::${1:Title}:: ${2:Question} {${3:TRUE}}"
+    },
+    "essayTitleLong": {
+        "prefix": "essay question title",
+        "description": "Essay question with a title.",
+        "body": "::${1:Title}:: ${2:Question} {}"
+    },
+    "essayTitle": {
+        "prefix": "esst",
+        "description": "Essay question with a title.",
+        "body": "::${1:Title}:: ${2:Question} {}"
+    },
+    "numericalQuestionTitleLong": {
+        "prefix": "numerical question title",
+        "description": "Numerical question with a title.",
+        "body": "::${1:Title}:: ${2:Question} {#${3:Number}:${4:Range}}"
+    },
+    "numericalQuestionTitle": {
+        "prefix": "nqt",
+        "description": "Numerical question with a title.",
+        "body": "::${1:Title}:: ${2:Question} {#${3:Number}:${4:Range}}"
+    }
+}

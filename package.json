@@ -38,7 +38,7 @@
             },
             {
                 "language": "gift",
-                "path": "./snippets/giftOptions.json"
+                "path": "./snippets/giftTitle.json"
             }
         ]
     }
