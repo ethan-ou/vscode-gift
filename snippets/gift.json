@@ -254,12 +254,12 @@
     },
     "missingWordQuestionLong": {
         "prefix": "missing word question",
-        "description": "Missing word question with one correct answer and two incorrect answers.",
+        "description": "Missing word question with three options.",
         "body": "${1:Sentence Start} { =${2:Correct Answer} ~${3:Incorrect Answer 1} ~${4:Incorrect Answer 2}} ${5:Sentence End}" 
     },
     "missingWordQuestion": {
         "prefix": "mwq",
-        "description": "Missing word question with one correct answer and two incorrect answers.",
+        "description": "Missing word question with three options.",
         "body": "${1:Sentence Start} { =${2:Correct Answer} ~${3:Incorrect Answer 1} ~${4:Incorrect Answer 2}} ${5:Sentence End}" 
     },
     "missingWord1": {
@@ -269,32 +269,32 @@
     },
     "missingWord2": {
         "prefix": "mw2",
-        "description": "Missing word with one correct answer and one incorrect answer.",
+        "description": "Missing word with two options.",
         "body": "${1:Start} { =${2:Correct} ~${3:Incorrect} } ${4:End}"
     },
     "missingWord3": {
         "prefix": "mw3",
-        "description": "Missing word with one correct answer and two incorrect answers.",
+        "description": "Missing word with three options.",
         "body": "${1:Start} { =${2:Correct} ~${3:Incorrect} ~${4:Incorrect} } ${5:End}"
     },
     "missingWord4": {
         "prefix": "mw4",
-        "description": "Missing word with one correct answer and three incorrect answers.",
+        "description": "Missing word with four options.",
         "body": "${1:Start} { =${2:Correct} ~${3:Incorrect} ~${4:Incorrect} ~${5:Incorrect} } ${6:End}"
     },
     "missingWord5": {
         "prefix": "mw5",
-        "description": "Missing word with one correct answer and four incorrect answers.",
+        "description": "Missing word with five options.",
         "body": "${1:Start} { =${2:Correct} ~${3:Incorrect} ~${4:Incorrect} ~${5:Incorrect} ~${6:Incorrect} } ${7:End}"
     },
     "trueFalseQuestionLong": {
         "prefix": "true false question",
-        "description": "True-False question.",
+        "description": "True-false question.",
         "body": "${1:Question} {${2:TRUE}}"
     },
     "trueFalseQuestion": {
         "prefix": "tfq",
-        "description": "True-False question.",
+        "description": "True-false question.",
         "body": "${1:Question} {${2:TRUE}}"
     },
     "essayLong": {
