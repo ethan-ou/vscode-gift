@@ -69,6 +69,20 @@
             "}"
         ]
     },
+    "multipleChoice6": {
+        "prefix": "mc6",
+        "description": "Multiple choice with six options.",
+        "body": [
+            "${1:Question} {",
+            "\t=${2:Correct}",
+            "\t~${3:Incorrect}",
+            "\t~${4:Incorrect}",
+            "\t~${5:Incorrect}",
+            "\t~${6:Incorrect}",
+            "\t~${7:Incorrect}",
+            "}"
+        ]
+    },
     "multipleChoiceQuestionMultipleLong": {
         "prefix": "multiple choice question multiple",
         "description": "Multiple choice, multiple answer question with two correct options and two incorrect options.",
@@ -147,6 +161,22 @@
             "}"
         ]
     },
+    "multipleChoice6Multiple": {
+        "prefix": "mc6m",
+        "description": "Multiple choice, multiple answer question with six correct options and two incorrect options.",
+        "body": [
+            "${1:Question} {",
+            "\t~%16.66666%${2:Correct}",
+            "\t~%16.66666%${3:Correct}",
+            "\t~%16.66666%${4:Correct}",
+            "\t~%16.66666%${5:Correct}",
+            "\t~%16.66666%${6:Correct}",
+            "\t~%16.66666%${7:Correct}",
+            "\t~%-100%${8:Incorrect}",
+            "\t~%-100%${9:Incorrect}",
+            "}"
+        ]
+    },
     "matchingQuestionLong": {
         "prefix": "matching question",
         "description": "Matching question with four options.",
@@ -217,6 +247,20 @@
             "}"
         ]
     },
+    "matching6": {
+        "prefix": "ma6",
+        "description": "Matching with six options.",
+        "body": [
+            "${1:Question} {",
+            "\t=${2:Item} -> ${3:Match}",
+            "\t=${4:Item} -> ${5:Match}",
+            "\t=${6:Item} -> ${7:Match}",
+            "\t=${8:Item} -> ${9:Match}",
+            "\t=${10:Item} -> ${11:Match}",
+            "\t=${12:Item} -> ${13:Match}",
+            "}"
+        ]
+    },
     "shortAnswerQuestionLong": {
         "prefix": "short answer question",
         "description": "Short answer question with one correct answer.",
@@ -245,12 +289,41 @@
     "shortAnswer4": {
         "prefix": "sa4",
         "description": "Short answer with four correct answers.",
-        "body": "${1:Question} { =${2:Answer} =${3:Answer} =${4:Answer} =${5:Answer} }"
+        "body": [
+            "${1:Question} {",
+            "\t=${2:Answer}",
+            "\t=${3:Answer}",
+            "\t=${4:Answer}", 
+            "\t=${5:Answer}",
+            "}"
+        ]
     },
     "shortAnswer5": {
         "prefix": "sa5",
         "description": "Short Answer with five correct answers.",
-        "body": "${1:Question} { =${2:Answer} =${3:Answer} =${4:Answer} =${5:Answer} =${6:Answer} }"
+        "body": [
+            "${1:Question} {",
+            "\t=${2:Answer}",
+            "\t=${3:Answer}",
+            "\t=${4:Answer}", 
+            "\t=${5:Answer}",
+            "\t=${6:Answer}",
+            "}"
+        ]
+    },
+    "shortAnswer6": {
+        "prefix": "sa6",
+        "description": "Short Answer with six correct answers.",
+        "body": [
+            "${1:Question} {",
+            "\t=${2:Answer}",
+            "\t=${3:Answer}",
+            "\t=${4:Answer}", 
+            "\t=${5:Answer}",
+            "\t=${6:Answer}",
+            "\t=${7:Answer}",
+            "}"
+        ]
     },
     "missingWordQuestionLong": {
         "prefix": "missing word question",
@@ -280,12 +353,38 @@
     "missingWord4": {
         "prefix": "mw4",
         "description": "Missing word with four options.",
-        "body": "${1:Start} { =${2:Correct} ~${3:Incorrect} ~${4:Incorrect} ~${5:Incorrect} } ${6:End}"
+        "body": ["${1:Start} {", 
+            "\t=${2:Correct}",
+            "\t~${3:Incorrect}",
+            "\t~${4:Incorrect}",
+            "\t~${5:Incorrect}",
+            "} ${6:End}"
+        ]
     },
     "missingWord5": {
         "prefix": "mw5",
         "description": "Missing word with five options.",
-        "body": "${1:Start} { =${2:Correct} ~${3:Incorrect} ~${4:Incorrect} ~${5:Incorrect} ~${6:Incorrect} } ${7:End}"
+        "body": ["${1:Start} {", 
+            "\t=${2:Correct}",
+            "\t~${3:Incorrect}",
+            "\t~${4:Incorrect}",
+            "\t~${5:Incorrect}",
+            "\t~${6:Incorrect}",
+            "} ${7:End}"
+        ]
+    },
+    "missingWord6": {
+        "prefix": "mw6",
+        "description": "Missing word with six options.",
+        "body": ["${1:Start} {", 
+            "\t=${2:Correct}",
+            "\t~${3:Incorrect}",
+            "\t~${4:Incorrect}",
+            "\t~${5:Incorrect}",
+            "\t~${6:Incorrect}",
+            "\t~${7:Incorrect}",
+            "} ${8:End}"
+        ]
     },
     "trueFalseQuestionLong": {
         "prefix": "true false question",
