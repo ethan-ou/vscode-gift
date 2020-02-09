@@ -66,9 +66,6 @@
 					"include": "#numerical-question"
 				},
 				{
-					"include": "#true-false-question"
-				},
-				{
 					"include": "#feedback"
 				},
 				{
@@ -76,6 +73,9 @@
 				},
 				{
 					"include": "#incorrect-answer-char"
+				},
+				{
+					"include": "#plain-correct-answer"
 				},
 				{
 					"include": "#correct-answer"
@@ -116,9 +116,19 @@
 			"begin": "(?<=[=~])\\s*%\\s*(.*?)",
 			"end": "\\%"
 		},
+		"plain-correct-answer": {
+			"name": "variable",
+			"begin": "(?<={|{#)(.*?)",
+			"end": "(?<![\\\\])(?=[#:=~{}])",
+			"patterns": [
+				{
+					"include": "#true-false-question"
+				}
+			]
+		},
 		"correct-answer": {
 			"name": "variable",
-			"begin": "(?<=[^\\\\])((?<=[=])(.*?))|(?<=[{])(.*?)",
+			"begin": "(?<=[^\\\\])((?<=[=])(.*?))",
 			"end": "(?<![\\\\])(?=[#:=~{}])",
 			"patterns": [
 				{
