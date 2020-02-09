@@ -119,7 +119,7 @@
 		"correct-answer": {
 			"name": "variable",
 			"begin": "(?<=[^\\\\])((?<=[=])(.*?))|(?<=[{])(.*?)",
-			"end": "(?=^)|(?<=[^\\\\])(?=[#:=~}])",
+			"end": "(?<![\\\\])(?=[#:=~{}])",
 			"patterns": [
 				{
 					"include": "#partial-answer"
@@ -129,7 +129,7 @@
 		"incorrect-answer": {
 			"name": "string",
 			"begin": "(?<=[^\\\\])(?<=[~])(.*?)",
-			"end": "(?=^)|(?<=[^\\\\])(?=[#:=~}])",
+			"end": "(?<![\\\\])(?=[#:=~{}])",
 			"patterns": [
 				{
 					"include": "#partial-answer"
@@ -147,7 +147,7 @@
 		"feedback": {
 			"name": "comment.line.number-sign",
 			"begin": "\\#\\s*(.*?)",
-			"end": "(?=^)|(?<=[^\\\\])(?=[~={}#])"
+			"end": "(?<![\\\\])(?=[~={}#])"
 		},
 		"math-range": {
 			"name": "keyword.operator",
