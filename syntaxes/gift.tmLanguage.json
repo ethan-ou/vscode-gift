@@ -138,7 +138,7 @@
 		},
 		"tolerance": {
 			"name": "constant.numeric",
-			"match": "\\:[0-9]+"
+			"match": "\\:[0-9]+[.]?([0-9]+)?"
 		},
 		"true-false-question": {
 			"name": "constant.language.boolean",
