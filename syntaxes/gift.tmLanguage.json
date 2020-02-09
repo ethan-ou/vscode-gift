@@ -88,13 +88,7 @@
 				},
 				{
 					"include": "#answer"
-				}
-			]
-		},
-		"numerical-question": {
-			"name": "constant.language",
-			"match": "(?<={)#",
-			"patterns": [
+				},
 				{
 					"include": "#math-range"
 				},
@@ -102,6 +96,10 @@
 					"include": "#tolerance"
 				}
 			]
+		},
+		"numerical-question": {
+			"name": "constant.language",
+			"match": "(?<={)#"
 		},
 		"correct-answer-char": {
 			"name": "punctuation.definition",
@@ -160,8 +158,8 @@
 			"end": "(?<![\\\\])(?=[~={}#])"
 		},
 		"math-range": {
-			"name": "keyword.operator",
-			"match": "\\.\\."
+			"name": "variable",
+			"match": "(?<=[.]{2})[0-9]+[.]?([0-9]+)?"
 		}
 
 	}
