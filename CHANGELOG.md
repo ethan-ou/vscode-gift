@@ -2,6 +2,21 @@
 
 ## [Unreleased]
 
+## 0.0.5 (10-02-2020)
+
+- BREAKING: Removed feedback variant snippets
+- BREAKING: Removed multiple choice numerical question type
+- Added title variants for all question types. These can be accessed by adding a `title` to long snippets (e.g. `multiple choice question title`), or by adding a `t` at the end of a shorthand snippet (e.g. `mcqt`).
+- Added missing word question snippets (e.g. `missing word question`, `mwq`, `mw[1-6]`)
+- Added shorthand for categories: `$CAT`
+
+- Fixed true-false question highlighting in short answer questions
+- Added decimal number highlighting for numeric question tolerances
+- Better number range highlighting for numeric questions
+- Added multi-line highlighting for answers and feedback
+- Fixed comment highlighting. Comments now only register at the beginning of a line.
+- Changed default file format to `.gift` from `.txt`.
+
 ## 0.0.4 (01-02-2020)
 
 - Added long plain English snippets designed for new users (e.g. `multiple choice question`).

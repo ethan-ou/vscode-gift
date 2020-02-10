@@ -71,11 +71,11 @@ These snippets are useful for adding a specific number of answers to your questi
 
 |     Prefix | Description                                                  |
 | ---------: | ------------------------------------------------------------ |
-|  `mc[2-5]` | `Multiple choice with two to five options.`                  |
-| `mc[2-5]m` | `Multiple choice question with two to five correct answers.` |
-|  `ma[2-5]` | `Matching question with two to five options.`                |
-|  `sa[1-5]` | `Short answer question with one to five correct answers.`    |
-|  `mw[1-5]` | `Missing word with one to five options.`                     |
+|  `mc[2-6]` | `Multiple choice with two to six options.`                  |
+| `mc[2-6]m` | `Multiple choice question with two to six correct answers.` |
+|  `ma[2-6]` | `Matching question with two to six options.`                |
+|  `sa[1-6]` | `Short answer question with one to six correct answers.`    |
+|  `mw[1-6]` | `Missing word with one to six options.`                     |
 
 ## License
 
