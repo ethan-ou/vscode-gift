@@ -19,7 +19,7 @@
 	"repository": {
 		"comments": {
 			"name": "comment.line.double-slash",
-			"begin": "(^[ \\t]+)?((//)+)",
+			"begin": "(^[ \\t]+)?(^[\\s]*(\/\/)+)",
 			"end": "(?=^)"
 		},
 		"title": {
