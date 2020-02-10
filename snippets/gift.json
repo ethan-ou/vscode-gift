@@ -426,6 +426,11 @@
         "description": "Category label.",
         "body": "\\$CATEGORY: ${1:Name}"
     },
+    "categoryHalf": {
+        "prefix": "$CAT",
+        "description": "Category label.",
+        "body": "\\$CATEGORY: ${1:Name}"
+    },
     "categoryNestedLong": {
         "prefix": "category nested",
         "description": "Category label (nested).",
