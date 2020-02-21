@@ -415,5 +415,15 @@
         "prefix": "nqt",
         "description": "Numerical question with a title.",
         "body": "::${1:Title}:: ${2:Question} {#${3:Number}:${4:Range}}"
+    },
+    "descriptionLongTitle": {
+        "prefix": "description title",
+        "description": "Description with a title.",
+        "body": "::${1:Title}:: ${2:Description}"
+    },
+    "description": {
+        "prefix": "dest",
+        "description": "Description with a title.",
+        "body": "::${1:Title}:: ${2:Description}"
     }
 }

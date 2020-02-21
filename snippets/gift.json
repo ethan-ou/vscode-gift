@@ -445,5 +445,15 @@
         "prefix": "title",
         "description": "Question title.",
         "body": "::${1:Title}::"
+    },
+    "descriptionLong": {
+        "prefix": "description",
+        "description": "Description.",
+        "body": "${1:Description}"
+    },
+    "description": {
+        "prefix": "des",
+        "description": "Description.",
+        "body": "${1:Description}"
     }
 }
