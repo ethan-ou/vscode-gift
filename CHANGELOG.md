@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## 0.0.6 (21-02-2020)
+
+- Added description snippet (e.g. `description`, `des`) and its title variants (`description title`, `dest`).
+
 ## 0.0.5 (10-02-2020)
 
 - BREAKING: Removed feedback variant snippets

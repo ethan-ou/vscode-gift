@@ -7,7 +7,7 @@
 
 **NOTE:** This plugin is in alpha.
 
-This extension provides syntax highlighting and code snippets for Moodle's GIFT format. It allows for faster and easier development of Moodle quiz questions.
+This extension provides syntax highlighting and code snippets for Moodle's GIFT format. It allows for faster and easier development of Moodle quiz questions. It is recommended to install this extension via the [GIFT Language Pack](https://marketplace.visualstudio.com/items?itemName=ethan-ou.vscode-gift-pack) as this will also bundle a preview extension and error checking.
 
 ## Demo
 
@@ -45,6 +45,7 @@ If you prefer using Plain Text (.txt), you will need to manually set the languag
 |                             `title` | `Question title.`                                 |
 |                          `category` | `Category label.`                                 |
 |                   `category nested` | `Nested category label.`                          |
+|                       `description` | `Description.`                                    |
 
 If you prefer questions with titles, add a `title` at the end of the snippet. For instance, a multiple choice question with a title is `multiple choice question title`.
 
@@ -62,6 +63,8 @@ If you prefer questions with titles, add a `title` at the end of the snippet. Fo
 |   `nq` | `Numerical question.`                             |
 |  `cat` | `Category label.`                                 |
 | `catn` | `Nested category label.`                          |
+|  `des` | `Description.`                                    |
+
 
 You can also add titles by adding a `t` at the end of the snippet. For instance, a multiple choice question with a title is `mcqt`.
 
