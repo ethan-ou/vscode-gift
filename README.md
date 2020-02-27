@@ -7,7 +7,15 @@
 
 **NOTE:** This plugin is in alpha.
 
-This extension provides syntax highlighting and code snippets for Moodle's GIFT format. It allows for faster and easier development of Moodle quiz questions. It is recommended to install this extension via the [GIFT Language Pack](https://marketplace.visualstudio.com/items?itemName=ethan-ou.vscode-gift-pack) as this will also bundle a preview extension and error checking.
+This extension provides syntax highlighting, error checking and code snippets for Moodle's GIFT format. It allows for faster and easier development of Moodle quiz questions. It is recommended to install this extension via the [GIFT Language Pack](https://marketplace.visualstudio.com/items?itemName=ethan-ou.vscode-gift-pack) as this will also bundle a preview extension.
+
+Parser sourced from [fuhrmanator's GIFT parser](https://github.com/fuhrmanator/GIFT-grammar-PEG.js).
+
+## Installing the Plugin
+1. Install [VSCode](https://code.visualstudio.com/).
+2. Go to the Extensions panel (CTRL + SHIFT + X). There, search "Gift Language".
+3. Install the extension. 
+4. Open a GIFT file or create a new file and change the language to Gift.
 
 ## Demo
 
@@ -79,6 +87,21 @@ These snippets are useful for adding a specific number of answers to your questi
 |  `ma[2-6]` | `Matching question with two to six options.`                |
 |  `sa[1-6]` | `Short answer question with one to six correct answers.`    |
 |  `mw[1-6]` | `Missing word with one to six options.`                     |
+
+## For Developers
+
+### Developing the Plugin
+Requirements: VSCode, Git, Node.js/NPM
+
+1. Clone this repo using ```git clone <repository_name>```.
+2. Run ```npm install``` in the main folder. This will install all npm modules for both the client and server.
+3. Open VSCode by typing ```code .```.
+4. To debug the extension, go to the debugger panel and select ```Attach to Server```. VSCode will build the extension and run another window for you to debug in.
+5. Open a GIFT file or create a new file in the GIFT language.
+6. To see any logs or error messages, go to the Output panel in the new window by pressing CTRL + SHIFT + U. Then in the right-hand drop-down select "Gift Language".
+
+### Background
+This extension follows Microsoft's [Language Server Protocol](https://microsoft.github.io/language-server-protocol), and is based on the ["LSP Example" starter](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample). The plugin is split into two folders: client and server. All validation logic and syntax errors are parsed on the server, while the client receives the messages and relays them to VSCode.
 
 ## License
 
