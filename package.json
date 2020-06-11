@@ -91,5 +91,8 @@
 		"@types/node": "^12.11.7",
 		"tslint": "^5.16.0",
 		"typescript": "^3.6.4"
+	},
+	"dependencies": {
+		"eol": "^0.9.1"
 	}
 }
