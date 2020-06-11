@@ -1,8 +1,8 @@
-import { error as parseError } from "../parser";
+import parser from "../parser";
 import { IErrorArr, IError } from "../types";
 import token from "./token";
 import { SyntaxError } from "../parser/parser";
-import { correctTokenMessages } from "./messages";
+import { correctTokenMessages } from "../messages";
 
 export default function (message: IError): IErrorArr {
   const stack: string[] = [];
@@ -14,10 +14,9 @@ export default function (message: IError): IErrorArr {
   const findErrors = (): void | Error => {
     try {
       let findToken = token(stack[stack.length - 1], errors[errors.length - 1]);
-      console.log(stack[stack.length - 1]);
       stack.push(findToken);
 
-      let newError = parseError(findToken);
+      let newError = parser(findToken);
 
       if (newError.error !== null) {
         errors.push(newError.error);

@@ -1,6 +1,9 @@
 import { IErrorArr } from "../types";
-
-export * from "./error";
+import {
+  removeColumnStartError,
+  removeColumnError,
+  removeOffsetError,
+} from "./error";
 
 export function fixErrorMessages(
   originalText: string,
@@ -8,7 +11,6 @@ export function fixErrorMessages(
 ): IErrorArr {
   const newLine = "\n";
   const charNum = originalText.split(newLine).map((string) => string.length);
-
   return {
     ...message,
     error: message.error.map((item) => {
@@ -31,3 +33,38 @@ export function fixErrorMessages(
     }),
   };
 }
+
+export function correctTokenMessages(errors: IErrorArr) {
+  let iterators: { prevLine: undefined | number; count: number } = {
+    prevLine: undefined,
+    count: 0,
+  };
+
+  const removeColumn = errors.error.map((item) => {
+    const { start, end } = item.location;
+
+    if (iterators.prevLine === start.line) {
+      iterators.count++;
+    } else {
+      iterators.count = 0;
+      iterators.prevLine = start.line;
+    }
+
+    if (end.line > start.line) {
+      return removeColumnStartError(iterators.count, item);
+    } else {
+      return removeColumnError(iterators.count, item);
+    }
+  });
+
+  const output = removeColumn.map((item, index) =>
+    removeOffsetError(index, item)
+  );
+
+  return {
+    ...errors,
+    error: output,
+  };
+}
+
+export * from "./error";
