@@ -5,6 +5,7 @@ import { SyntaxError } from "../parser/parser";
 import { correctTokenMessages } from "../messages";
 
 export default function (message: IError): IErrorArr {
+  const ITERATION_LIMIT = 50;
   const stack: string[] = [];
   const errors: SyntaxError[] = [];
 
@@ -29,10 +30,10 @@ export default function (message: IError): IErrorArr {
   };
 
   let result;
-  let iterationLimit = 0;
-  while (!(result instanceof Error) && iterationLimit < 25) {
+  let i = 0;
+  while (!(result instanceof Error) && i < ITERATION_LIMIT) {
     result = findErrors();
-    iterationLimit++;
+    i++;
   }
 
   const finalError: IErrorArr = {
