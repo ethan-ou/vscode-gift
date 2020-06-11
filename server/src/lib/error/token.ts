@@ -55,7 +55,7 @@ function escapeToken(text: string, location: number): string {
   const tokenNotEscaped = text[escapeLocation] !== escape;
 
   if (tokenIsAccepted && tokenNotEscaped) {
-    return `${text.slice(0, escapeLocation)}${escape}${text.slice(location)}`;
+    return `${text.slice(0, location)}${escape}${text.slice(location)}`;
   }
 
   throw new Error("No Token Found.");

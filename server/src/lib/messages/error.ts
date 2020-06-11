@@ -11,6 +11,7 @@ export function incrementError(
   return {
     ...message,
     location: {
+      ...message.location,
       start: {
         ...message.location.start,
         line: message.location.start.line + number.line,
@@ -27,27 +28,6 @@ export function incrementError(
   };
 }
 
-export function removeTokenError(
-  number: number,
-  message: SyntaxError
-): SyntaxError {
-  return {
-    ...message,
-    location: {
-      start: {
-        ...message.location.start,
-        offset: message.location.start.offset + number,
-        column: message.location.start.column + number,
-      },
-      end: {
-        ...message.location.end,
-        offset: message.location.end.offset + number,
-        column: message.location.end.column + number,
-      },
-    },
-  };
-}
-
 export function incrementColumnError(
   number: number,
   message: SyntaxError
@@ -55,6 +35,7 @@ export function incrementColumnError(
   return {
     ...message,
     location: {
+      ...message.location,
       start: {
         ...message.location.start,
         column: message.location.start.column + number,
@@ -74,6 +55,7 @@ export function incrementOffsetError(
   return {
     ...message,
     location: {
+      ...message.location,
       start: {
         ...message.location.start,
         offset: message.location.start.offset + number,
@@ -93,6 +75,7 @@ export function incrementLineError(
   return {
     ...message,
     location: {
+      ...message.location,
       start: {
         ...message.location.start,
         line: message.location.start.line + number,
@@ -100,6 +83,82 @@ export function incrementLineError(
       end: {
         ...message.location.end,
         line: message.location.end.line + number,
+      },
+    },
+  };
+}
+
+export function removeOffsetError(
+  number: number,
+  message: SyntaxError
+): SyntaxError {
+  return {
+    ...message,
+    location: {
+      ...message.location,
+      start: {
+        ...message.location.start,
+        offset: message.location.start.offset - number,
+      },
+      end: {
+        ...message.location.end,
+        offset: message.location.end.offset - number,
+      },
+    },
+  };
+}
+
+export function removeLineError(
+  number: number,
+  message: SyntaxError
+): SyntaxError {
+  return {
+    ...message,
+    location: {
+      ...message.location,
+      start: {
+        ...message.location.start,
+        line: message.location.start.line - number,
+      },
+      end: {
+        ...message.location.end,
+        line: message.location.end.line - number,
+      },
+    },
+  };
+}
+
+export function removeColumnError(
+  number: number,
+  message: SyntaxError
+): SyntaxError {
+  return {
+    ...message,
+    location: {
+      ...message.location,
+      start: {
+        ...message.location.start,
+        column: message.location.start.column - number,
+      },
+      end: {
+        ...message.location.end,
+        column: message.location.end.column - number,
+      },
+    },
+  };
+}
+
+export function removeColumnStartError(
+  number: number,
+  message: SyntaxError
+): SyntaxError {
+  return {
+    ...message,
+    location: {
+      ...message.location,
+      start: {
+        ...message.location.start,
+        column: message.location.start.column - number,
       },
     },
   };

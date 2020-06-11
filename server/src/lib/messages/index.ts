@@ -8,6 +8,7 @@ export function fixErrorMessages(
 ): IErrorArr {
   const newLine = "\n";
   const charNum = originalText.split(newLine).map((string) => string.length);
+
   return {
     ...message,
     error: message.error.map((item) => {
@@ -23,7 +24,7 @@ export function fixErrorMessages(
           end: {
             ...item.location.end,
             offset: item.location.end.offset + charNum[message.start - 1],
-            line: item.location.end.line + message.end - 1,
+            line: item.location.end.line + message.start - 1,
           },
         },
       };

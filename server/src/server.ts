@@ -12,7 +12,6 @@ import {
   TextDocumentPositionParams,
 } from "vscode-languageserver";
 import giftLanguageServer from "./lib";
-import { SyntaxError } from "./lib/parser/parser";
 
 // Create a connection for the server. The connection uses Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
@@ -127,16 +126,12 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
   // In this simple example we get the settings for every validate run.
   let settings = await getDocumentSettings(textDocument.uri);
 
-  // The validator creates diagnostics for all uppercase words length 2 and more
   let text = textDocument.getText();
-  // let pattern = /\b[A-Z]{2,}\b/g;
-  // let m: RegExpExecArray | null;
   let validation = giftLanguageServer(text);
   let problems = 0;
   let index = 0;
   let diagnostics: Diagnostic[] = [];
 
-  console.log(validation);
   if (
     validation === undefined ||
     validation.length === 0 ||
@@ -152,46 +147,26 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
   ) {
     problems++;
 
-    let validationStartLine = validation[index]?.location.start.line;
-    let validationStartColumn = validation[index]?.location.start.column;
-    let validationEndLine = validation[index]?.location.end.line;
-    let validationEndColumn = validation[index]?.location.end.column;
-    let validationName = validation[index]?.name;
+    let validationStart = validation[index]?.location.start;
+    let validationEnd = validation[index]?.location.end;
     let validationMessage = validation[index]?.message;
 
     let diagnostic: Diagnostic = {
-      severity: DiagnosticSeverity.Warning,
+      severity: DiagnosticSeverity.Error,
       range: {
         start: {
-          line: validationStartLine - 1,
-          character: validationStartColumn - 1,
+          line: validationStart.line - 1,
+          character: validationStart.column - 1,
         },
         end: {
-          line: validationEndLine - 1,
-          character: validationEndColumn - 1,
+          line: validationEnd.line - 1,
+          character: validationEnd.column - 1,
         },
       },
       message: validationMessage,
       source: "gift",
     };
-    // if (hasDiagnosticRelatedInformationCapability) {
-    // 	diagnostic.relatedInformation = [
-    // 		{
-    // 			location: {
-    // 				uri: textDocument.uri,
-    // 				range: Object.assign({}, diagnostic.range)
-    // 			},
-    // 			message: 'Spelling matters'
-    // 		},
-    // 		{
-    // 			location: {
-    // 				uri: textDocument.uri,
-    // 				range: Object.assign({}, diagnostic.range)
-    // 			},
-    // 			message: 'Particularly for names'
-    // 		}
-    // 	];
-    // }
+
     diagnostics.push(diagnostic);
     index++;
   }

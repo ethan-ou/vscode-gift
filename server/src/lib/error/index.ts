@@ -14,6 +14,7 @@ export default function (message: IError): IErrorArr {
   const findErrors = (): void | Error => {
     try {
       let findToken = token(stack[stack.length - 1], errors[errors.length - 1]);
+      console.log(stack[stack.length - 1]);
       stack.push(findToken);
 
       let newError = parseError(findToken);
