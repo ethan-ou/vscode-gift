@@ -1,98 +1,101 @@
 {
-	"name": "vscode-gift",
-	"displayName": "GIFT Language",
-	"description": "Syntax highlighting and snippets for Moodle's GIFT format",
-	"version": "0.0.7",
-	"publisher": "ethan-ou",
-	"engines": {
-		"vscode": "^1.33.0"
-	},
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/ethan-ou/vscode-gift"
-	},
-	"keywords": [
-		"gift",
-		"moodle"
-	],
-	"categories": [
-		"Programming Languages"
-	],
-	"activationEvents": [
-		"onLanguage:gift"
-	],
-	"main": "./client/out/extension",
-	"contributes": {
-		"languages": [
-			{
-				"id": "gift",
-				"aliases": [
-					"Gift",
-					"gift"
-				],
-				"extensions": [
-					".gift",
-					".txt"
-				],
-				"configuration": "./language-configuration.json"
-			}
-		],
-		"grammars": [
-			{
-				"language": "gift",
-				"scopeName": "source.gift",
-				"path": "./syntaxes/gift.tmLanguage.json"
-			}
-		],
-		"snippets": [
-			{
-				"language": "gift",
-				"path": "./snippets/gift.json"
-			},
-			{
-				"language": "gift",
-				"path": "./snippets/giftTitle.json"
-			}
-		],
-		"configuration": {
-			"type": "object",
-			"title": "giftLanguage configuration",
-			"properties": {
-				"giftLanguage.maxNumberOfProblems": {
-					"scope": "resource",
-					"type": "number",
-					"default": 100,
-					"description": "Controls the maximum number of problems produced by the server."
-				},
-				"giftLanguage.trace.server": {
-					"scope": "window",
-					"type": "string",
-					"enum": [
-						"off",
-						"messages",
-						"verbose"
-					],
-					"default": "off",
-					"description": "Traces the communication between VS Code and the language server."
-				}
-			}
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "cd client && npm run update-vscode && cd .. && npm run compile",
-		"compile": "tsc -b",
-		"watch": "tsc -b -w",
-		"postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
-		"test": "sh ./scripts/e2e.sh"
-	},
-	"devDependencies": {
-		"@types/mocha": "^5.2.7",
-		"@types/node": "^12.11.7",
-		"tslint": "^5.16.0",
-		"typescript": "^3.8.2"
-	},
-	"dependencies": {
-		"eol": "^0.9.1"
-	}
+  "name": "vscode-gift",
+  "displayName": "GIFT Language",
+  "description": "Syntax highlighting and snippets for Moodle's GIFT format",
+  "version": "0.0.7",
+  "publisher": "ethan-ou",
+  "engines": {
+    "vscode": "^1.33.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ethan-ou/vscode-gift"
+  },
+  "keywords": [
+    "gift",
+    "moodle"
+  ],
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:gift"
+  ],
+  "main": "./client/out/extension",
+  "contributes": {
+    "languages": [
+      {
+        "id": "gift",
+        "aliases": [
+          "Gift",
+          "gift"
+        ],
+        "extensions": [
+          ".gift",
+          ".txt"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "gift",
+        "scopeName": "source.gift",
+        "path": "./syntaxes/gift.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "gift",
+        "path": "./snippets/gift.json"
+      },
+      {
+        "language": "gift",
+        "path": "./snippets/giftTitle.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "giftLanguage configuration",
+      "properties": {
+        "giftLanguage.maxNumberOfProblems": {
+          "scope": "resource",
+          "type": "number",
+          "default": 1000,
+          "description": "Controls the maximum number of problems produced by the server."
+        },
+        "giftLanguage.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the language server."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "cd client && npm run update-vscode && cd .. && npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "lint": "eslint . --fix",
+    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+    "test": "sh ./scripts/e2e.sh"
+  },
+  "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.13",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
+    "eslint": "^7.2.0",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "gift-parser-ide": "^0.1.1"
+  }
 }
