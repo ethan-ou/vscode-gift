@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## 0.1.0 (13-06-2020)
+- Drastic improvements to parsing speed and quality. Plugin can now parse multiple syntax errors within a question.
+- Changed error message from yellow warnings to red errors.
+
 ## 0.0.7 (27-02-2020)
 
 - Merged vscode-gift-features to simplify GIFT extension set.
