@@ -1,0 +1,5 @@
+node_modules
+server/out
+client/out
+server/src/out
+client/src/out
