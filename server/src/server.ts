@@ -7,26 +7,25 @@ import {
   ProposedFeatures,
   InitializeParams,
   DidChangeConfigurationNotification,
-  CompletionItem,
-  CompletionItemKind,
-  TextDocumentPositionParams,
 } from "vscode-languageserver";
-import giftLanguageServer from "./lib";
+import Parser from "gift-parser-ide";
+
+const GIFTParser = new Parser();
 
 // Create a connection for the server. The connection uses Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
-let connection = createConnection(ProposedFeatures.all);
+const connection = createConnection(ProposedFeatures.all);
 
 // Create a simple text document manager. The text document manager
 // supports full document sync only
-let documents: TextDocuments = new TextDocuments();
+const documents: TextDocuments = new TextDocuments();
 
-let hasConfigurationCapability: boolean = false;
-let hasWorkspaceFolderCapability: boolean = false;
-let hasDiagnosticRelatedInformationCapability: boolean = false;
+let hasConfigurationCapability = false;
+let hasWorkspaceFolderCapability = false;
+let hasDiagnosticRelatedInformationCapability = false;
 
 connection.onInitialize((params: InitializeParams) => {
-  let capabilities = params.capabilities;
+  const capabilities = params.capabilities;
 
   // Does the client support the `workspace/configuration` request?
   // If not, we will fall back using global settings
@@ -80,7 +79,7 @@ const defaultSettings: ExampleSettings = { maxNumberOfProblems: 1000 };
 let globalSettings: ExampleSettings = defaultSettings;
 
 // Cache the settings of all open documents
-let documentSettings: Map<string, Thenable<ExampleSettings>> = new Map();
+const documentSettings: Map<string, Thenable<ExampleSettings>> = new Map();
 
 connection.onDidChangeConfiguration((change) => {
   if (hasConfigurationCapability) {
@@ -124,22 +123,13 @@ documents.onDidChangeContent((change) => {
 
 async function validateTextDocument(textDocument: TextDocument): Promise<void> {
   // In this simple example we get the settings for every validate run.
-  let settings = await getDocumentSettings(textDocument.uri);
+  const settings = await getDocumentSettings(textDocument.uri);
 
-  let text = textDocument.getText();
-  let validation = giftLanguageServer(text);
+  const text = textDocument.getText();
+  const validation = GIFTParser.update(text);
   let problems = 0;
   let index = 0;
-  let diagnostics: Diagnostic[] = [];
-
-  if (
-    validation === undefined ||
-    validation.length === 0 ||
-    text.trim() === ""
-  ) {
-    connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
-    return;
-  }
+  const diagnostics: Diagnostic[] = [];
 
   while (
     problems !== validation.length &&
@@ -147,11 +137,11 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
   ) {
     problems++;
 
-    let validationStart = validation[index]?.location.start;
-    let validationEnd = validation[index]?.location.end;
-    let validationMessage = validation[index]?.message;
+    const validationStart = validation[index]?.location.start;
+    const validationEnd = validation[index]?.location.end;
+    const validationMessage = validation[index]?.message;
 
-    let diagnostic: Diagnostic = {
+    const diagnostic: Diagnostic = {
       severity: DiagnosticSeverity.Error,
       range: {
         start: {
@@ -173,67 +163,6 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
   // Send the computed diagnostics to VSCode.
   connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
-
-connection.onDidChangeWatchedFiles((_change) => {
-  // Monitored files have change in VSCode
-  // connection.console.log('We received an file change event');
-});
-
-// This handler provides the initial list of the completion items.
-// connection.onCompletion(
-// 	(_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-// 		// The pass parameter contains the position of the text document in
-// 		// which code complete got requested. For the example we ignore this
-// 		// info and always provide the same completion items.
-// 		return [
-// 			{
-// 				label: 'TypeScript',
-// 				kind: CompletionItemKind.Text,
-// 				data: 1
-// 			},
-// 			{
-// 				label: 'JavaScript',
-// 				kind: CompletionItemKind.Text,
-// 				data: 2
-// 			}
-// 		];
-// 	}
-// );
-
-// This handler resolves additional information for the item selected in
-// the completion list.
-// connection.onCompletionResolve(
-// 	(item: CompletionItem): CompletionItem => {
-// 		if (item.data === 1) {
-// 			item.detail = 'TypeScript details';
-// 			item.documentation = 'TypeScript documentation';
-// 		} else if (item.data === 2) {
-// 			item.detail = 'JavaScript details';
-// 			item.documentation = 'JavaScript documentation';
-// 		}
-// 		return item;
-// 	}
-// );
-
-/*
-connection.onDidOpenTextDocument((params) => {
-	// A text document got opened in VSCode.
-	// params.textDocument.uri uniquely identifies the document. For documents store on disk this is a file URI.
-	// params.textDocument.text the initial full content of the document.
-	connection.console.log(`${params.textDocument.uri} opened.`);
-});
-connection.onDidChangeTextDocument((params) => {
-	// The content of a text document did change in VSCode.
-	// params.textDocument.uri uniquely identifies the document.
-	// params.contentChanges describe the content changes to the document.
-	connection.console.log(`${params.textDocument.uri} changed: ${JSON.stringify(params.contentChanges)}`);
-});
-connection.onDidCloseTextDocument((params) => {
-	// A text document got closed in VSCode.
-	// params.textDocument.uri uniquely identifies the document.
-	connection.console.log(`${params.textDocument.uri} closed.`);
-});
-*/
 
 // Make the text document manager listen on the connection
 // for open, change and close text document events
