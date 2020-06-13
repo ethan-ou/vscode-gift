@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## 0.1.1 (13-06-2020)
+- Remove extra bundled files
+
 ## 0.1.0 (13-06-2020)
 - Drastic improvements to parsing speed and quality. Plugin can now parse multiple syntax errors within a question.
 - Changed error message from yellow warnings to red errors.
