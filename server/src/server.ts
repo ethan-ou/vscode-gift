@@ -1,24 +1,25 @@
 import {
   createConnection,
   TextDocuments,
-  TextDocument,
   Diagnostic,
   DiagnosticSeverity,
   ProposedFeatures,
   InitializeParams,
   DidChangeConfigurationNotification,
+  TextDocumentSyncKind,
+  InitializeResult,
 } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
 import Parser from "gift-parser-ide";
 
 const GIFTParser = new Parser();
 
-// Create a connection for the server. The connection uses Node's IPC as a transport.
+// Create a connection for the server, using Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
 const connection = createConnection(ProposedFeatures.all);
 
-// Create a simple text document manager. The text document manager
-// supports full document sync only
-const documents: TextDocuments = new TextDocuments();
+// Create a simple text document manager.
+const documents: TextDocuments<TextDocument> = new TextDocuments(TextDocument);
 
 let hasConfigurationCapability = false;
 let hasWorkspaceFolderCapability = false;
@@ -28,7 +29,7 @@ connection.onInitialize((params: InitializeParams) => {
   const capabilities = params.capabilities;
 
   // Does the client support the `workspace/configuration` request?
-  // If not, we will fall back using global settings
+  // If not, we fall back using global settings.
   hasConfigurationCapability = !!(
     capabilities.workspace && !!capabilities.workspace.configuration
   );
@@ -41,15 +42,19 @@ connection.onInitialize((params: InitializeParams) => {
     capabilities.textDocument.publishDiagnostics.relatedInformation
   );
 
-  return {
+  const result: InitializeResult = {
     capabilities: {
-      textDocumentSync: documents.syncKind,
-      // Tell the client that the server supports code completion
-      // completionProvider: {
-      // 	resolveProvider: true
-      // }
+      textDocumentSync: TextDocumentSyncKind.Full,
     },
   };
+  if (hasWorkspaceFolderCapability) {
+    result.capabilities.workspace = {
+      workspaceFolders: {
+        supported: true,
+      },
+    };
+  }
+  return result;
 });
 
 connection.onInitialized(() => {
@@ -62,7 +67,7 @@ connection.onInitialized(() => {
   }
   if (hasWorkspaceFolderCapability) {
     connection.workspace.onDidChangeWorkspaceFolders((_event) => {
-      // connection.console.log('Workspace folder change event received.');
+      //connection.console.log('Workspace folder change event received.');
     });
   }
 });
@@ -127,19 +132,17 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 
   const text = textDocument.getText();
   const validation = GIFTParser.update(text);
-  let problems = 0;
-  let index = 0;
   const diagnostics: Diagnostic[] = [];
 
-  while (
-    problems !== validation.length &&
-    problems < settings.maxNumberOfProblems
-  ) {
-    problems++;
+  let problem = 0;
 
-    const validationStart = validation[index]?.location.start;
-    const validationEnd = validation[index]?.location.end;
-    const validationMessage = validation[index]?.message;
+  while (
+    problem < validation.length &&
+    problem < settings.maxNumberOfProblems
+  ) {
+    const validationStart = validation[problem]?.location.start;
+    const validationEnd = validation[problem]?.location.end;
+    const validationMessage = validation[problem]?.message;
 
     const diagnostic: Diagnostic = {
       severity: DiagnosticSeverity.Error,
@@ -158,7 +161,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
     };
 
     diagnostics.push(diagnostic);
-    index++;
+    problem++;
   }
   // Send the computed diagnostics to VSCode.
   connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
