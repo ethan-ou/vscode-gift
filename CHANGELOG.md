@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## 0.1.2 (13-06-2020)
+- Update parser to fix category errors with special characters.
+
 ## 0.1.1 (13-06-2020)
 - Remove extra bundled files
 
