@@ -1,107 +1,232 @@
-# VSCode GIFT Language Support and Snippets
+# GIFT Format Support For Visual Studio Code
 
 [![Version](https://vsmarketplacebadge.apphb.com/version/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/version-short/ethan-ou.vscode-gift.svg)
 [![Install](https://vsmarketplacebadge.apphb.com/installs/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/installs-short/ethan-ou.vscode-gift.svg)
 [![Downloads](https://vsmarketplacebadge.apphb.com/downloads/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/downloads-short/ethan-ou.vscode-gift.svg)
 [![Ratings](https://vsmarketplacebadge.apphb.com/rating-short/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/rating-short/ethan-ou.vscode-gift.svg)
 
-**NOTE:** This plugin is in alpha.
-
-This extension provides syntax highlighting, error checking and code snippets for Moodle's GIFT format. It allows for faster and easier development of Moodle quiz questions. It is recommended to install this extension via the [GIFT Language Pack](https://marketplace.visualstudio.com/items?itemName=ethan-ou.vscode-gift-pack) as this will also bundle a preview extension.
-
-Parser sourced from [fuhrmanator's GIFT parser](https://github.com/fuhrmanator/GIFT-grammar-PEG.js).
-
-## Installing the Plugin
-1. Install [VSCode](https://code.visualstudio.com/).
-2. Go to the Extensions panel (CTRL + SHIFT + X). There, search "Gift Language".
-3. Install the extension. 
-4. Open a GIFT file or create a new file and change the language to Gift.
-
-## Demo
-
-### Syntax Highlighting
-
-![Syntax Highlighting](https://github.com/ethan-ou/vscode-gift/blob/master/examples/syntax-highlighting.gif?raw=true)
-
-### Snippets
+This extension provides basic language support for Moodle's GIFT format. Using this extension, you can quickly generate and write questions in GIFT that are accepted when imported into Moodle.
 
 ![Code Snippets](https://github.com/ethan-ou/vscode-gift/blob/master/examples/code-snippets.gif?raw=true)
 
-## Formats
+## Table of Contents
 
-* GIFT (.gift) [recommended]
-* Plain Text (.txt)
+**Background:**
 
-It is recommended to save files with the GIFT file extension (.gift). VSCode will automatically set the language to Gift when these files are opened. 
+* [About the GIFT Format](#about-the-gift-format)
+* [Learn GIFT](#learn-gift)
 
-If you prefer using Plain Text (.txt), you will need to manually set the language in VSCode to ```Gift``` by [accessing the language tab](https://code.visualstudio.com/docs/languages/overview#_changing-the-language-for-the-selected-file) in the bottom right-hand corner. Alternatively, use the shortcut ```Ctrl+K M```.
+**Plugin:** 
 
-## Snippets
+* [Getting Started](#getting-started)
+* [Installation](#installation)
+* [Using the Plugin](#using-the-plugin)
+* [Using Snippets](#using-snippets)
 
-**NOTE:** Snippets are still subject to change.
+**Reference:**
 
-|                              Prefix | Description                                       |
+* [Snippet Reference](#snippet-reference)
+
+## About the GIFT Format
+
+The GIFT format is an alternative way of authoring Moodle quizzes that makes writing large banks of questions easy.
+
+Using just a text editor, you can prototype, edit and test Moodle quizzes without needing to log onto Moodle. Once your question bank is ready to be used, you can import questions written in GIFT into your Moodle course.
+
+GIFT supports many common question types including:
+
+* Multiple Choice 
+* Missing Word/Cloze
+* Short Answer
+* Matching
+* True-False
+* Essay
+* Numerical
+
+Best of all, writing in GIFT is simple and fun, and makes creating large question banks in Moodle a breeze.
+
+## Learn GIFT
+
+Currently, the best way to learn the GIFT format is to look through the [Moodle docs](https://docs.moodle.org/39/en/GIFT_format).
+
+## Getting Started
+
+To install the plugin, we'll first need to install [Visual Studio Code](https://code.visualstudio.com/). Visual Studio Code is an open-source text editor for Windows, macOS and Linux, with powerful features for working with programming languages.
+
+To install Visual Studio Code:
+
+1. Download the installation file from the [Visual Studio Code website](https://code.visualstudio.com/).
+2. Install the program.
+
+If you're having trouble with installation, you can also consult the [Visual Studio Code documentation](https://code.visualstudio.com/docs/setup/setup-overview).
+
+## Installation
+
+Once you've installed Visual Studio Code, you can install the extension through the Extension Marketplace.
+
+For the majority of users, we recommend installing this extension through the [GIFT Language Pack](https://marketplace.visualstudio.com/items?itemName=ethan-ou.vscode-gift-pack), which adds support for live question previews.
+
+To install the GIFT Language Pack:
+
+1. Open Visual Studio Code.
+2. Follow [this link to the GIFT Language Pack](https://marketplace.visualstudio.com/items?itemName=ethan-ou.vscode-gift-pack) and click the `Install` button.
+3. When prompted, allow your browser to open Visual Studio Code.
+4. The extension should now be installing in your editor.
+
+Once installation has completed, we're now ready to write Moodle quizzes in the GIFT format.
+
+## Using the Plugin
+
+To start writing in the GIFT format, create a new file in Visual Studio Code by going to `File > New File`. 
+
+Next, we'll need to change the language mode of the current file. Go to the bottom right corner and click on the label `Plain Text`. Alternatively, press `CTRL+K` followed by `M` on your keyboard.
+
+A list of languages will appear in your window. Find `Gift` and click on it to select it as the file's language.
+
+Once the language is activated, you'll be able to write GIFT into your editor window with colorful highlighting, error checking and snippets enabled.
+
+If you need help in using the GIFT format, refer to the [Learn GIFT section](#learn-gift) for more information.
+
+## Using Snippets
+
+This extension also provides code snippets, which allow you to quickly scaffold and create GIFT questions. 
+
+To activate a snippet, start typing the name of a question type into the editor (e.g. `multiple choice question`, `short answer question`). Visual Studio Code will automatically suggest a template that corresponds to this question type. 
+
+You can navigate these snippets by pressing the `UP` and `DOWN` arrow keys on your keyboard. To preview a snippet, click on the small icon on the right of the dropdown.
+
+Once you've found the relevant snippet, press `ENTER`. Visual Studio Code will insert a template at the cursor location.
+
+To navigate through the snippet, use the `TAB` and `SHIFT+TAB` keys. Then, start typing!
+
+## Snippet Reference
+
+To use a snippet, type the corresponding prefix into your editor. Snippets with a number correspond to the number of answers in the template.
+
+|                              Prefix | Shorthand                                       |
 | ----------------------------------: | ------------------------------------------------- |
-|          `multiple choice question` | `Multiple choice question with four options.`     |
-| `multiple choice question multiple` | `Multiple choice question with multiple answers.` |
-|                 `matching question` | `Matching question with four options.`            |
-|             `short answer question` | `Short answer question with one correct answer.`  |
-|             `missing word question` | `Missing word question with three options.`       |
-|               `true false question` | `True-false question.`                            |
-|                    `essay question` | `Essay question.`                                 |
-|                `numerical question` | `Numerical question.`                             |
-|                             `title` | `Question title.`                                 |
-|                          `category` | `Category label.`                                 |
-|                   `category nested` | `Nested category label.`                          |
-|                       `description` | `Description.`                                    |
-
-If you prefer questions with titles, add a `title` at the end of the snippet. For instance, a multiple choice question with a title is `multiple choice question title`.
-
-### Shorthand
-
-| Prefix | Description                                       |
-| -----: | ------------------------------------------------- |
-|  `mcq` | `Multiple choice question with four options.`     |
-| `mcqm` | `Multiple choice question with multiple answers.` |
-|  `maq` | `Matching question with four options.`            |
-|  `saq` | `Short answer question with one correct answer.`  |
-|  `mwq` | `Missing word question with three options.`       |
-|  `tfq` | `True-False question.`                            |
-|  `ess` | `Essay question.`                                 |
-|   `nq` | `Numerical question.`                             |
-|  `cat` | `Category label.`                                 |
-| `catn` | `Nested category label.`                          |
-|  `des` | `Description.`                                    |
+|          `multiple choice question` | `mcq`, `mc2`, `mc3`, `mc4`, `mc5`, `mc6`     |
+| `multiple choice question multiple` | `mcqm`, `mc2m`, `mc3m`, `mc4m`, `mc5m`, `mc6m` |
+|                 `matching question` | `maq`, `ma2`, `ma3`, `ma4`, `ma5`, `ma6`            |
+|             `short answer question` | `saq`, `sa1`, `sa2`, `sa3`, `sa4`, `sa5`, `sa6`  |
+|             `missing word question` | `mwq`, `mw1`, `mw2`, `mw3`, `mw4`, `mw5`, `mw6`       |
+|               `true false question` | `tfq`                            |
+|                    `essay question` | `ess`                                 |
+|                `numerical question` | `nq`                             |
+|                             `title` |                                  |
+|                          `category` | `cat`                                 |
+|                   `category nested` | `catn`                          |
+|                       `description` | `des`                                    |
 
 
-You can also add titles by adding a `t` at the end of the snippet. For instance, a multiple choice question with a title is `mcqt`.
+### Title Variants
 
-### For Power Users
+All question types also include snippets with titles. For long snippets, add `title` to the end of your existing snippet. For short snippets, add a `t`.
 
-These snippets are useful for adding a specific number of answers to your question. For instance, a multiple choice question with two options is `mc2`.
+|                              Prefix | Shorthand                                       |
+| ----------------------------------: | ------------------------------------------------- |
+|          `multiple choice question title` | `mcqt`, `mc2t`, `mc3t`, `mc4t`, `mc5t`, `mc6t`     |
+| `multiple choice question multiple title` | `mcqmt`, `mc2mt`, `mc3mt`, `mc4mt`, `mc5mt`, `mc6mt` |
+|                 `matching question title` | `maqt`, `ma2t`, `ma3t`, `ma4t`, `ma5t`, `ma6`            |
+|             `short answer question title` | `saqt`, `sa1t`, `sa2t`, `sa3t`, `sa4t`, `sa5t`, `sa6`  |
+|             `missing word question title` | `mwqt`, `mw1t`, `mw2t`, `mw3t`, `mw4t`, `mw5t`, `ma6`       |
+|               `true false question title` | `tfqt`                            |
+|                    `essay question title` | `esst`                                 |
+|                `numerical question title` | `nqt`                             |
 
-|     Prefix | Description                                                  |
-| ---------: | ------------------------------------------------------------ |
-|  `mc[2-6]` | `Multiple choice with two to six options.`                  |
-| `mc[2-6]m` | `Multiple choice question with two to six correct answers.` |
-|  `ma[2-6]` | `Matching question with two to six options.`                |
-|  `sa[1-6]` | `Short answer question with one to six correct answers.`    |
-|  `mw[1-6]` | `Missing word with one to six options.`                     |
+### Snippet Templates:
 
-## For Developers
+#### `multiple choice question`
 
-### Developing the Plugin
-Requirements: VSCode, Git, Node.js/NPM
+```
+Question {
+	=Correct Answer
+	~Incorrect Answer 1
+	~Incorrect Answer 2
+	~Incorrect Answer 3
+}
+```
 
-1. Clone this repo using ```git clone <repository_name>```.
-2. Run ```npm install``` in the main folder. This will install all npm modules for both the client and server.
-3. Open VSCode by typing ```code .```.
-4. To debug the extension, go to the debugger panel and select ```Attach to Server```. VSCode will build the extension and run another window for you to debug in.
-5. Open a GIFT file or create a new file in the GIFT language.
-6. To see any logs or error messages, go to the Output panel in the new window by pressing CTRL + SHIFT + U. Then in the right-hand drop-down select "Gift Language".
+#### `multiple choice question multiple`
 
-### Background
-This extension follows Microsoft's [Language Server Protocol](https://microsoft.github.io/language-server-protocol), and is based on the ["LSP Example" starter](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample). The plugin is split into two folders: client and server. All validation logic and syntax errors are parsed on the server, while the client receives the messages and relays them to VSCode.
+```
+Question {
+	~%50%Correct Option 1
+	~%50%Correct Option 2
+	~%-100%Incorrect Option 1
+	~%-100%Incorrect Option 2
+}
+```
+
+#### `matching question`
+
+```
+Question {
+	=Item 1 -> Match 1
+	=Item 2 -> Match 2
+	=Item 3 -> Match 3
+	=Item 4 -> Match 4
+}
+```
+
+#### `short answer question`
+
+```
+Question { =Answer }
+```
+
+#### `missing word question`
+
+```
+Sentence Start { =Correct Answer ~Incorrect Answer 1 ~Incorrect Answer 2} Sentence End
+```
+
+#### `true false question`
+
+```
+Question {TRUE}
+```
+
+#### `essay question`
+
+```
+Question {}
+```
+
+#### `numerical question`
+
+```
+Question {#Number:Range}
+```
+
+#### `title`
+
+```
+::Title::
+```
+
+
+#### `category`
+
+```
+$CATEGORY: Name
+```
+
+#### `category nested`
+
+```
+$CATEGORY: Level 1/Level 2/Level 3
+```
+
+#### `description`
+
+```
+Description
+```
+
+## Credits
+
+Special thanks to [Chris Fuhrman](https://github.com/fuhrmanator) for his work in creating a [parser for the GIFT format](https://github.com/fuhrmanator/GIFT-grammar-PEG.js) and for his invaluable support in the project.
 
 ## License
 
