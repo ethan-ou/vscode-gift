@@ -140,10 +140,10 @@ All question types also include snippets with titles. For long snippets, add `ti
 
 ```
 Question {
-	=Correct Answer
-	~Incorrect Answer 1
-	~Incorrect Answer 2
-	~Incorrect Answer 3
+    =Correct Answer
+    ~Incorrect Answer 1
+    ~Incorrect Answer 2
+    ~Incorrect Answer 3
 }
 ```
 
@@ -151,10 +151,10 @@ Question {
 
 ```
 Question {
-	~%50%Correct Option 1
-	~%50%Correct Option 2
-	~%-100%Incorrect Option 1
-	~%-100%Incorrect Option 2
+    ~%50%Correct Option 1
+    ~%50%Correct Option 2
+    ~%-100%Incorrect Option 1
+    ~%-100%Incorrect Option 2
 }
 ```
 
@@ -162,10 +162,10 @@ Question {
 
 ```
 Question {
-	=Item 1 -> Match 1
-	=Item 2 -> Match 2
-	=Item 3 -> Match 3
-	=Item 4 -> Match 4
+    =Item 1 -> Match 1
+    =Item 2 -> Match 2
+    =Item 3 -> Match 3
+    =Item 4 -> Match 4
 }
 ```
 
