@@ -92,9 +92,9 @@ If you need help in using the GIFT format, refer to the [Learn GIFT section](#le
 
 This extension provides code snippets, which allow you to quickly scaffold questions in the GIFT format. 
 
-To activate a snippet, start typing the name of a question type into the editor (e.g. `multiple choice question`, `short answer question`). A full list can be found in the [Snippet Reference section](#snippet-reference). Visual Studio Code will automatically suggest a template that corresponds to this question type. 
+To activate the snippet dropdown, start typing the name of a question type into the editor (e.g. `multiple choice question`, `short answer question`). A full list can be found in the [Snippet Reference section](#snippet-reference).
 
-You can select a snippet by pressing the `UP` and `DOWN` arrow keys on your keyboard. To preview a snippet, click on the small icon on the right of the dropdown.
+Select a snippet by pressing the `UP` and `DOWN` arrow keys on your keyboard. To preview a snippet, click on the small icon on the right of the dropdown.
 
 Once you've found the relevant snippet, press `ENTER`. Visual Studio Code will insert a template at the cursor location.
 
