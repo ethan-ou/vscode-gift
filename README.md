@@ -80,7 +80,7 @@ Once installation is complete, we're now ready to write Moodle quizzes in the GI
 
 To start writing in the GIFT format, create a new file in Visual Studio Code by going to `File > New File`. 
 
-Next, change the language mode of the current file. Go to the bottom right corner and click on the label `Plain Text`. Alternatively, press `CTRL+K` followed by `M` on your keyboard.
+Next, change the language mode of the file. Go to the bottom right corner and click on the label `Plain Text`. Alternatively, press `CTRL+K` followed by `M` on your keyboard.
 
 A list of languages will appear in your window. Find `Gift` and select it as the file's language.
 
@@ -109,36 +109,36 @@ This extension provides two types of snippets:
 
 Each question type has both a plain-English and a shorthand equivalent (e.g. `multiple choice question`, `mcq`). For some question types, there are also numbered snippets (e.g. `mc2`, `sa4`) which correspond to the number of answers in the template.
 
-|                              Prefix | Shorthand                                       |
+|                       Plain-English | Shorthand                                         |
 | ----------------------------------: | ------------------------------------------------- |
-|          `multiple choice question` | `mcq`, `mc2`, `mc3`, `mc4`, `mc5`, `mc6`     |
-| `multiple choice question multiple` | `mcqm`, `mc2m`, `mc3m`, `mc4m`, `mc5m`, `mc6m` |
-|                 `matching question` | `maq`, `ma2`, `ma3`, `ma4`, `ma5`, `ma6`            |
-|             `short answer question` | `saq`, `sa1`, `sa2`, `sa3`, `sa4`, `sa5`, `sa6`  |
-|             `missing word question` | `mwq`, `mw1`, `mw2`, `mw3`, `mw4`, `mw5`, `mw6`       |
-|               `true false question` | `tfq`                            |
-|                    `essay question` | `ess`                                 |
-|                `numerical question` | `nq`                             |
-|                             `title` |                                  |
-|                          `category` | `cat`                                 |
-|                   `category nested` | `catn`                          |
-|                       `description` | `des`                                    |
+|          `multiple choice question` | `mcq`, `mc2`, `mc3`, `mc4`, `mc5`, `mc6`          |
+| `multiple choice question multiple` | `mcqm`, `mc2m`, `mc3m`, `mc4m`, `mc5m`, `mc6m`    |
+|                 `matching question` | `maq`, `ma2`, `ma3`, `ma4`, `ma5`, `ma6`          |
+|             `short answer question` | `saq`, `sa1`, `sa2`, `sa3`, `sa4`, `sa5`, `sa6`   |
+|             `missing word question` | `mwq`, `mw1`, `mw2`, `mw3`, `mw4`, `mw5`, `mw6`   |
+|               `true false question` | `tfq`                                             |
+|                    `essay question` | `ess`                                             |
+|                `numerical question` | `nq`                                              |
+|                             `title` |                                                   |
+|                          `category` | `cat`                                             |
+|                   `category nested` | `catn`                                            |
+|                       `description` | `des`                                             |
 
 
 ### Title Variants
 
 All question types also include snippets with titles. For long snippets, add `title` to the end of your existing snippet. For short snippets, add a `t`.
 
-|                              Prefix | Shorthand                                       |
-| ----------------------------------: | ------------------------------------------------- |
-|          `multiple choice question title` | `mcqt`, `mc2t`, `mc3t`, `mc4t`, `mc5t`, `mc6t`     |
-| `multiple choice question multiple title` | `mcqmt`, `mc2mt`, `mc3mt`, `mc4mt`, `mc5mt`, `mc6mt` |
-|                 `matching question title` | `maqt`, `ma2t`, `ma3t`, `ma4t`, `ma5t`, `ma6`            |
-|             `short answer question title` | `saqt`, `sa1t`, `sa2t`, `sa3t`, `sa4t`, `sa5t`, `sa6`  |
-|             `missing word question title` | `mwqt`, `mw1t`, `mw2t`, `mw3t`, `mw4t`, `mw5t`, `ma6`       |
-|               `true false question title` | `tfqt`                            |
-|                    `essay question title` | `esst`                                 |
-|                `numerical question title` | `nqt`                             |
+|                             Plain-English | Shorthand                                             |
+| ----------------------------------------: | ----------------------------------------------------- |
+|          `multiple choice question title` | `mcqt`, `mc2t`, `mc3t`, `mc4t`, `mc5t`, `mc6t`        |
+| `multiple choice question multiple title` | `mcqmt`, `mc2mt`, `mc3mt`, `mc4mt`, `mc5mt`, `mc6mt`  |
+|                 `matching question title` | `maqt`, `ma2t`, `ma3t`, `ma4t`, `ma5t`, `ma6`         |
+|             `short answer question title` | `saqt`, `sa1t`, `sa2t`, `sa3t`, `sa4t`, `sa5t`, `sa6` |
+|             `missing word question title` | `mwqt`, `mw1t`, `mw2t`, `mw3t`, `mw4t`, `mw5t`, `ma6` |
+|               `true false question title` | `tfqt`                                                |
+|                    `essay question title` | `esst`                                                |
+|                `numerical question title` | `nqt`                                                 |
 
 ### Snippet Templates:
 
