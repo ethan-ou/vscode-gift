@@ -127,7 +127,7 @@ Each question type has both a plain-English and a shorthand equivalent (e.g. `mu
 
 ### Title Variants
 
-All question types also include snippets with titles. For long snippets, add `title` to the end of your existing snippet. For short snippets, add a `t`.
+All question types also include snippets with titles. For plain-English snippets, add `title` to the end of your existing snippet. For shorthand snippets, add a `t`.
 
 |                             Plain-English | Shorthand                                             |
 | ----------------------------------------: | ----------------------------------------------------- |
