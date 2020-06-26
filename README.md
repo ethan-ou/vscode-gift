@@ -1,11 +1,11 @@
-# GIFT Format Support For Visual Studio Code
+# GIFT Format For Visual Studio Code
 
 [![Version](https://vsmarketplacebadge.apphb.com/version/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/version-short/ethan-ou.vscode-gift.svg)
 [![Install](https://vsmarketplacebadge.apphb.com/installs/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/installs-short/ethan-ou.vscode-gift.svg)
 [![Downloads](https://vsmarketplacebadge.apphb.com/downloads/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/downloads-short/ethan-ou.vscode-gift.svg)
 [![Ratings](https://vsmarketplacebadge.apphb.com/rating-short/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/rating-short/ethan-ou.vscode-gift.svg)
 
-This extension provides basic language support for Moodle's GIFT format. Using this extension, you can quickly generate and write questions in GIFT that are accepted when imported into Moodle.
+This extension provides language support for Moodle's GIFT format. Using this extension, you can write questions in GIFT with modern text editor features including syntax highlighting, error checking and useful snippets that improve the overall development experience.
 
 ![Code Snippets](https://github.com/ethan-ou/vscode-gift/blob/master/examples/code-snippets.gif?raw=true)
 
@@ -35,13 +35,14 @@ Using just a text editor, you can prototype, edit and test Moodle quizzes withou
 
 GIFT supports many common question types including:
 
-* Multiple Choice 
-* Missing Word/Cloze
-* Short Answer
-* Matching
-* True-False
-* Essay
-* Numerical
+* [Multiple Choice](#multiple-choice-question)
+* [Multiple Choice with Multiple Answers](#multiple-choice-question-multiple)
+* [Matching](#matching-question)
+* [Short Answer](#short-answer-question)
+* [Missing Word/Cloze](#missing-word-question)
+* [True-False](#true-false-question)
+* [Essay](#essay-question)
+* [Numerical](#numerical-question)
 
 Best of all, writing in GIFT is simple and fun, and makes creating large question banks in Moodle a breeze.
 
@@ -58,11 +59,11 @@ To install Visual Studio Code:
 1. Download the installation file from the [Visual Studio Code website](https://code.visualstudio.com/).
 2. Install the program.
 
-If you're having trouble with installation, you can also consult the [Visual Studio Code documentation](https://code.visualstudio.com/docs/setup/setup-overview).
+If you're having trouble with installation, you can consult the [Visual Studio Code documentation](https://code.visualstudio.com/docs/setup/setup-overview).
 
 ## Installation
 
-Once you've installed Visual Studio Code, you can install the extension through the Extension Marketplace.
+Once Visual Studio Code is installed, you can add the extension through the Extension Marketplace.
 
 For the majority of users, we recommend installing this extension through the [GIFT Language Pack](https://marketplace.visualstudio.com/items?itemName=ethan-ou.vscode-gift-pack), which adds support for live question previews.
 
@@ -73,35 +74,40 @@ To install the GIFT Language Pack:
 3. When prompted, allow your browser to open Visual Studio Code.
 4. The extension should now be installing in your editor.
 
-Once installation has completed, we're now ready to write Moodle quizzes in the GIFT format.
+Once installation is complete, we're now ready to write Moodle quizzes in the GIFT format.
 
 ## Using the Plugin
 
 To start writing in the GIFT format, create a new file in Visual Studio Code by going to `File > New File`. 
 
-Next, we'll need to change the language mode of the current file. Go to the bottom right corner and click on the label `Plain Text`. Alternatively, press `CTRL+K` followed by `M` on your keyboard.
+Next, change the language mode of the current file. Go to the bottom right corner and click on the label `Plain Text`. Alternatively, press `CTRL+K` followed by `M` on your keyboard.
 
-A list of languages will appear in your window. Find `Gift` and click on it to select it as the file's language.
+A list of languages will appear in your window. Find `Gift` and select it as the file's language.
 
-Once the language is activated, you'll be able to write GIFT into your editor window with colorful highlighting, error checking and snippets enabled.
+Once the language is activated, you'll be able to write in the GIFT format with colorful highlighting, error checking and snippets enabled.
 
 If you need help in using the GIFT format, refer to the [Learn GIFT section](#learn-gift) for more information.
 
 ## Using Snippets
 
-This extension also provides code snippets, which allow you to quickly scaffold and create GIFT questions. 
+This extension provides code snippets, which allow you to quickly scaffold questions in the GIFT format. 
 
-To activate a snippet, start typing the name of a question type into the editor (e.g. `multiple choice question`, `short answer question`). Visual Studio Code will automatically suggest a template that corresponds to this question type. 
+To activate a snippet, start typing the name of a question type into the editor (e.g. `multiple choice question`, `short answer question`). A full list can be found in the [Snippet Reference section](#snippet-reference). Visual Studio Code will automatically suggest a template that corresponds to this question type. 
 
-You can navigate these snippets by pressing the `UP` and `DOWN` arrow keys on your keyboard. To preview a snippet, click on the small icon on the right of the dropdown.
+You can select a snippet by pressing the `UP` and `DOWN` arrow keys on your keyboard. To preview a snippet, click on the small icon on the right of the dropdown.
 
 Once you've found the relevant snippet, press `ENTER`. Visual Studio Code will insert a template at the cursor location.
 
-To navigate through the snippet, use the `TAB` and `SHIFT+TAB` keys. Then, start typing!
+To navigate through the snippet, use the `TAB` and `SHIFT+TAB` keys. When you've found a part of the snippet you want to edit, start typing!
 
 ## Snippet Reference
 
-To use a snippet, type the corresponding prefix into your editor. Snippets with a number correspond to the number of answers in the template.
+This extension provides two types of snippets:
+
+* Plain-English Snippets (e.g `short answer question`)
+* Shorthand Snippets (e.g. `saq`, `sa2`)
+
+Each question type has both a plain-English and a shorthand equivalent (e.g. `multiple choice question`, `mcq`). For some question types, there are also numbered snippets (e.g. `mc2`, `sa4`) which correspond to the number of answers in the template.
 
 |                              Prefix | Shorthand                                       |
 | ----------------------------------: | ------------------------------------------------- |
