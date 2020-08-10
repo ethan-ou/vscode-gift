@@ -7,6 +7,8 @@
 
 This extension provides language support for Moodle's GIFT format. Using this extension, you can write questions in GIFT with modern text editor features including syntax highlighting, error checking and useful snippets that improve the overall development experience.
 
+**Docs:** [GIFT Format Docs](https://ethan-ou.github.io/vscode-gift-docs/)
+
 **See Also:** [GIFT Format Pack](https://github.com/ethan-ou/vscode-gift-pack), [GIFT Format Preview](https://github.com/ethan-ou/vscode-gift-preview)
 
 ![Code Snippets](https://github.com/ethan-ou/vscode-gift/blob/master/examples/code-snippets.gif?raw=true)
