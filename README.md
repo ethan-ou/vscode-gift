@@ -11,7 +11,7 @@ This extension provides language support for Moodle's GIFT format. Using this ex
 
 **See Also:** [GIFT Format Pack](https://github.com/ethan-ou/vscode-gift-pack), [GIFT Format Preview](https://github.com/ethan-ou/vscode-gift-preview)
 
-![Code Snippets](https://github.com/ethan-ou/vscode-gift/blob/master/examples/code-snippets.gif?raw=true)
+![Code Snippets](https://github.com/ethan-ou/vscode-gift/blob/master/resources/code-snippets.gif?raw=true)
 
 ## Table of Contents
 

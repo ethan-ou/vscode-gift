@@ -12,6 +12,7 @@
     "type": "git",
     "url": "https://github.com/ethan-ou/vscode-gift"
   },
+  "icon": "resources/icon.png",
   "keywords": [
     "gift",
     "moodle"
