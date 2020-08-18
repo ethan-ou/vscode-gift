@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+## 0.1.3 (18-08-2020)
+- Internal parser refactor through updated `gift-parser-ide` package.
 
 ## 0.1.2 (13-06-2020)
 - Update parser to fix category errors with special characters.

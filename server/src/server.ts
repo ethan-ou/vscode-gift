@@ -131,7 +131,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
   const settings = await getDocumentSettings(textDocument.uri);
 
   const text = textDocument.getText();
-  const validation = GIFTParser.update(text);
+  const validation = GIFTParser.update(text).errorOnly();
   const diagnostics: Diagnostic[] = [];
 
   let problem = 0;
