@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5 (09-11-2020)
+
+- Rename from GIFT Language to GIFT Format
+- Documentation updates
+- When writing titles, additional colons are now inserted (e.g. type `::` and another set of colons `::` will appear).
+
 ## 0.1.4 (09-11-2020)
 
 - Added new quick action to escape and unescape GIFT text.

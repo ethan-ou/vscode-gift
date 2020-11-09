@@ -5,6 +5,8 @@
 [![Downloads](https://vsmarketplacebadge.apphb.com/downloads/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/downloads-short/ethan-ou.vscode-gift.svg)
 [![Ratings](https://vsmarketplacebadge.apphb.com/rating-short/ethan-ou.vscode-gift.svg)](https://vsmarketplacebadge.apphb.com/rating-short/ethan-ou.vscode-gift.svg)
 
+> **Note:** We recommend installing the [GIFT Format Pack](https://github.com/ethan-ou/vscode-gift-pack) which bundles both this extension and a live previewer for the GIFT Format.
+
 This extension provides language support for Moodle's GIFT format. Using this extension, you can write questions in GIFT with modern text editor features including syntax highlighting, error checking and useful snippets that improve the overall development experience.
 
 **Docs:** [GIFT Format Docs](https://ethan-ou.github.io/vscode-gift-docs/)
@@ -17,19 +19,19 @@ This extension provides language support for Moodle's GIFT format. Using this ex
 
 **Background:**
 
-* [About the GIFT Format](#about-the-gift-format)
-* [Learn GIFT](#learn-gift)
+- [About the GIFT Format](#about-the-gift-format)
+- [Learn GIFT](#learn-gift)
 
-**Plugin:** 
+**Plugin:**
 
-* [Getting Started](#getting-started)
-* [Installation](#installation)
-* [Using the Plugin](#using-the-plugin)
-* [Using Snippets](#using-snippets)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Using the Plugin](#using-the-plugin)
+- [Using Snippets](#using-snippets)
 
 **Reference:**
 
-* [Snippet Reference](#snippet-reference)
+- [Snippet Reference](#snippet-reference)
 
 ## About the GIFT Format
 
@@ -39,14 +41,14 @@ Using just a text editor, you can prototype, edit and test Moodle quizzes withou
 
 GIFT supports many common question types including:
 
-* [Multiple Choice](#multiple-choice-question)
-* [Multiple Choice with Multiple Answers](#multiple-choice-question-multiple)
-* [Matching](#matching-question)
-* [Short Answer](#short-answer-question)
-* [Missing Word/Cloze](#missing-word-question)
-* [True-False](#true-false-question)
-* [Essay](#essay-question)
-* [Numerical](#numerical-question)
+- [Multiple Choice](#multiple-choice-question)
+- [Multiple Choice with Multiple Answers](#multiple-choice-question-multiple)
+- [Matching](#matching-question)
+- [Short Answer](#short-answer-question)
+- [Missing Word/Cloze](#missing-word-question)
+- [True-False](#true-false-question)
+- [Essay](#essay-question)
+- [Numerical](#numerical-question)
 
 Best of all, writing in GIFT is simple and fun, and makes creating large question banks in Moodle a breeze.
 
@@ -82,7 +84,7 @@ Once installation is complete, we're now ready to write Moodle quizzes in the GI
 
 ## Using the Plugin
 
-To start writing in the GIFT format, create a new file in Visual Studio Code by going to `File > New File`. 
+To start writing in the GIFT format, create a new file in Visual Studio Code by going to `File > New File`.
 
 Next, change the language mode of the file. Go to the bottom right corner and click on the label `Plain Text`. Alternatively, press `CTRL+K` followed by `M` on your keyboard.
 
@@ -94,7 +96,7 @@ If you need help in using the GIFT format, refer to the [Learn GIFT section](#le
 
 ## Using Snippets
 
-This extension provides code snippets, which allow you to quickly scaffold questions in the GIFT format. 
+This extension provides code snippets, which allow you to quickly scaffold questions in the GIFT format.
 
 To activate the snippet dropdown, start typing the name of a question type into the editor (e.g. `multiple choice question`, `short answer question`). A full list can be found in the [Snippet Reference section](#snippet-reference).
 
@@ -108,26 +110,25 @@ To navigate through the snippet, use the `TAB` and `SHIFT+TAB` keys. When you've
 
 This extension provides two types of snippets:
 
-* Plain-English Snippets (e.g `short answer question`)
-* Shorthand Snippets (e.g. `saq`, `sa2`)
+- Plain-English Snippets (e.g `short answer question`)
+- Shorthand Snippets (e.g. `saq`, `sa2`)
 
 Each question type has both a plain-English and a shorthand equivalent (e.g. `multiple choice question`, `mcq`). For some question types, there are also numbered snippets (e.g. `mc2`, `sa4`) which correspond to the number of answers in the template.
 
-|                       Plain-English | Shorthand                                         |
-| ----------------------------------: | ------------------------------------------------- |
-|          `multiple choice question` | `mcq`, `mc2`, `mc3`, `mc4`, `mc5`, `mc6`          |
-| `multiple choice question multiple` | `mcqm`, `mc2m`, `mc3m`, `mc4m`, `mc5m`, `mc6m`    |
-|                 `matching question` | `maq`, `ma2`, `ma3`, `ma4`, `ma5`, `ma6`          |
-|             `short answer question` | `saq`, `sa1`, `sa2`, `sa3`, `sa4`, `sa5`, `sa6`   |
-|             `missing word question` | `mwq`, `mw1`, `mw2`, `mw3`, `mw4`, `mw5`, `mw6`   |
-|               `true false question` | `tfq`                                             |
-|                    `essay question` | `ess`                                             |
-|                `numerical question` | `nq`                                              |
-|                             `title` |                                                   |
-|                          `category` | `cat`                                             |
-|                   `category nested` | `catn`                                            |
-|                       `description` | `des`                                             |
-
+|                       Plain-English | Shorthand                                       |
+| ----------------------------------: | ----------------------------------------------- |
+|          `multiple choice question` | `mcq`, `mc2`, `mc3`, `mc4`, `mc5`, `mc6`        |
+| `multiple choice question multiple` | `mcqm`, `mc2m`, `mc3m`, `mc4m`, `mc5m`, `mc6m`  |
+|                 `matching question` | `maq`, `ma2`, `ma3`, `ma4`, `ma5`, `ma6`        |
+|             `short answer question` | `saq`, `sa1`, `sa2`, `sa3`, `sa4`, `sa5`, `sa6` |
+|             `missing word question` | `mwq`, `mw1`, `mw2`, `mw3`, `mw4`, `mw5`, `mw6` |
+|               `true false question` | `tfq`                                           |
+|                    `essay question` | `ess`                                           |
+|                `numerical question` | `nq`                                            |
+|                             `title` |                                                 |
+|                          `category` | `cat`                                           |
+|                   `category nested` | `catn`                                          |
+|                       `description` | `des`                                           |
 
 ### Title Variants
 
@@ -214,7 +215,6 @@ Question {#Number:Range}
 ```
 ::Title::
 ```
-
 
 #### `category`
 
