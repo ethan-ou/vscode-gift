@@ -65,7 +65,7 @@ Best of all, writing in GIFT is simple and fun, and makes creating large questio
 
 Currently, the best way to learn the GIFT format is to look through the [Moodle docs](https://docs.moodle.org/39/en/GIFT_format).
 
-For more detail, you can also reference the [VSCode GIFT Format Docs](https://ethan-ou.github.io/vscode-gift-docs/docs/introduction) which takes you through the GIFT format and how to set up this plugin.
+For a quick reference of the GIFT format, you can also use the [VSCode GIFT Format Docs](https://ethan-ou.github.io/vscode-gift-docs/docs/introduction) which also provides documentation on advanced GIFT features including LaTeX, including media and videos.
 
 ## 💻 Installing VSCode
 
@@ -78,7 +78,7 @@ To install Visual Studio Code:
 
 If you're having trouble with installation, you can consult the [Visual Studio Code documentation](https://code.visualstudio.com/docs/setup/setup-overview).
 
-## 🙌 Installation
+## 🙌 Installing the Plugin
 
 Once Visual Studio Code is installed, you can add the extension through the Extension Marketplace.
 
@@ -95,15 +95,14 @@ Once installation is complete, we're now ready to write Moodle quizzes in the GI
 
 ## 🎉 Using the Plugin
 
-To start writing in the GIFT format, create a new file in Visual Studio Code by going to `File > New File`.
+To start writing in the GIFT format:
 
-Next, change the language mode of the file. Go to the bottom right corner and click on the label `Plain Text`. Alternatively, press `CTRL+K` followed by `M` on your keyboard.
+1. Create a new file in Visual Studio Code by going to `File > New File`, or open an existing GIFT file.
+2. Go to the bottom right corner of your window and click on `Plain Text`. Alternatively, press `CTRL+K` followed by `M` on your keyboard.
+3. A list of languages will appear in your window. Find `Gift` and select it as the file's language.
+4. Once the language is activated, you'll be able to write in the GIFT format with syntax highlighting, error checking and snippets enabled.
 
-A list of languages will appear in your window. Find `Gift` and select it as the file's language.
-
-Once the language is activated, you'll be able to write in the GIFT format with colorful highlighting, error checking and snippets enabled.
-
-If you need help in using the GIFT format, refer to the [Learn GIFT section](#learn-gift) for more information.
+If you need help in understanding the GIFT format, refer to the [Learn GIFT section](#learn-gift) for more information.
 
 ## ✂️ Using Snippets
 
@@ -111,11 +110,9 @@ This extension provides code snippets, which allow you to quickly scaffold quest
 
 To activate the snippet dropdown, start typing the name of a question type into the editor (e.g. `multiple choice question`, `short answer question`). A full list can be found in the [Snippet Reference section](#snippet-reference).
 
-Select a snippet by pressing the `UP` and `DOWN` arrow keys on your keyboard. To preview a snippet, click on the small icon on the right of the dropdown.
+Select a snippet by pressing the <kbd>UP</kbd> and <kbd>DOWN</kbd> arrow keys on your keyboard. Once you've found the right snippet, press <kbd>ENTER</kbd> to insert it into your editor.
 
-Once you've found the relevant snippet, press `ENTER`. Visual Studio Code will insert a template at the cursor location.
-
-To navigate through the snippet, use the `TAB` and `SHIFT+TAB` keys. When you've found a part of the snippet you want to edit, start typing!
+To navigate through the snippet, use the <kbd>`TAB`</kbd> and <kbd>SHIFT</kbd>+ <kbd>TAB</kbd> keys. When you've found a part of the snippet you want to edit, start typing!
 
 ## ​📖​ Snippet Reference
 
