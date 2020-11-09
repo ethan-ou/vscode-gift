@@ -1,16 +1,23 @@
 # Changelog
 
-## [Unreleased]
+## 0.1.4 (09-11-2020)
+
+- Added new quick action to escape and unescape GIFT text.
+
 ## 0.1.3 (18-08-2020)
+
 - Internal parser refactor through updated `gift-parser-ide` package.
 
 ## 0.1.2 (13-06-2020)
+
 - Update parser to fix category errors with special characters.
 
 ## 0.1.1 (13-06-2020)
+
 - Remove extra bundled files
 
 ## 0.1.0 (13-06-2020)
+
 - Drastic improvements to parsing speed and quality. Plugin can now parse multiple syntax errors within a question.
 - Changed error message from yellow warnings to red errors.
 
@@ -45,9 +52,9 @@
 
 - Added checks for escaped characters (e.g. \\{, \\=)
 - Fixed issue where partial answers were not registed when spaces are added beforehand (e.g. = %50%)
-- Fixed issue with comments being registered when double slashes are used in categories (e.g. $CATEGORY: \\\Accidental Comment)
+- Fixed issue with comments being registered when double slashes are used in categories (e.g. \$CATEGORY: \\\Accidental Comment)
 - Added case insensitivity for true-false questions
-- Fixed issue with categories not being highlighted when spaces are added beforehand (e.g. \s\s$CATEGORY:)
+- Fixed issue with categories not being highlighted when spaces are added beforehand (e.g. \s\s\$CATEGORY:)
 
 ## 0.0.2 (21-01-2020)
 
@@ -58,6 +65,3 @@
 ## 0.0.1 (08-01-2020)
 
 - Initial Release
-
-
-
