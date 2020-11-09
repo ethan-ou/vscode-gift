@@ -1,6 +1,6 @@
 {
   "name": "vscode-gift",
-  "displayName": "GIFT Language",
+  "displayName": "GIFT Format",
   "description": "Syntax highlighting and snippets for Moodle's GIFT format",
   "version": "0.1.4",
   "publisher": "ethan-ou",
