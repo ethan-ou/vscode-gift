@@ -156,7 +156,7 @@ All question types also include snippets with titles. For plain-English snippets
 |                    `essay question title` | `esst`                                                |
 |                `numerical question title` | `nqt`                                                 |
 
-### ​✍ Snippet Templates:
+### Snippet Templates:
 
 #### `multiple choice question`
 
