@@ -1,5 +1,5 @@
 import * as path from "path";
-import { workspace, ExtensionContext } from "vscode";
+import { workspace, ExtensionContext, languages, commands } from "vscode";
 
 import {
   LanguageClient,
@@ -7,10 +7,13 @@ import {
   ServerOptions,
   TransportKind,
 } from "vscode-languageclient";
+import { EscapeSpecialChar, UnescapeSpecialChar } from "./actions";
 
 let client: LanguageClient;
 
 export function activate(context: ExtensionContext): void {
+  activateCodeActions(context);
+
   // The server is implemented in node
   const serverModule = context.asAbsolutePath(
     path.join("server", "out", "server.js")
@@ -57,4 +60,19 @@ export function deactivate(): Thenable<void> | undefined {
     return undefined;
   }
   return client.stop();
+}
+
+function activateCodeActions(context: ExtensionContext) {
+  const codeActions = [
+    languages.registerCodeActionsProvider("gift", new UnescapeSpecialChar(), {
+      providedCodeActionKinds: UnescapeSpecialChar.providedCodeActionKinds,
+    }),
+    languages.registerCodeActionsProvider("gift", new EscapeSpecialChar(), {
+      providedCodeActionKinds: EscapeSpecialChar.providedCodeActionKinds,
+    }),
+  ];
+
+  codeActions.forEach((registration) =>
+    context.subscriptions.push(registration)
+  );
 }
