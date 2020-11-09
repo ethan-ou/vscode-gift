@@ -24,7 +24,7 @@ This extension provides language support for Moodle's GIFT format. Using this ex
 
 ![Code Snippets](https://github.com/ethan-ou/vscode-gift/blob/master/resources/code-snippets.gif?raw=true)
 
-## Table of Contents
+## 📚 Table of Contents
 
 **Background:**
 
@@ -42,7 +42,7 @@ This extension provides language support for Moodle's GIFT format. Using this ex
 
 - [Snippet Reference](#snippet-reference)
 
-## About the GIFT Format
+## 🎁 About the GIFT Format
 
 The GIFT format is an alternative way of authoring Moodle quizzes that makes writing large banks of questions easy.
 
@@ -61,13 +61,13 @@ GIFT supports many common question types including:
 
 Best of all, writing in GIFT is simple and fun, and makes creating large question banks in Moodle a breeze.
 
-## Learn GIFT
+### Learn GIFT
 
 Currently, the best way to learn the GIFT format is to look through the [Moodle docs](https://docs.moodle.org/39/en/GIFT_format).
 
 For more detail, you can also reference the [VSCode GIFT Format Docs](https://ethan-ou.github.io/vscode-gift-docs/docs/introduction) which takes you through the GIFT format and how to set up this plugin.
 
-## Getting Started
+## 💻 Installing VSCode
 
 To install the plugin, we'll first need to install [Visual Studio Code](https://code.visualstudio.com/). Visual Studio Code is an open-source text editor for Windows, macOS and Linux, with powerful features for working with programming languages.
 
@@ -78,7 +78,7 @@ To install Visual Studio Code:
 
 If you're having trouble with installation, you can consult the [Visual Studio Code documentation](https://code.visualstudio.com/docs/setup/setup-overview).
 
-## Installation
+## 🙌 Installation
 
 Once Visual Studio Code is installed, you can add the extension through the Extension Marketplace.
 
@@ -93,7 +93,7 @@ To install the GIFT Language Pack:
 
 Once installation is complete, we're now ready to write Moodle quizzes in the GIFT format.
 
-## Using the Plugin
+## 🎉 Using the Plugin
 
 To start writing in the GIFT format, create a new file in Visual Studio Code by going to `File > New File`.
 
@@ -105,7 +105,7 @@ Once the language is activated, you'll be able to write in the GIFT format with 
 
 If you need help in using the GIFT format, refer to the [Learn GIFT section](#learn-gift) for more information.
 
-## Using Snippets
+## ✂️ Using Snippets
 
 This extension provides code snippets, which allow you to quickly scaffold questions in the GIFT format.
 
@@ -117,7 +117,7 @@ Once you've found the relevant snippet, press `ENTER`. Visual Studio Code will i
 
 To navigate through the snippet, use the `TAB` and `SHIFT+TAB` keys. When you've found a part of the snippet you want to edit, start typing!
 
-## Snippet Reference
+## ​📖​ Snippet Reference
 
 This extension provides two types of snippets:
 
@@ -156,7 +156,7 @@ All question types also include snippets with titles. For plain-English snippets
 |                    `essay question title` | `esst`                                                |
 |                `numerical question title` | `nqt`                                                 |
 
-### Snippet Templates:
+### ​✍ Snippet Templates:
 
 #### `multiple choice question`
 
