@@ -9,6 +9,15 @@
 
 This extension provides language support for Moodle's GIFT format. Using this extension, you can write questions in GIFT with modern text editor features including syntax highlighting, error checking and useful snippets that improve the overall development experience.
 
+**Features:**
+
+- 🌈 Syntax Highlighting
+- ❌ Error Checking
+- ✂️ Snippets for all supported question types
+- 🚀 Quick Actions for repetitive tasks
+- 👀 Live Preview (with [GIFT Format Preview](https://github.com/ethan-ou/vscode-gift-preview))
+- 📘 LaTeX Support
+
 **Docs:** [GIFT Format Docs](https://ethan-ou.github.io/vscode-gift-docs/)
 
 **See Also:** [GIFT Format Pack](https://github.com/ethan-ou/vscode-gift-pack), [GIFT Format Preview](https://github.com/ethan-ou/vscode-gift-preview)
@@ -55,6 +64,8 @@ Best of all, writing in GIFT is simple and fun, and makes creating large questio
 ## Learn GIFT
 
 Currently, the best way to learn the GIFT format is to look through the [Moodle docs](https://docs.moodle.org/39/en/GIFT_format).
+
+For more detail, you can also reference the [VSCode GIFT Format Docs](https://ethan-ou.github.io/vscode-gift-docs/docs/introduction) which takes you through the GIFT format and how to set up this plugin.
 
 ## Getting Started
 
