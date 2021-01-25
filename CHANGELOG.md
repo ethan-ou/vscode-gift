@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.6 (25-01-2020)
+
+- Resolve error with escaped curly brackets on EOL
+
 ## 0.1.5 (09-11-2020)
 
 - Rename from GIFT Language to GIFT Format
