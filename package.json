@@ -33,8 +33,7 @@
           "gift"
         ],
         "extensions": [
-          ".gift",
-          ".txt"
+          ".gift"
         ],
         "configuration": "./language-configuration.json"
       }

@@ -117,6 +117,9 @@ function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
 
 // Only keep settings for open documents
 documents.onDidClose((e) => {
+  // Clear diagnostics for file when switching languages or closing file.
+  connection.sendDiagnostics({ uri: e.document.uri, diagnostics: [] });
+
   documentSettings.delete(e.document.uri);
 });
 
