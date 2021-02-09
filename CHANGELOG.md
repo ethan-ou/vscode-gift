@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.7 (09-02-2020)
+
+- Resolve issue with GIFT not clearing errors on language change. Fixes #8.
+
 ## 0.1.6 (25-01-2020)
 
 - Resolve error with escaped curly brackets on EOL
