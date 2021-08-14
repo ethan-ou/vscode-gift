@@ -90,8 +90,8 @@ export function unescapeMarkdownCodeBlock(text: string): string {
     text
   );
 
-  const addNewLines = removeMarkdownBlock.replaceAll(NEWLINE, "\n");
-  const unescapedText = unescapeText(addNewLines);
+  const replaceNewLines = removeMarkdownBlock.replaceAll(NEWLINE, "\n");
+  const unescapedText = unescapeText(replaceNewLines);
 
   return unescapedText;
 }
