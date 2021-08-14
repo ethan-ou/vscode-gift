@@ -5,9 +5,14 @@ import {
   Range,
   CodeAction,
   WorkspaceEdit,
-  Position,
 } from "vscode";
-import { ESCAPE, SPECIALCHAR } from "./GIFTConstants";
+import {
+  escapeMarkdownCodeBlock,
+  unescapeMarkdownCodeBlock,
+  escapeText,
+  unescapeText,
+} from "./GIFTHelpers";
+import { getSelectionOrLine, createLineSelection } from "./helpers";
 
 export class EscapeSpecialChar implements CodeActionProvider {
   public static readonly providedCodeActionKinds = [CodeActionKind.Refactor];
@@ -16,17 +21,16 @@ export class EscapeSpecialChar implements CodeActionProvider {
     document: TextDocument,
     range: Range
   ): CodeAction[] | undefined {
-    const selection = this.getSelectionOrLine(document, range);
-    const locations = this.escapeLocations(selection.text);
-    const newText = this.escapeText(selection.text, locations);
+    const selection = getSelectionOrLine(document, range);
+    const newText = escapeText(selection.text);
 
-    const escapeSpecialChar = this.createFix(
+    const action = this.createFix(
       document,
       range,
       newText,
       selection.selection
     );
-    return [escapeSpecialChar];
+    return [action];
   }
 
   private createFix(
@@ -44,63 +48,11 @@ export class EscapeSpecialChar implements CodeActionProvider {
 
     const selectionRange = selection
       ? range
-      : new Range(
-          new Position(range.start.line, 0),
-          new Position(
-            range.start.line,
-            document.lineAt(range.start.line).text.length
-          )
-        );
+      : createLineSelection(document, range);
 
     fix.edit.replace(document.uri, selectionRange, newText);
 
     return fix;
-  }
-
-  private getSelectionOrLine(
-    document: TextDocument,
-    range: Range
-  ): { text: string; selection: boolean } {
-    const selection = document.getText(range).length > 0;
-    return selection
-      ? { text: document.getText(range), selection: selection }
-      : { text: document.lineAt(range.start.line).text, selection: selection };
-  }
-
-  private escapeLocations(text: string): number[] {
-    const escapeLocations = [];
-
-    let i = 0;
-    while (i < text.length) {
-      if (SPECIALCHAR.includes(text[i])) {
-        const charIsEscaped = i > 0 ? text[i - 1] === ESCAPE : false;
-
-        if (!charIsEscaped) {
-          escapeLocations.push(i);
-        }
-      }
-
-      i++;
-    }
-
-    return escapeLocations;
-  }
-
-  private escapeText(text: string, locations: number[]): string {
-    let i = 0;
-    for (const location of locations) {
-      if (location + i > 0) {
-        text = `${text.substring(0, location + i)}${ESCAPE}${text.substr(
-          location + i
-        )}`;
-      } else {
-        text = ESCAPE + text;
-      }
-
-      i++;
-    }
-
-    return text;
   }
 }
 
@@ -111,17 +63,16 @@ export class UnescapeSpecialChar implements CodeActionProvider {
     document: TextDocument,
     range: Range
   ): CodeAction[] | undefined {
-    const selection = this.getSelectionOrLine(document, range);
-    const locations = this.unescapeLocations(selection.text);
-    const newText = this.unescapeText(selection.text, locations);
+    const selection = getSelectionOrLine(document, range);
+    const newText = unescapeText(selection.text);
 
-    const unescapeSpecialChar = this.createFix(
+    const action = this.createFix(
       document,
       range,
       newText,
       selection.selection
     );
-    return [unescapeSpecialChar];
+    return [action];
   }
 
   private createFix(
@@ -139,60 +90,94 @@ export class UnescapeSpecialChar implements CodeActionProvider {
 
     const selectionRange = selection
       ? range
-      : new Range(
-          new Position(range.start.line, 0),
-          new Position(
-            range.start.line,
-            document.lineAt(range.start.line).text.length
-          )
-        );
+      : createLineSelection(document, range);
 
     fix.edit.replace(document.uri, selectionRange, newText);
 
     return fix;
   }
+}
 
-  private getSelectionOrLine(
+export class EscapeMarkdownCodeBlock implements CodeActionProvider {
+  public static readonly providedCodeActionKinds = [CodeActionKind.Refactor];
+
+  public provideCodeActions(
     document: TextDocument,
     range: Range
-  ): { text: string; selection: boolean } {
-    const selection = document.getText(range).length > 0;
-    return selection
-      ? { text: document.getText(range), selection: selection }
-      : { text: document.lineAt(range.start.line).text, selection: selection };
+  ): CodeAction[] | undefined {
+    const selection = getSelectionOrLine(document, range);
+    const newText = escapeMarkdownCodeBlock(selection.text);
+
+    const action = this.createFix(
+      document,
+      range,
+      newText,
+      selection.selection
+    );
+    return [action];
   }
 
-  private unescapeLocations(text: string): number[] {
-    const unescapeLocations = [];
+  private createFix(
+    document: TextDocument,
+    range: Range,
+    newText: string,
+    selection: boolean
+  ): CodeAction {
+    const fix = new CodeAction(
+      `Escape Markdown code block`,
+      CodeActionKind.Refactor
+    );
 
-    let i = 0;
-    while (i < text.length) {
-      if (text[i] === ESCAPE) {
-        const charIsSpecial = SPECIALCHAR.includes(text[i + 1]);
+    fix.edit = new WorkspaceEdit();
 
-        if (charIsSpecial) {
-          unescapeLocations.push(i);
-        }
-      }
+    const selectionRange = selection
+      ? range
+      : createLineSelection(document, range);
 
-      i++;
-    }
+    fix.edit.replace(document.uri, selectionRange, newText);
 
-    return unescapeLocations;
+    return fix;
+  }
+}
+
+export class UnescapeMarkdownCodeBlock implements CodeActionProvider {
+  public static readonly providedCodeActionKinds = [CodeActionKind.Refactor];
+
+  public provideCodeActions(
+    document: TextDocument,
+    range: Range
+  ): CodeAction[] | undefined {
+    const selection = getSelectionOrLine(document, range);
+    const newText = unescapeMarkdownCodeBlock(selection.text);
+
+    const action = this.createFix(
+      document,
+      range,
+      newText,
+      selection.selection
+    );
+    return [action];
   }
 
-  private unescapeText(text: string, locations: number[]): string {
-    let i = 0;
-    for (const location of locations) {
-      if (location - i > 0) {
-        text = `${text.slice(0, location - i)}${text.slice(location - i + 1)}`;
-      } else {
-        text = text.slice(1, location - i);
-      }
+  private createFix(
+    document: TextDocument,
+    range: Range,
+    newText: string,
+    selection: boolean
+  ): CodeAction {
+    const fix = new CodeAction(
+      `Unescape Markdown code block`,
+      CodeActionKind.Refactor
+    );
 
-      i++;
-    }
+    fix.edit = new WorkspaceEdit();
 
-    return text;
+    const selectionRange = selection
+      ? range
+      : createLineSelection(document, range);
+
+    fix.edit.replace(document.uri, selectionRange, newText);
+
+    return fix;
   }
 }
