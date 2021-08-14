@@ -78,6 +78,31 @@ export function escapeMarkdownCodeBlock(text: string): string {
 }
 
 export function unescapeMarkdownCodeBlock(text: string): string {
+  const markdownScope = [...text.matchAll(new RegExp(MARKDOWNCODE, "g"))].map(
+    (match) => match.index
+  );
+
+  let newText = text;
+  if (markdownScope.length > 1) {
+    const locations = {
+      textStart: 0,
+      blockStart: markdownScope[0] + MARKDOWNCODE.length,
+      blockEnd: markdownScope[1],
+      textEnd: newText.length,
+    };
+
+    const unescapedText = unescapeText(
+      newText.slice(locations.blockStart, locations.blockEnd)
+    );
+
+    newText = `${newText.slice(
+      locations.textStart,
+      locations.blockStart
+    )}${unescapedText}${newText.slice(locations.blockEnd, locations.textEnd)}`;
+  } else {
+    newText = unescapeText(newText);
+  }
+
   const removeMarkdownBlockCases = [
     `${NEWLINE}${MARKDOWNCODE}${NEWLINE}`,
     `${NEWLINE}${MARKDOWNCODE}`,
@@ -87,11 +112,10 @@ export function unescapeMarkdownCodeBlock(text: string): string {
 
   const removeMarkdownBlock = removeMarkdownBlockCases.reduce(
     (textValue, markdownCase) => textValue.replaceAll(markdownCase, ""),
-    text
+    newText
   );
 
   const replaceNewLines = removeMarkdownBlock.replaceAll(NEWLINE, "\n");
-  const unescapedText = unescapeText(replaceNewLines);
 
-  return unescapedText;
+  return replaceNewLines;
 }

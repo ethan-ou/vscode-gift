@@ -5,7 +5,7 @@
 		"outDir": "out",
 		"rootDir": "src",
 		"sourceMap": true,
-		"lib": ["esnext.string"]
+		"lib": ["ESNext.String", "ES2021.String", "ES2020.String"]
 	},
 	"include": ["src"],
 	"exclude": ["node_modules", ".vscode-test"]
