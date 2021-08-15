@@ -56,7 +56,7 @@ export function unescapeText(text: string): string {
         location - offset + ESCAPE.length
       )}`;
     } else {
-      text = text.slice(1, location - offset);
+      text = text.slice(1);
     }
 
     offset++;
