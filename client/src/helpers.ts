@@ -1,9 +1,14 @@
 import { TextDocument, Range, Position } from "vscode";
 
+export interface TextSelection {
+  text: string;
+  selection: boolean;
+}
+
 export function getSelectionOrLine(
   document: TextDocument,
   range: Range
-): { text: string; selection: boolean } {
+): TextSelection {
   const selection = document.getText(range).length > 0;
   return selection
     ? { text: document.getText(range), selection: selection }

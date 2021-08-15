@@ -6,7 +6,8 @@ export function escapeText(text: string): string {
   let index = 0;
   while (index < text.length) {
     if (SPECIALCHAR.includes(text[index])) {
-      const charIsEscaped = index > 0 ? text[index - 1] === ESCAPE : false;
+      const charIsEscaped =
+        index > 0 ? text[index - ESCAPE.length] === ESCAPE : false;
 
       if (!charIsEscaped) {
         escapeLocations.push(index);
@@ -38,7 +39,7 @@ export function unescapeText(text: string): string {
   let index = 0;
   while (index < text.length) {
     if (text[index] === ESCAPE) {
-      const charIsSpecial = SPECIALCHAR.includes(text[index + 1]);
+      const charIsSpecial = SPECIALCHAR.includes(text[index + ESCAPE.length]);
 
       if (charIsSpecial) {
         unescapeLocations.push(index);
@@ -52,7 +53,7 @@ export function unescapeText(text: string): string {
   for (const location of unescapeLocations) {
     if (location - offset > 0) {
       text = `${text.slice(0, location - offset)}${text.slice(
-        location - offset + 1
+        location - offset + ESCAPE.length
       )}`;
     } else {
       text = text.slice(1, location - offset);

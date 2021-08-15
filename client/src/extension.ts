@@ -7,12 +7,7 @@ import {
   ServerOptions,
   TransportKind,
 } from "vscode-languageclient";
-import {
-  EscapeSpecialChar,
-  UnescapeSpecialChar,
-  EscapeMarkdownCodeBlock,
-  UnescapeMarkdownCodeBlock,
-} from "./actions";
+import { GIFTCodeActions } from "./actions";
 
 let client: LanguageClient;
 
@@ -69,27 +64,8 @@ export function deactivate(): Thenable<void> | undefined {
 
 function activateCodeActions(context: ExtensionContext) {
   const codeActions = [
-    languages.registerCodeActionsProvider(
-      "gift",
-      new UnescapeMarkdownCodeBlock(),
-      {
-        providedCodeActionKinds:
-          UnescapeMarkdownCodeBlock.providedCodeActionKinds,
-      }
-    ),
-    languages.registerCodeActionsProvider(
-      "gift",
-      new EscapeMarkdownCodeBlock(),
-      {
-        providedCodeActionKinds:
-          EscapeMarkdownCodeBlock.providedCodeActionKinds,
-      }
-    ),
-    languages.registerCodeActionsProvider("gift", new UnescapeSpecialChar(), {
-      providedCodeActionKinds: UnescapeSpecialChar.providedCodeActionKinds,
-    }),
-    languages.registerCodeActionsProvider("gift", new EscapeSpecialChar(), {
-      providedCodeActionKinds: EscapeSpecialChar.providedCodeActionKinds,
+    languages.registerCodeActionsProvider("gift", new GIFTCodeActions(), {
+      providedCodeActionKinds: GIFTCodeActions.providedCodeActionKinds,
     }),
   ];
 
