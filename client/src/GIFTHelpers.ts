@@ -1,6 +1,6 @@
 import { ESCAPE, SPECIALCHAR, MARKDOWNCODE, NEWLINE } from "./GIFTConstants";
 
-export function escapeText(text: string): string {
+export function escapeSpecialChar(text: string): string {
   const escapeLocations = [];
 
   let index = 0;
@@ -33,7 +33,7 @@ export function escapeText(text: string): string {
   return text;
 }
 
-export function unescapeText(text: string): string {
+export function unescapeSpecialChar(text: string): string {
   const unescapeLocations = [];
 
   let index = 0;
@@ -66,7 +66,7 @@ export function unescapeText(text: string): string {
 }
 
 export function escapeMarkdownCodeBlock(text: string): string {
-  const escapedText = escapeText(text);
+  const escapedText = escapeSpecialChar(text);
   const newLines = escapedText.replace(/\r?\n/g, NEWLINE);
 
   // Replace non-breaking space at beginning of line to preserve indentation
@@ -92,7 +92,7 @@ export function unescapeMarkdownCodeBlock(text: string): string {
       textEnd: newText.length,
     };
 
-    const unescapedText = unescapeText(
+    const unescapedText = unescapeSpecialChar(
       newText.slice(locations.blockStart, locations.blockEnd)
     );
 
@@ -101,7 +101,7 @@ export function unescapeMarkdownCodeBlock(text: string): string {
       locations.blockStart
     )}${unescapedText}${newText.slice(locations.blockEnd, locations.textEnd)}`;
   } else {
-    newText = unescapeText(newText);
+    newText = unescapeSpecialChar(newText);
   }
 
   const removeMarkdownBlockCases = [

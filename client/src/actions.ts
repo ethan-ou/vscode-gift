@@ -5,18 +5,40 @@ import {
   Range,
   CodeAction,
   WorkspaceEdit,
+  commands,
+  window,
+  Disposable,
 } from "vscode";
 import {
   escapeMarkdownCodeBlock,
   unescapeMarkdownCodeBlock,
-  escapeText,
-  unescapeText,
+  escapeSpecialChar,
+  unescapeSpecialChar,
 } from "./GIFTHelpers";
-import {
-  getSelectionOrLine,
-  createLineSelection,
-  TextSelection,
-} from "./helpers";
+import { getSelectionOrLine, TextSelection } from "./helpers";
+
+const actions = [
+  {
+    name: `Escape special characters`,
+    command: `gift.escapeSpecialChar`,
+    fn: escapeSpecialChar,
+  },
+  {
+    name: `Escape code block (Markdown)`,
+    command: `gift.escapeMarkdownCodeBlock`,
+    fn: escapeMarkdownCodeBlock,
+  },
+  {
+    name: `Unescape special characters`,
+    command: `gift.unescapeSpecialChar`,
+    fn: unescapeSpecialChar,
+  },
+  {
+    name: `Unescape code block (Markdown)`,
+    command: `gift.unescapeMarkdownCodeBlock`,
+    fn: unescapeMarkdownCodeBlock,
+  },
+];
 
 export class GIFTCodeActions implements CodeActionProvider {
   public static readonly providedCodeActionKinds = [CodeActionKind.Refactor];
@@ -27,33 +49,13 @@ export class GIFTCodeActions implements CodeActionProvider {
   ): CodeAction[] | undefined {
     const selection = getSelectionOrLine(document, range);
 
-    const actions = [
-      {
-        name: `Escape special characters`,
-        fn: escapeText(selection.text),
-      },
-      {
-        name: `Escape code block (Markdown)`,
-        fn: escapeMarkdownCodeBlock(selection.text),
-      },
-      {
-        name: `Unescape special characters`,
-        fn: unescapeText(selection.text),
-      },
-      {
-        name: `Unescape code block (Markdown)`,
-        fn: unescapeMarkdownCodeBlock(selection.text),
-      },
-    ];
-
     return actions.map((action) =>
       this.createCodeAction(
         action.name,
         CodeActionKind.Refactor,
-        selection,
-        action.fn,
         document,
-        range
+        selection,
+        action.fn
       )
     );
   }
@@ -61,21 +63,41 @@ export class GIFTCodeActions implements CodeActionProvider {
   private createCodeAction(
     name: string,
     type: CodeActionKind,
-    selection: TextSelection,
-    text: string,
     document: TextDocument,
-    range: Range
+    selection: TextSelection,
+    textFn: (text: string) => string
   ): CodeAction {
     const fix = new CodeAction(name, type);
 
     fix.edit = new WorkspaceEdit();
 
-    const selectionRange = selection.selection
-      ? range
-      : createLineSelection(document, range);
-
-    fix.edit.replace(document.uri, selectionRange, text);
+    fix.edit.replace(document.uri, selection.range, textFn(selection.text));
 
     return fix;
+  }
+}
+
+export class GIFTCodeCommands {
+  public provideCodeCommands(): Disposable[] {
+    return actions.map((action) =>
+      this.createCodeCommand(action.command, action.fn)
+    );
+  }
+
+  private createCodeCommand(name: string, textFn: (text: string) => string) {
+    return commands.registerCommand(name, () => {
+      const editor = window.activeTextEditor;
+
+      if (!editor) {
+        return;
+      }
+
+      const document = editor.document;
+      const selection = getSelectionOrLine(document, editor.selection);
+
+      editor.edit((editBuilder) => {
+        editBuilder.replace(selection.range, textFn(selection.text));
+      });
+    });
   }
 }

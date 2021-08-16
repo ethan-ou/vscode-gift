@@ -1,5 +1,5 @@
 import * as path from "path";
-import { workspace, ExtensionContext, languages, commands } from "vscode";
+import { workspace, ExtensionContext, languages } from "vscode";
 
 import {
   LanguageClient,
@@ -7,12 +7,13 @@ import {
   ServerOptions,
   TransportKind,
 } from "vscode-languageclient";
-import { GIFTCodeActions } from "./actions";
+import { GIFTCodeActions, GIFTCodeCommands } from "./actions";
 
 let client: LanguageClient;
 
 export function activate(context: ExtensionContext): void {
   activateCodeActions(context);
+  activateCommands(context);
 
   // The server is implemented in node
   const serverModule = context.asAbsolutePath(
@@ -72,4 +73,13 @@ function activateCodeActions(context: ExtensionContext) {
   codeActions.forEach((registration) =>
     context.subscriptions.push(registration)
   );
+}
+
+function activateCommands(context: ExtensionContext) {
+  const GIFTCodeCommandsProvider = new GIFTCodeCommands();
+  const codeCommands = GIFTCodeCommandsProvider.provideCodeCommands();
+
+  codeCommands.forEach((disposable) => {
+    context.subscriptions.push(disposable);
+  });
 }

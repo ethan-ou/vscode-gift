@@ -77,7 +77,25 @@
           "description": "Traces the communication between VS Code and the language server."
         }
       }
-    }
+    },
+    "commands": [
+      {
+        "command": "gift.escapeSpecialChar",
+        "title": "Gift: Escape special characters"
+      },
+      {
+        "command": "gift.escapeMarkdownCodeBlock",
+        "title": "Gift: Escape code block (Markdown)"
+      },
+      {
+        "command": "gift.unescapeSpecialChar",
+        "title": "Gift: Unescape special characters"
+      },
+      {
+        "command": "gift.unescapeMarkdownCodeBlock",
+        "title": "Gift: Unescape code block (Markdown)"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
