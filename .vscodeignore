@@ -1,13 +1,25 @@
 .vscode-test/**
 .gitignore
 vsc-extension-quickstart.md
+resources/*.gif
+**/*.md
+**/*.txt
 **/*.ts
 **/*.map
-.gitignore
+**/*.gif
+**/*.eslintignore
 **/tsconfig.json
 **/tsconfig.base.json
 contributing.md
 .travis.yml
+.vscode
+**/.vscode
+
+# May cause issues with dependencies:
+**/node_modules/**/examples/**
+**/node_modules/**/*.md
+**/node_modules/**/*.txt
+
 client/node_modules/**
 !client/node_modules/vscode-jsonrpc/**
 !client/node_modules/vscode-languageclient/**
