@@ -1,10 +1,18 @@
 # Changelog
 
-## 0.1.7 (09-02-2020)
+## 0.1.8 (15-08-2021)
+
+- Update gift-parser-ide to incorporate gift-pegjs library
+- Add escape and unescape code block actions for Markdown. Resolves #9
+- Add corresponding commands for code actions
+- Fix unescape special character action when escape character is first character in selection
+- Reduce packaged extension size
+
+## 0.1.7 (09-02-2021)
 
 - Resolve issue with GIFT not clearing errors on language change. Fixes #8.
 
-## 0.1.6 (25-01-2020)
+## 0.1.6 (25-01-2021)
 
 - Resolve error with escaped curly brackets on EOL
 
